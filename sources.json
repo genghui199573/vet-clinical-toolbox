@@ -1,0 +1,32 @@
+[
+  {
+    "name": "农业农村部",
+    "type": "中国官方监管",
+    "url": "https://www.moa.gov.cn/",
+    "use": "兽药法规、公告、批准文号/监管政策"
+  },
+  {
+    "name": "中国兽药信息网",
+    "type": "中国官方数据库",
+    "url": "https://www.ivdc.org.cn/",
+    "use": "国家兽药基础数据库、批准文号等信息核验"
+  },
+  {
+    "name": "Merck Veterinary Manual",
+    "type": "兽医专业资料",
+    "url": "https://www.merckvetmanual.com/",
+    "use": "液体治疗、急救、内科等"
+  },
+  {
+    "name": "AAHA",
+    "type": "犬猫指南",
+    "url": "https://www.aaha.org/",
+    "use": "犬猫临床指南"
+  },
+  {
+    "name": "RECOVER Initiative",
+    "type": "复苏指南",
+    "url": "https://recoverinitiative.org/",
+    "use": "犬猫CPR/复苏算法"
+  }
+]
