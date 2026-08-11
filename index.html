@@ -241,73 +241,411 @@ function renderDrugs(){
   const all=db.drugs||[];
   const hits=[];
 
-  for(const d of all){
-    const searchText=buildDrugSearchText(d);
-    const drugSpecies=(d.species||[]).map(normalizeSearch);
-    const qok=!q || searchText.includes(q);
-    const spok=!sp || drugSpecies.includes(normalizeSearch(sp)) ||
-      (sp==="爬宠" && ["龟","蜥蜴","蛇","爬宠"].some(s=>drugSpecies.includes(normalizeSearch(s))));
-    const dosageList=(d.dosages||[]).filter(x=>dosageMatchesStatus(x,status));
-    const gok=!g || d.evidence_grade===g;
-    const dok=dosageList.length>0 || (!status && (d.dosages||[]).length===0);
+  function arr(v){
+    return Array.isArray(v)?v:[];
+  }
 
-    if(qok && spok && gok && dok) hits.push({d,dosageList});
+  function recordMatchesStatus(x){
+    if(!status) return true;
+
+    const ls=normalizeSearch(x.label_status||"");
+
+    if(status==="off-label"){
+      return ls.includes("标签外");
+    }
+
+    if(status==="label"){
+      return ls.includes("中国兽药标签内") ||
+             ls.includes("其他国家/地区兽药标签内");
+    }
+
+    if(status==="principle"){
+      return ls.includes("指南") ||
+             ls.includes("文献") ||
+             ls.includes("证据不足") ||
+             ls.includes("个体化");
+    }
+
+    return true;
+  }
+
+  function speciesMatch(d){
+    if(!sp) return true;
+
+    const target=normalizeSearch(sp);
+
+    const groups=arr(d.species_groups).map(normalizeSearch);
+    const records=arr(d.records);
+
+    if(groups.includes(target)) return true;
+
+    if(records.some(x=>
+      normalizeSearch(x.species||"").includes(target) ||
+      normalizeSearch(x.species_group||"").includes(target)
+    )){
+      return true;
+    }
+
+    if(sp==="爬宠"){
+      return records.some(x=>{
+        const s=normalizeSearch(x.species||"");
+        const g=normalizeSearch(x.species_group||"");
+        return g.includes("爬宠") ||
+          ["龟","蜥蜴","蛇","壁虎","守宫","鬃狮蜥"]
+            .some(v=>s.includes(normalizeSearch(v)));
+      });
+    }
+
+    return false;
+  }
+
+  function searchText(d){
+    const parts=[
+      d.generic_name_zh,
+      d.generic_name_en,
+      d.active_ingredient,
+      d.pharmacologic_class,
+      d.review_status,
+      ...arr(d.aliases),
+      ...arr(d.brand_names),
+      ...arr(d.clinical_categories),
+      ...arr(d.indications_general),
+      ...arr(d.indication_keywords),
+      ...arr(d.search_terms),
+      ...arr(d.species_groups)
+    ];
+
+    for(const x of arr(d.records)){
+      parts.push(
+        x.species_group,
+        x.species,
+        x.indication,
+        ...arr(x.indication_keywords),
+        x.route,
+        x.dose_unit,
+        x.frequency,
+        x.duration,
+        x.dose_notes,
+        x.label_status,
+        ...arr(x.source_ids)
+      );
+    }
+
+    return normalizeSearch(parts.filter(Boolean).join(" "));
+  }
+
+  for(const d of all){
+
+    const qok=!q || searchText(d).includes(q);
+
+    const spok=speciesMatch(d);
+
+    const gok=!g || d.evidence_grade===g;
+
+    const records=arr(d.records);
+
+    const statusRecords=records.filter(recordMatchesStatus);
+
+    const dok=
+      statusRecords.length>0 ||
+      (!status && records.length===0);
+
+    if(qok && spok && gok && dok){
+      hits.push({
+        d,
+        records:statusRecords
+      });
+    }
   }
 
   const shown=hits.slice(0,200);
 
-  out("drugList",
-    `<div class="muted" style="margin:10px 0">
-      共匹配 <b>${hits.length}</b> 个药物实体${hits.length>200?"，当前显示前200个。":""}
-    </div>` +
-    shown.map(({d,dosageList})=>{
-      const qMatch=q ? [
-        d.generic_name_zh,
-        ...(d.aliases||[]),
-        d.class,
-        d.use_type,
-        ...(d.dosages||[]).map(x=>x.indication)
-      ].some(v=>normalizeSearch(v).includes(q)) : false;
+  out(
+    "drugList",
 
-      const doses=(status?dosageList:(d.dosages||[]));
-      return `<div class="card">
+    `<div class="muted" style="margin:10px 0">
+      共匹配 <b>${hits.length}</b> 个药物实体
+      ${hits.length>200?"，当前显示前200个。":""}
+    </div>` +
+
+    shown.map(({d,records})=>{
+
+      const qMatch=q ? searchText(d).includes(q) : false;
+
+      return `
+      <div class="card">
+
         <div class="drug-head">
           <div>
-            <div class="drug-title">${e(d.generic_name_zh)}
-              <span class="badge ${e(d.evidence_grade)}">证据 ${e(d.evidence_grade)}</span>
+
+            <div class="drug-title">
+              ${e(d.generic_name_zh||"未命名药物")}
+
+              ${
+                d.generic_name_en
+                ? `<span class="muted">｜${e(d.generic_name_en)}</span>`
+                :""
+              }
+
+              ${
+                d.review_status
+                ? `<span class="badge">${e(d.review_status)}</span>`
+                :""
+              }
+
+              ${
+                d.evidence_grade
+                ? `<span class="badge ${e(d.evidence_grade)}">
+                    证据 ${e(d.evidence_grade)}
+                  </span>`
+                :""
+              }
+
             </div>
+
             <div class="muted drug-meta">
-              别名：${e((d.aliases||[]).join("、")||"无")}<br>
-              类别：${e(d.class)}<br>
-              动物：${e((d.species||[]).join("、"))}
+
+              别名：
+              ${e(arr(d.aliases).join("、")||"无")}
+              <br>
+
+              商品名：
+              ${e(arr(d.brand_names).join("、")||"无")}
+              <br>
+
+              药理类别：
+              ${e(d.pharmacologic_class||"未注明")}
+              <br>
+
+              临床分类：
+              ${e(arr(d.clinical_categories).join("、")||"未注明")}
+              <br>
+
+              适用物种：
+              ${e(arr(d.species_groups).join("、")||"未注明")}
+
             </div>
-            ${qMatch?`<div class="match">匹配到药物名称/类别/适应症等字段</div>`:""}
+
+            ${
+              qMatch
+              ? `<div class="match">
+                  匹配到药名、别名、类别、适应症、关键词、剂量或警示字段
+                </div>`
+              :""
+            }
+
           </div>
         </div>
 
-        ${doses.map(x=>{
-          const off=dosageIsOffLabel(x);
-          return `<div class="drug-dose ${off?"offlabel":""}">
-            <b>${e(x.species||"未注明物种")}｜${e(x.indication||"未注明适应症")}</b>
-            <br>途径：${e(x.route||"未注明")}
-            <br>用法用量：${e(x.dose||"未注明")}
-            <br><span class="small">
-              状态：${e(x.status||"未注明")}
-              ${off?"｜<strong>标签外/超说明书</strong>":""}
-              ｜来源：${e(x.source||"未注明")}
-              ${x.url?` · <a href="${e(x.url)}" target="_blank" rel="noopener">查看来源</a>`:""}
-            </span>
-          </div>`;
-        }).join("")}
 
-        ${(d.warnings||[]).length?
-          `<div class="warn"><b>注意：</b><br>${(d.warnings||[]).map(x=>e(x)).join("<br>")}</div>`:""}
-      </div>`;
+        ${
+          arr(d.indications_general).length
+          ?
+          `<div class="result">
+            <b>主要适应症：</b>
+            ${e(arr(d.indications_general).join("、"))}
+          </div>`
+          :""
+        }
+
+
+        ${
+          records.length
+          ?
+
+          records.map(x=>{
+
+            const off=
+              normalizeSearch(x.label_status||"").includes("标签外");
+
+            const doseKnown=
+              x.dose!==null &&
+              x.dose!==undefined &&
+              String(x.dose).trim()!=="";
+
+            return `
+
+            <div class="drug-dose ${off?"offlabel":""}">
+
+              <b>
+                ${e(x.species_group||"未注明动物类别")}
+                ｜${e(x.species||"未注明物种")}
+              </b>
+
+              <br>
+
+              <b>
+                适应症：
+              </b>
+              ${e(x.indication||"未注明")}
+
+
+              <br>
+
+              途径：
+              ${e(x.route||"未注明")}
+
+
+              <br>
+
+              用法用量：
+
+              ${
+                doseKnown
+                ?
+                `<strong>
+                  ${e(String(x.dose))}
+                  ${e(x.dose_unit||"")}
+                </strong>`
+                :
+                `<strong>暂无确定剂量，不自动生成</strong>`
+              }
+
+
+              ${
+                x.dose_basis
+                ?
+                `<br>剂量依据：
+                 ${e(x.dose_basis)}`
+                :""
+              }
+
+
+              <br>
+
+              频次：
+              ${e(x.frequency||"未注明")}
+
+
+              ${
+                x.duration
+                ?
+                `<br>疗程：
+                 ${e(x.duration)}`
+                :""
+              }
+
+
+              ${
+                x.concentration
+                ?
+                `<br>制剂浓度：
+                 ${e(x.concentration)}`
+                :""
+              }
+
+
+              ${
+                x.dose_notes
+                ?
+                `<br>剂量备注：
+                 ${e(x.dose_notes)}`
+                :""
+              }
+
+
+              ${
+                arr(x.monitoring).length
+                ?
+                `<br>监测：
+                 ${e(arr(x.monitoring).join("、"))}`
+                :""
+              }
+
+
+              <br>
+
+              <span class="small">
+
+                标签状态：
+                <strong>
+                  ${e(x.label_status||"未注明")}
+                </strong>
+
+                ${
+                  off
+                  ? `｜<strong>标签外/超说明书</strong>`
+                  :""
+                }
+
+                <br>
+
+                来源编号：
+                ${e(arr(x.source_ids).join("、")||"未注明")}
+
+              </span>
+
+            </div>
+
+            `;
+          }).join("")
+
+          :
+
+          `
+          <div class="warn">
+
+            ${
+              status
+              ?
+              "当前筛选条件下没有找到对应的剂量记录。"
+              :
+              "该药目前只有药物索引/适应症信息，尚无逐物种核验的确定剂量；禁止程序自行补数字。"
+            }
+
+          </div>
+          `
+        }
+
+
+        ${
+          arr(d.special_warnings).length
+          ?
+          `
+          <div class="warn">
+
+            <b>特别注意：</b>
+            <br>
+
+            ${arr(d.special_warnings).map(x=>e(x)).join("<br>")}
+
+          </div>
+          `
+          :""
+        }
+
+
+        ${
+          d.contraindications &&
+          arr(d.contraindications).length
+          ?
+          `
+          <div class="warn">
+
+            <b>禁忌/慎用：</b>
+            <br>
+
+            ${arr(d.contraindications).map(x=>e(x)).join("<br>")}
+
+          </div>
+          `
+          :""
+        }
+
+
+      </div>
+      `;
+
     }).join("") ||
-    "<div class='card'>无匹配条目。建议减少关键词，或先选择“全部动物/全部证据等级/全部状态”。</div>"
+
+    `
+    <div class="card">
+      无匹配条目。
+      建议减少关键词，或先选择“全部动物/全部证据等级/全部状态”。
+    </div>
+    `
   );
 }
-
 document.getElementById("nav").onclick=x=>{
   const b=x.target.closest("button[data-v]");
   if(!b)return;
