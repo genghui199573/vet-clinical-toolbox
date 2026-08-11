@@ -1,0 +1,103 @@
+{
+  "sources_version": "2026.08.11",
+  "sources": [
+    {
+      "name": "中华人民共和国农业农村部",
+      "region": "中国",
+      "type": "官方监管",
+      "url": "https://www.moa.gov.cn/",
+      "use": "兽药注册、批准/修订说明书和标签、禁用药物、兽药法规与公告"
+    },
+    {
+      "name": "中国兽医药品监察所/中国兽药信息网",
+      "region": "中国",
+      "type": "官方数据库",
+      "url": "https://www.ivdc.org.cn/",
+      "use": "兽药基础信息、批准文号等核验"
+    },
+    {
+      "name": "国家行政法规库：兽药管理条例",
+      "region": "中国",
+      "type": "法律法规",
+      "url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=67",
+      "use": "兽药标签说明书、适应症、用法用量、休药期、用药记录等法规依据"
+    },
+    {
+      "name": "中国兽药典（第七版）",
+      "region": "中国",
+      "type": "法定技术标准",
+      "url": "https://www.moa.gov.cn/",
+      "use": "2026-12-01起施行；兽用化学药品、中药及质量标准等"
+    },
+    {
+      "name": "FDA Center for Veterinary Medicine / Green Book",
+      "region": "美国",
+      "type": "官方监管与批准标签",
+      "url": "https://www.fda.gov/animal-veterinary/approved-animal-drug-products-green-book",
+      "use": "FDA批准动物药、适应症、物种和产品标签核验"
+    },
+    {
+      "name": "Animal Drugs @ FDA",
+      "region": "美国",
+      "type": "官方数据库",
+      "url": "https://animaldrugsatfda.fda.gov/adafda/views/",
+      "use": "NADA/ANADA/CNADA及批准产品检索"
+    },
+    {
+      "name": "FDA Recent Animal Drug Approvals",
+      "region": "美国",
+      "type": "官方更新",
+      "url": "https://www.fda.gov/animal-veterinary/approved-animal-drug-products-green-book/recent-animal-drug-approvals",
+      "use": "持续追踪新批准动物药和新增适应症"
+    },
+    {
+      "name": "Merck Veterinary Manual",
+      "region": "国际",
+      "type": "兽医专业参考",
+      "url": "https://www.merckvetmanual.com/",
+      "use": "内科、急救、液体治疗、寄生虫、感染病等"
+    },
+    {
+      "name": "AAHA",
+      "region": "美国/国际",
+      "type": "犬猫指南",
+      "url": "https://www.aaha.org/",
+      "use": "犬猫临床指南；包括2026猫糖尿病指南"
+    },
+    {
+      "name": "RECOVER Initiative",
+      "region": "国际",
+      "type": "复苏指南",
+      "url": "https://recoverinitiative.org/",
+      "use": "犬猫CPR/复苏算法"
+    },
+    {
+      "name": "ISCAID",
+      "region": "国际",
+      "type": "感染病/抗菌药物管理",
+      "url": "https://iscaid.org/",
+      "use": "犬猫感染性疾病和抗菌药物使用指南"
+    },
+    {
+      "name": "ACVIM",
+      "region": "国际",
+      "type": "专科指南",
+      "url": "https://academic.oup.com/jvim",
+      "use": "心血管、内科等专科共识/指南"
+    },
+    {
+      "name": "Plumb's Veterinary Drug Handbook",
+      "region": "国际",
+      "type": "兽医药理参考",
+      "url": "https://www.plumbsveterinarydrugs.com/",
+      "use": "药物剂量、相互作用、不良反应及物种差异；需以最新版为准"
+    },
+    {
+      "name": "BSAVA",
+      "region": "英国/国际",
+      "type": "兽医专业参考",
+      "url": "https://www.bsava.com/",
+      "use": "小动物药理、麻醉、眼科、皮肤科等专业资料"
+    }
+  ]
+}
