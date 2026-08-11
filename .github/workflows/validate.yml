@@ -1,9 +1,15 @@
 name: Validate veterinary database
 
-'on':
+on:
   push:
     branches:
       - main
+    paths:
+      - "data/drugs.json"
+      - "data/sources.json"
+      - "drugs.schema.v3.1.json"
+      - "sources.v3.1.json"
+      - ".github/workflows/validate.yml"
   workflow_dispatch:
 
 jobs:
@@ -14,22 +20,76 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Validate database
+      - name: Validate JSON syntax
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          files = [
+              Path("data/drugs.json"),
+              Path("data/sources.json"),
+              Path("drugs.schema.v3.1.json"),
+              Path("sources.v3.1.json"),
+          ]
+
+          for file in files:
+              if not file.exists():
+                  raise SystemExit(f"Missing file: {file}")
+
+              try:
+                  with file.open("r", encoding="utf-8") as f:
+                      json.load(f)
+              except Exception as e:
+                  raise SystemExit(f"Invalid JSON: {file}\n{e}")
+
+              print(f"OK: {file}")
+
+          print("All JSON files are valid.")
+
+      - name: Validate drugs database structure
         run: |
           python - <<'PY'
           import json
 
-          with open("drugs.json", encoding="utf-8") as f:
-              data = json.load(f)
+          with open("data/drugs.json", "r", encoding="utf-8") as f:
+              db = json.load(f)
 
-          assert isinstance(data.get("drugs"), list)
-          assert data.get("database_version")
-          assert data.get("schema_version") == "3.0"
+          required = [
+              "schema_version",
+              "database_version",
+              "last_reviewed",
+              "drugs",
+          ]
 
-          for drug in data["drugs"]:
-              assert drug.get("generic_name_zh")
-              assert isinstance(drug.get("dosages", []), list)
+          for key in required:
+              if key not in db:
+                  raise SystemExit(f"Missing top-level field: {key}")
 
-          print("Database validation passed.")
-          print("Drug records:", len(data["drugs"]))
-          PY
+          if not isinstance(db["drugs"], list):
+              raise SystemExit("'drugs' must be an array")
+
+          print(f"Database version: {db['database_version']}")
+          print(f"Drug records: {len(db['drugs'])}")
+
+          for i, drug in enumerate(db["drugs"], 1):
+              if not isinstance(drug, dict):
+                  raise SystemExit(f"Drug #{i} is not an object")
+
+              if not drug.get("id"):
+                  raise SystemExit(f"Drug #{i} missing id")
+
+              if not drug.get("generic_name_zh"):
+                  raise SystemExit(
+                      f"Drug #{i} ({drug.get('id')}) missing generic_name_zh"
+                  )
+
+              if not drug.get("species"):
+                  raise SystemExit(
+                      f"Drug #{i} ({drug.get('id')}) missing species"
+                  )
+
+          print("Drug database structure is valid.")
+
+      - name: Validation complete
+        run: echo "Veterinary database validation passed."
