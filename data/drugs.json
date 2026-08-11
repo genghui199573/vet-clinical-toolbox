@@ -1,1 +1,289 @@
-
+{
+  "schema_version": "3.0",
+  "database_version": "2026.08.10",
+  "last_reviewed": "2026-08-10",
+  "policy": {
+    "no_guessing": true,
+    "official_vet_label_is_separate": true,
+    "dose_requires_source": true,
+    "off_label_must_be_marked": true,
+    "food_animal_withdrawal_period_requires_official_source": true
+  },
+  "drugs": [
+    {
+      "id": "甘精胰岛素",
+      "generic_name_zh": "甘精胰岛素",
+      "aliases": [
+        "甘精胰岛素U-100",
+        "甘精胰岛素U-300"
+      ],
+      "class": "内分泌/胰岛素",
+      "species": [
+        "猫",
+        "犬"
+      ],
+      "use_type": "人用药/兽医超说明书使用需依法合规",
+      "evidence_grade": "A",
+      "dosages": [
+        {
+          "species": "猫",
+          "indication": "糖尿病起始治疗参考",
+          "route": "皮下注射",
+          "dose": "2026 AAHA：通常1 U/猫，每12小时；具体剂量需结合体重、饮食、血糖监测及低血糖风险个体化。",
+          "status": "指南参考",
+          "source": "2026 AAHA Diabetes Management Guidelines for Cats",
+          "url": "https://www.aaha.org/resources/2026-aaha-diabetes-management-guidelines-for-cats/section-7-insulin-treatment-and-monitoring/"
+        }
+      ],
+      "warnings": [
+        "U-40、U-100、U-300不可按体积直接互换。",
+        "必须明确胰岛素浓度和注射器规格。",
+        "低血糖可危及生命。"
+      ]
+    },
+    {
+      "id": "乳酸林格氏液",
+      "generic_name_zh": "乳酸林格氏液",
+      "aliases": [
+        "乳酸钠林格注射液"
+      ],
+      "class": "液体治疗",
+      "species": [
+        "犬",
+        "猫",
+        "牛",
+        "羊",
+        "猪",
+        "马",
+        "鸟类",
+        "爬宠"
+      ],
+      "use_type": "液体治疗",
+      "evidence_grade": "A",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "维持液体治疗参考",
+          "route": "静脉",
+          "dose": "Merck：2–70 kg动物可用30×体重(kg)+70 mL/24h作为维持液计算之一；犬132×kg^0.75、猫80×kg^0.75亦有资料使用。",
+          "status": "计算公式",
+          "source": "Merck Veterinary Manual",
+          "url": "https://www.merckvetmanual.com/therapeutics/fluid-therapy/maintenance-fluid-plan-in-animals"
+        }
+      ],
+      "warnings": [
+        "实际液体处方必须结合容量状态、持续丢失、心肾功能、电解质及复评。"
+      ]
+    },
+    {
+      "id": "0.9%氯化钠",
+      "generic_name_zh": "0.9%氯化钠注射液",
+      "aliases": [
+        "生理盐水"
+      ],
+      "class": "液体治疗",
+      "species": [
+        "犬",
+        "猫",
+        "牛",
+        "羊",
+        "猪",
+        "马",
+        "鸟类",
+        "爬宠"
+      ],
+      "use_type": "液体治疗",
+      "evidence_grade": "A",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "根据容量/电解质状态选择",
+          "route": "静脉",
+          "dose": "不设一个跨病例固定剂量；按复苏、补液、维持及持续丢失分别计算。",
+          "status": "原则",
+          "source": "Merck Veterinary Manual",
+          "url": "https://www.merckvetmanual.com/therapeutics/fluid-therapy/the-fluid-resuscitation-plan-in-animals"
+        }
+      ],
+      "warnings": [
+        "大量长期使用应关注氯负荷及高氯性代谢性酸中毒。"
+      ]
+    },
+    {
+      "id": "氯化钾",
+      "generic_name_zh": "氯化钾",
+      "aliases": [
+        "氯化钾注射液"
+      ],
+      "class": "电解质",
+      "species": [
+        "犬",
+        "猫",
+        "牛",
+        "羊",
+        "猪",
+        "马"
+      ],
+      "use_type": "电解质纠正",
+      "evidence_grade": "A",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "低钾血症",
+          "route": "静脉输注",
+          "dose": "按血钾、输液速度及持续丢失计算；不得静脉快速推注。具体最大输钾速率必须按病例监测和医院SOP执行。",
+          "status": "原则",
+          "source": "Merck Veterinary Manual",
+          "url": "https://www.merckvetmanual.com/therapeutics/fluid-therapy/the-fluid-resuscitation-plan-in-animals"
+        }
+      ],
+      "warnings": [
+        "严禁静脉快速推注；严重低钾/心律失常需严密监测。"
+      ]
+    },
+    {
+      "id": "葡萄糖酸钙",
+      "generic_name_zh": "10%葡萄糖酸钙注射液",
+      "aliases": [
+        "葡萄糖酸钙"
+      ],
+      "class": "急救/电解质",
+      "species": [
+        "犬",
+        "猫"
+      ],
+      "use_type": "急救",
+      "evidence_grade": "B",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "高钾血症伴心电图异常时心肌膜稳定",
+          "route": "静脉缓慢",
+          "dose": "必须根据实际制剂浓度、心电图及急救方案核定；不直接降低血钾。",
+          "status": "原则",
+          "source": "Merck Veterinary Manual",
+          "url": "https://www.merckvetmanual.com/therapeutics/fluid-therapy/the-fluid-resuscitation-plan-in-animals"
+        }
+      ],
+      "warnings": [
+        "给药期间应进行ECG监护；快速给药存在心律失常风险。"
+      ]
+    },
+    {
+      "id": "碳酸氢钠",
+      "generic_name_zh": "碳酸氢钠",
+      "aliases": [
+        "碳酸氢钠注射液"
+      ],
+      "class": "酸碱/急救",
+      "species": [
+        "犬",
+        "猫"
+      ],
+      "use_type": "特定严重代谢性酸中毒",
+      "evidence_grade": "B",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "特定严重代谢性酸中毒",
+          "route": "静脉",
+          "dose": "应以血气、HCO3-/BE及病因为依据，避免仅凭低pH盲目补碱。",
+          "status": "原则",
+          "source": "兽医急救/酸碱治疗原则",
+          "url": "https://www.merckvetmanual.com/therapeutics/fluid-therapy/the-fluid-resuscitation-plan-in-animals"
+        }
+      ],
+      "warnings": [
+        "过量补碱可导致代谢性碱中毒、低钙等并发症。"
+      ]
+    },
+    {
+      "id": "肾上腺素",
+      "generic_name_zh": "肾上腺素",
+      "aliases": [
+        "盐酸肾上腺素"
+      ],
+      "class": "急救/CPR",
+      "species": [
+        "犬",
+        "猫",
+        "马",
+        "牛",
+        "羊",
+        "猪",
+        "鸟类",
+        "爬宠"
+      ],
+      "use_type": "急救",
+      "evidence_grade": "A",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "心肺复苏",
+          "route": "静脉/骨髓",
+          "dose": "必须按照当前RECOVER CPR算法、心律及给药间隔执行；不得把CPR剂量与过敏性休克/低血压剂量混用。",
+          "status": "指南算法",
+          "source": "RECOVER Initiative",
+          "url": "https://recoverinitiative.org/"
+        }
+      ],
+      "warnings": [
+        "急救药剂量必须和具体适应症绑定。"
+      ]
+    },
+    {
+      "id": "甲硝唑",
+      "generic_name_zh": "甲硝唑",
+      "aliases": [],
+      "class": "抗菌/抗原虫",
+      "species": [
+        "犬",
+        "猫"
+      ],
+      "use_type": "抗菌/抗原虫",
+      "evidence_grade": "B",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "厌氧菌/特定原虫感染",
+          "route": "口服/静脉",
+          "dose": "必须按适应症、肝功能、疗程及具体产品/兽医药理资料核定；不使用一个剂量覆盖所有疾病。",
+          "status": "待逐适应症核验",
+          "source": "兽医药理资料",
+          "url": "https://www.merckvetmanual.com/"
+        }
+      ],
+      "warnings": [
+        "长期/高剂量可发生神经毒性；肝功能异常需谨慎。"
+      ]
+    },
+    {
+      "id": "阿莫西林克拉维酸钾",
+      "generic_name_zh": "阿莫西林克拉维酸钾",
+      "aliases": [
+        "阿莫西林克拉维酸"
+      ],
+      "class": "抗菌药",
+      "species": [
+        "犬",
+        "猫"
+      ],
+      "use_type": "抗菌",
+      "evidence_grade": "B",
+      "dosages": [
+        {
+          "species": "犬猫",
+          "indication": "敏感细菌感染",
+          "route": "口服",
+          "dose": "必须按具体制剂规格、适应症和权威兽医药理资料核定。",
+          "status": "待逐适应症核验",
+          "source": "兽医药理资料",
+          "url": "https://www.merckvetmanual.com/"
+        }
+      ],
+      "warnings": [
+        "抗菌药应基于感染证据和抗菌药物管理原则选择。"
+      ]
+    }
+  ]
+}
