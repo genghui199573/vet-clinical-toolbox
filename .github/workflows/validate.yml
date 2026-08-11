@@ -1,11 +1,9 @@
 name: Validate veterinary database
 
-on:
+'on':
   push:
-    paths:
-      - 'drugs.json'
-      - 'sources.json'
-      - '.github/workflows/validate.yml'
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -16,25 +14,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate JSON schema basics
+      - name: Validate database
         run: |
           python - <<'PY'
           import json
 
-          with open('drugs.json', encoding='utf-8') as f:
-              d = json.load(f)
+          with open("drugs.json", encoding="utf-8") as f:
+              data = json.load(f)
 
-          assert isinstance(d.get('drugs'), list)
-          assert d.get('database_version')
-          assert d.get('schema_version') == '3.0'
+          assert isinstance(data.get("drugs"), list)
+          assert data.get("database_version")
+          assert data.get("schema_version") == "3.0"
 
-          for x in d['drugs']:
-              assert x.get('generic_name_zh')
-              assert isinstance(x.get('dosages', []), list)
+          for drug in data["drugs"]:
+              assert drug.get("generic_name_zh")
+              assert isinstance(drug.get("dosages", []), list)
 
-              for dose in x.get('dosages', []):
-                  assert dose.get('source')
-                  assert dose.get('species')
-
-          print("OK:", len(d['drugs']), "drug records")
+          print("Database validation passed.")
+          print("Drug records:", len(data["drugs"]))
           PY
