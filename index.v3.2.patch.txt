@@ -1,0 +1,120 @@
+# 兽医临床工具箱 v3.2 index.html 修改说明
+
+## 目的
+1. 支持 schema_version = 3.2
+2. 药物检索支持：
+   - 中文通用名
+   - 英文通用名
+   - 别名
+   - 药理类别
+   - 临床分类
+   - 适应症
+   - 适应症关键词
+3. 物种筛选保留
+4. 无已核验剂量时显示“暂无确定剂量”，禁止程序猜测
+5. 显示每条剂量的 label_status、source_ids
+
+## A. 把药物检索输入框替换
+找到：
+<input id="dq" placeholder="中文通用名/别名/类别">
+
+替换为：
+<input id="dq" placeholder="药名/别名/类别/适应症/关键词">
+
+## B. 把 renderDrugs() 整段替换
+找到：
+function renderDrugs(){...}
+
+整段删除，替换成：
+
+function renderDrugs(){
+  const q=(document.getElementById("dq")?.value||"").trim().toLowerCase();
+  const sp=document.getElementById("ds")?.value||"";
+  const g=document.getElementById("dg")?.value||"";
+
+  const textOf=d=>[
+    d.generic_name_zh,
+    d.generic_name_en,
+    ...(d.aliases||[]),
+    d.pharmacologic_class||"",
+    ...(d.clinical_categories||[]),
+    ...(d.indications_general||[]),
+    ...(d.indication_keywords||[]),
+    ...(d.search_terms||[])
+  ].join(" ").toLowerCase();
+
+  const a=(db.drugs||[]).filter(d=>
+    (!q || textOf(d).includes(q)) &&
+    (!sp || (d.species_groups||d.species||[]).includes(sp)) &&
+    (!g || d.evidence_grade===g)
+  );
+
+  out("drugList",a.map(d=>{
+    const records=(d.records||[]);
+    return `<div class="card">
+      <h3>${e(d.generic_name_zh)}
+      ${d.generic_name_en?` <span class="muted">${e(d.generic_name_en)}</span>`:""}
+      ${d.review_status?` <span class="badge">${e(d.review_status)}</span>`:""}</h3>
+
+      <div class="muted">
+        药理类别：${e(d.pharmacologic_class||"未注明")}
+        ｜临床分类：${e((d.clinical_categories||[]).join("、")||"未注明")}
+        ｜物种：${e((d.species_groups||d.species||[]).join("、")||"未注明")}
+      </div>
+
+      <div class="result">
+        <b>适应症：</b>${e((d.indications_general||[]).join("、")||"未注明")}
+      </div>
+
+      ${records.length ? records.map(x=>`
+        <div class="result">
+          <b>${e(x.species)}｜${e(x.indication)}</b><br>
+          途径：${e(x.route||"未注明")}<br>
+          剂量：${x.dose===null || x.dose===undefined
+            ? "<b>暂无确定剂量，不自动生成</b>"
+            : e(String(x.dose)+" "+(x.dose_unit||""))}
+          <br>
+          频次：${e(x.frequency||"未注明")}
+          ${x.duration?`<br>疗程：${e(x.duration)}`:""}
+          ${x.dose_notes?`<br>备注：${e(x.dose_notes)}`:""}
+          <br><span class="small">
+          标签状态：${e(x.label_status||"未注明")}
+          ｜来源：${e((x.source_ids||[]).join("、"))}
+          </span>
+        </div>`).join("")
+      : `<div class="warn">该药目前只有药物索引/适应症信息，尚无逐物种核验的确定剂量；禁止程序自行补数字。</div>`}
+
+      ${(d.special_warnings||[]).length
+        ? `<div class="warn">${(d.special_warnings||[]).map(e).join("<br>")}</div>`
+        : ""}
+    </div>`}).join("") || "<div class='card'>无匹配条目。</div>");
+}
+
+## C. 把 checkUpdate() 里的版本校验升级
+找到：
+if(!x.database_version||!Array.isArray(x.drugs))throw Error("JSON格式不符合3.0 schema");
+
+替换为：
+if(!x.schema_version||!["3.1","3.2"].includes(x.schema_version)||!x.database_version||!x.last_reviewed||!Array.isArray(x.drugs))
+  throw Error("JSON格式不符合3.1/3.2 schema");
+
+## D. 版本号
+页面上如果还有：
+3.0数据库原则
+
+改为：
+3.2数据库原则
+
+## E. 重要
+不要把 v3.2 数据库文件直接命名成其它名字后长期保留。
+最终上线文件建议统一为：
+
+data/drugs.json
+
+sources.json
+
+drugs.schema.v3.2.json
+
+这样以后“在线更新”仍然只需要读取：
+https://raw.githubusercontent.com/genghui199573/vet-clinical-toolbox/main/data/drugs.json
+
