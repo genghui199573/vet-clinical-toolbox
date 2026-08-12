@@ -9,7 +9,7 @@ on:
       - ".github/workflows/migrate-v3.2.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   migrate:
@@ -305,3 +305,17 @@ jobs:
           name: veterinary-drugs-v3.2-migrated
           path: data/drugs.v3.2.json
           if-no-files-found: error
+      - name: Commit migrated database
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/drugs.v3.2.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-update migrated veterinary database v3.2"
+            git push
+          fi
