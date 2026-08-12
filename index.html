@@ -36,7 +36,7 @@ footer{max-width:1150px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 </style>
 </head>
 <body>
-<header><h1>兽医临床工具箱 3.1</h1><div class="sub">动态知识库 · 来源追踪 · 版本控制 · 适应症检索 · 犬猫/经济动物/鸟禽/爬宠</div></header>
+<header><h1>兽医临床工具箱 3.2</h1><div class="sub">动态知识库 · 来源追踪 · 版本控制 · 适应症检索 · 犬猫/经济动物/鸟禽/爬宠</div></header>
 <nav id="nav">
 <button class="active" data-v="home">首页</button><button data-v="drugs">药物手册</button><button data-v="gas">血气</button><button data-v="electro">电解质</button><button data-v="fluid">液体</button><button data-v="nutrition">营养</button><button data-v="diabetes">血糖</button><button data-v="transfusion">输血</button><button data-v="anesthesia">麻醉</button><button data-v="emergency">急救</button><button data-v="update">在线更新</button>
 </nav>
@@ -156,7 +156,7 @@ function e(s){
 function num(id){return parseFloat(document.getElementById(id).value);}
 function out(id,x){document.getElementById(id).innerHTML=x;}
 
-const REMOTE_DEFAULT="https://raw.githubusercontent.com/genghui199573/vet-clinical-toolbox/main/data/drugs.json";
+const REMOTE_DEFAULT="https://raw.githubusercontent.com/genghui199573/vet-clinical-toolbox/main/data/drugs.v3.2.json";
 
 function isUsableDb(x){
   return x && Array.isArray(x.drugs) && x.schema_version &&
