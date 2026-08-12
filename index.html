@@ -686,7 +686,7 @@ async function checkUpdate(){
     if(!r.ok)throw Error("HTTP "+r.status);
     const x=await r.json();
     if(!isUsableDb(x))throw Error("JSON缺少 schema_version / database_version / last_reviewed / drugs");
-    if(x.schema_version!=="3.1")throw Error("远程数据库 schema_version 不是 3.1");
+    if(x.schema_version!=="3.2")throw Error("远程数据库 schema_version 不是 3.1");
     if(x.drugs.some(d=>(d.dosages||[]).some(v=>!v.source)))throw Error("存在缺少 source 的剂量记录");
 
     if(x.database_version===db.database_version){
