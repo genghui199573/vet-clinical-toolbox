@@ -1,0 +1,7392 @@
+{
+  "schema_version": "3.2",
+  "database_version": "2026.08.11-v3.2-migrated",
+  "last_reviewed": "2026-08-11",
+  "policy": {
+    "no_guessing": true,
+    "official_vet_label_is_separate": true,
+    "dose_requires_source": true,
+    "off_label_must_be_marked": true,
+    "food_animal_withdrawal_period_requires_official_source": true
+  },
+  "drugs": [
+    {
+      "id": "insulin-glargine",
+      "generic_name_zh": "甘精胰岛素",
+      "generic_name_en": "",
+      "aliases": [
+        "Lantus",
+        "U-100",
+        "U-300"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "内分泌/胰岛素",
+      "clinical_categories": [
+        "内分泌/胰岛素"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "糖尿病",
+        "糖尿病起始治疗"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "人用药/兽医超说明书需依法合规",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "糖尿病起始治疗",
+          "route": "皮下注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "指南参考",
+          "dose_notes": "2026 AAHA：通常1 U/猫，每12小时；根据血糖监测、饮食及低血糖风险个体化调整。",
+          "label_status": "指南参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-2026-aaha-diabetes-management-guidelines-for-cats"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "糖尿病",
+          "route": "皮下注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "指南参考",
+          "dose_notes": "按犬糖尿病管理指南/兽医药理资料个体化；不可把猫的固定起始方案直接套用于犬。",
+          "label_status": "指南参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-aaha-兽医药理资料"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "U-40/U-100/U-300不可按体积直接互换。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "levothyroxine",
+      "generic_name_zh": "左甲状腺素钠",
+      "generic_name_en": "levothyroxine",
+      "aliases": [
+        "甲状腺素",
+        "L-thyroxine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "内分泌/甲状腺",
+      "clinical_categories": [
+        "内分泌/甲状腺"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "甲状腺功能减退"
+      ],
+      "indication_keywords": [
+        "犬甲状腺功能减退",
+        "犬甲状腺功能减退治疗"
+      ],
+      "search_terms": [
+        "左甲状腺素",
+        "levothyroxine",
+        "犬甲状腺功能减退"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用/部分适应症超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "甲状腺功能减退",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用起始参考约0.02 mg/kg PO q12h；需结合TT4/fT4/TSH及临床反应调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "甲状腺功能减退",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "应按兽医药理资料和血清甲状腺素监测个体化。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "左甲状腺素",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "methimazole",
+      "generic_name_zh": "甲巯咪唑",
+      "generic_name_en": "methimazole",
+      "aliases": [
+        "Methimazole",
+        "他巴唑"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "内分泌/抗甲状腺",
+      "clinical_categories": [
+        "内分泌/抗甲状腺"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "甲状腺功能亢进"
+      ],
+      "indication_keywords": [
+        "猫甲状腺功能亢进",
+        "猫甲状腺功能亢进治疗"
+      ],
+      "search_terms": [
+        "甲巯咪唑",
+        "methimazole",
+        "猫甲状腺功能亢进"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用/制剂与法规依地区而异",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "甲状腺功能亢进",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用起始参考：2.5 mg/猫 q12h；根据TT4、肝肾功能和不良反应调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "开始前建议CBC、生化；注意呕吐、厌食、肝毒性及血液学不良反应。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "甲巯咪唑",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "pimobendan",
+      "generic_name_zh": "匹莫苯丹",
+      "generic_name_en": "pimobendan",
+      "aliases": [
+        "Pimobendan",
+        "Vetmedin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/正性肌力-血管扩张",
+      "clinical_categories": [
+        "心血管/正性肌力-血管扩张"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "MMVD/扩张型心肌病相关心衰；部分B2期MMVD",
+        "特定心肌病/心衰病例"
+      ],
+      "indication_keywords": [
+        "犬心衰",
+        "二尖瓣疾病",
+        "扩张型心肌病",
+        "犬心衰治疗",
+        "二尖瓣疾病治疗",
+        "扩张型心肌病治疗"
+      ],
+      "search_terms": [
+        "匹莫苯丹",
+        "pimobendan",
+        "犬心衰",
+        "二尖瓣疾病",
+        "扩张型心肌病"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用/部分物种超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "MMVD/扩张型心肌病相关心衰；部分B2期MMVD",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "标签/指南参考",
+          "dose_notes": "常用0.25–0.3 mg/kg PO q12h；具体按体重、分期和产品标签。",
+          "label_status": "标签/指南参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book-acvim"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "特定心肌病/心衰病例",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "off-label",
+          "dose_notes": "超说明书；需按心脏专科资料个体化，不建议套用犬方案。",
+          "label_status": "off-label",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-acvim"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "肥厚型心肌病伴动态流出道梗阻等病例需谨慎。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "匹莫苯丹",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "furosemide",
+      "generic_name_zh": "呋塞米",
+      "generic_name_en": "furosemide",
+      "aliases": [
+        "Furosemide",
+        "速尿"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/利尿剂",
+      "clinical_categories": [
+        "心血管/利尿剂"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "充血性心衰/肺水肿",
+        "特定肺水肿/运动性肺出血等"
+      ],
+      "indication_keywords": [
+        "肺水肿",
+        "充血性心力衰竭",
+        "水肿",
+        "肺水肿治疗",
+        "充血性心力衰竭治疗",
+        "水肿治疗"
+      ],
+      "search_terms": [
+        "呋塞米",
+        "furosemide",
+        "肺水肿",
+        "充血性心力衰竭",
+        "水肿"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "充血性心衰/肺水肿",
+          "route": "口服/静脉",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理/标签参考",
+          "dose_notes": "急性肺水肿和慢性CHF剂量差异大；常用犬猫范围约1–4 mg/kg，按临床反应滴定。",
+          "label_status": "兽医药理/标签参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "特定肺水肿/运动性肺出血等",
+          "route": "静脉/口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "专科参考",
+          "dose_notes": "需按马专科资料和产品标签；不得直接套用犬猫剂量。",
+          "label_status": "专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "监测水合状态、肾功能、电解质。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "呋塞米",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "benazepril",
+      "generic_name_zh": "贝那普利",
+      "generic_name_en": "",
+      "aliases": [
+        "Benazepril"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/ACEI",
+      "clinical_categories": [
+        "心血管/ACEI"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "CHF/蛋白尿等特定病例"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "CHF/蛋白尿等特定病例",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约0.25–0.5 mg/kg PO q24h；按适应症和肾功能调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "低血容量、低血压、肾功能异常病例需谨慎；开始后复查肾功能和电解质。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "enalapril",
+      "generic_name_zh": "依那普利",
+      "generic_name_en": "",
+      "aliases": [
+        "Enalapril"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/ACEI",
+      "clinical_categories": [
+        "心血管/ACEI"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "CHF/蛋白尿等特定病例"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "CHF/蛋白尿等特定病例",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约0.25–0.5 mg/kg PO q12–24h；按适应症和肾功能调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "amlodipine",
+      "generic_name_zh": "氨氯地平",
+      "generic_name_en": "amlodipine",
+      "aliases": [
+        "Amlodipine",
+        "氨氯地平苯磺酸"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/钙通道阻滞剂",
+      "clinical_categories": [
+        "心血管/钙通道阻滞剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "全身性高血压"
+      ],
+      "indication_keywords": [
+        "猫高血压",
+        "犬高血压",
+        "猫高血压治疗",
+        "犬高血压治疗"
+      ],
+      "search_terms": [
+        "氨氯地平",
+        "amlodipine",
+        "猫高血压",
+        "犬高血压"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "全身性高血压",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理/指南参考",
+          "dose_notes": "常用起始参考0.625–1.25 mg/猫 q24h；按血压调整。",
+          "label_status": "兽医药理/指南参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-2026-fda-approval-acvim"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "全身性高血压",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约0.1–0.2 mg/kg q24h；需按血压滴定。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-acvim"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "氨氯地平",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "spironolactone",
+      "generic_name_zh": "螺内酯",
+      "generic_name_en": "spironolactone",
+      "aliases": [
+        "Spironolactone"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/醛固酮拮抗剂",
+      "clinical_categories": [
+        "心血管/醛固酮拮抗剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "CHF/醛固酮相关治疗",
+        "特定CHF病例"
+      ],
+      "indication_keywords": [
+        "犬心衰",
+        "醛固酮拮抗",
+        "腹水",
+        "犬心衰治疗",
+        "醛固酮拮抗治疗",
+        "腹水治疗"
+      ],
+      "search_terms": [
+        "螺内酯",
+        "spironolactone",
+        "犬心衰",
+        "醛固酮拮抗",
+        "腹水"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用/超说明书依地区",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "CHF/醛固酮相关治疗",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约1–2 mg/kg PO q24h；具体联合方案依心衰分期。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-acvim"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "特定CHF病例",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "off-label",
+          "dose_notes": "超说明书；需按心脏专科方案个体化。",
+          "label_status": "off-label",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-acvim"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "螺内酯",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "digoxin",
+      "generic_name_zh": "地高辛",
+      "generic_name_en": "",
+      "aliases": [
+        "Digoxin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/强心苷",
+      "clinical_categories": [
+        "心血管/强心苷"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "特定心律失常/CHF辅助"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/窄治疗窗",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "特定心律失常/CHF辅助",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "按体表面积/体重、肾功能和血药浓度个体化；不建议使用无监测的固定通用剂量。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "窄治疗窗；肾功能异常、低钾血症显著增加毒性风险。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "amoxicillin-clavulanate",
+      "generic_name_zh": "阿莫西林克拉维酸钾",
+      "generic_name_en": "amoxicillin-clavulanate",
+      "aliases": [
+        "阿莫西林/克拉维酸",
+        "amox-clav"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/β-内酰胺",
+      "clinical_categories": [
+        "抗菌药/β-内酰胺"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "皮肤、软组织、口腔/牙科及其他敏感细菌感染"
+      ],
+      "indication_keywords": [
+        "抗菌",
+        "皮肤",
+        "呼吸道",
+        "尿路",
+        "口腔",
+        "抗菌治疗",
+        "皮肤治疗",
+        "呼吸道治疗",
+        "尿路治疗",
+        "口腔治疗"
+      ],
+      "search_terms": [
+        "阿莫西林克拉维酸钾",
+        "amoxicillin-clavulanate",
+        "抗菌",
+        "皮肤",
+        "呼吸道",
+        "尿路",
+        "口腔"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "皮肤、软组织、口腔/牙科及其他敏感细菌感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "标签/兽医药理参考",
+          "dose_notes": "常用参考按联合制剂总量约12.5–25 mg/kg PO q12h；具体适应症按标签/药理资料。",
+          "label_status": "标签/兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-plumb-s"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "抗菌药应基于感染证据和抗菌药物管理原则。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "阿莫西林克拉维酸钾",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "amoxicillin",
+      "generic_name_zh": "阿莫西林",
+      "generic_name_en": "",
+      "aliases": [
+        "Amoxicillin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/青霉素",
+      "clinical_categories": [
+        "抗菌药/青霉素"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "敏感革兰阳性及部分革兰阴性感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "敏感革兰阳性及部分革兰阴性感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约11–22 mg/kg PO q8–12h；按感染部位及药敏调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "ampicillin",
+      "generic_name_zh": "氨苄西林",
+      "generic_name_en": "ampicillin",
+      "aliases": [
+        "Ampicillin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/青霉素",
+      "clinical_categories": [
+        "抗菌药/青霉素"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "敏感细菌感染"
+      ],
+      "indication_keywords": [
+        "抗菌",
+        "胃肠道",
+        "呼吸道",
+        "败血症",
+        "抗菌治疗",
+        "胃肠道治疗",
+        "呼吸道治疗",
+        "败血症治疗"
+      ],
+      "search_terms": [
+        "氨苄西林",
+        "ampicillin",
+        "抗菌",
+        "胃肠道",
+        "呼吸道",
+        "败血症"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "敏感细菌感染",
+          "route": "IV/IM/SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约10–20 mg/kg，每6–8小时；具体制剂和途径不同。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "氨苄西林",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "cefazolin",
+      "generic_name_zh": "头孢唑林",
+      "generic_name_en": "",
+      "aliases": [
+        "Cefazolin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/第一代头孢",
+      "clinical_categories": [
+        "抗菌药/第一代头孢"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "围手术期预防/敏感细菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "围手术期预防/敏感细菌感染",
+          "route": "IV/IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "围手术期常用20–22 mg/kg IV，按手术时间重复给药；治疗剂量依感染而异。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "cephalexin",
+      "generic_name_zh": "头孢氨苄",
+      "generic_name_en": "cephalexin",
+      "aliases": [
+        "Cephalexin",
+        "头孢氨苄"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/第一代头孢",
+      "clinical_categories": [
+        "抗菌药/第一代头孢"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "皮肤/软组织等敏感细菌感染"
+      ],
+      "indication_keywords": [
+        "抗菌",
+        "皮肤",
+        "尿路",
+        "抗菌治疗",
+        "皮肤治疗",
+        "尿路治疗"
+      ],
+      "search_terms": [
+        "头孢氨苄",
+        "cephalexin",
+        "抗菌",
+        "皮肤",
+        "尿路"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "皮肤/软组织等敏感细菌感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约20–30 mg/kg PO q12h；按感染和制剂标签调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "头孢氨苄",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "cefovecin",
+      "generic_name_zh": "头孢维星",
+      "generic_name_en": "",
+      "aliases": [
+        "Cefovecin",
+        "Convenia"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/第三代头孢",
+      "clinical_categories": [
+        "抗菌药/第三代头孢"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "特定皮肤/软组织感染及相关适应症"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "特定皮肤/软组织感染及相关适应症",
+          "route": "SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按产品标签使用；常见标签剂量约8 mg/kg SC，给药间隔依标签。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "长效制剂不可轻易撤回；尽量在培养/药敏支持下使用。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "cefpodoxime",
+      "generic_name_zh": "头孢泊肟",
+      "generic_name_en": "",
+      "aliases": [
+        "Cefpodoxime"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/第三代头孢",
+      "clinical_categories": [
+        "抗菌药/第三代头孢"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "皮肤/软组织感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "皮肤/软组织感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约5–10 mg/kg PO q24h；具体按产品标签和药理资料。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "clindamycin",
+      "generic_name_zh": "克林霉素",
+      "generic_name_en": "clindamycin",
+      "aliases": [
+        "Clindamycin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/林可酰胺",
+      "clinical_categories": [
+        "抗菌药/林可酰胺"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "厌氧菌、口腔/牙科、骨和软组织等敏感感染"
+      ],
+      "indication_keywords": [
+        "牙周",
+        "骨感染",
+        "厌氧菌",
+        "弓形虫",
+        "牙周治疗",
+        "骨感染治疗",
+        "厌氧菌治疗",
+        "弓形虫治疗"
+      ],
+      "search_terms": [
+        "克林霉素",
+        "clindamycin",
+        "牙周",
+        "骨感染",
+        "厌氧菌",
+        "弓形虫"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "厌氧菌、口腔/牙科、骨和软组织等敏感感染",
+          "route": "口服/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约5.5–11 mg/kg PO q12h；按适应症调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "克林霉素",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "doxycycline",
+      "generic_name_zh": "多西环素",
+      "generic_name_en": "doxycycline",
+      "aliases": [
+        "Doxycycline"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/四环素",
+      "clinical_categories": [
+        "抗菌药/四环素"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "特定细菌感染",
+        "立克次体、衣原体、支原体及其他敏感感染",
+        "衣原体等特定感染"
+      ],
+      "indication_keywords": [
+        "抗菌",
+        "呼吸道",
+        "蜱媒",
+        "立克次体",
+        "支原体",
+        "抗菌治疗",
+        "呼吸道治疗",
+        "蜱媒治疗",
+        "立克次体治疗",
+        "支原体治疗"
+      ],
+      "search_terms": [
+        "多西环素",
+        "doxycycline",
+        "抗菌",
+        "呼吸道",
+        "蜱媒",
+        "立克次体",
+        "支原体"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用/多物种",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "立克次体、衣原体、支原体及其他敏感感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约10 mg/kg PO q24h，或5 mg/kg q12h；按适应症调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "鸟类",
+          "species": "鸟类",
+          "indication": "衣原体等特定感染",
+          "route": "口服/饮水",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "物种专科参考",
+          "dose_notes": "物种差异大；应按禽鸟专科资料，不采用犬猫剂量直接换算。",
+          "label_status": "物种专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "爬宠",
+          "species": "爬宠",
+          "indication": "特定细菌感染",
+          "route": "口服/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "物种专科参考",
+          "dose_notes": "物种和体温依赖明显；需按爬宠专科资料。",
+          "label_status": "物种专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "猫口服后应适当给水/食物，降低食管炎风险。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "多西环素",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "enrofloxacin",
+      "generic_name_zh": "恩诺沙星",
+      "generic_name_en": "enrofloxacin",
+      "aliases": [
+        "Enrofloxacin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/氟喹诺酮",
+      "clinical_categories": [
+        "抗菌药/氟喹诺酮"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "鸟类"
+      ],
+      "indications_general": [
+        "敏感细菌感染",
+        "敏感革兰阴性/部分革兰阳性细菌感染",
+        "特定细菌感染"
+      ],
+      "indication_keywords": [
+        "抗菌",
+        "尿路",
+        "呼吸道",
+        "革兰阴性菌",
+        "抗菌治疗",
+        "尿路治疗",
+        "呼吸道治疗",
+        "革兰阴性菌治疗"
+      ],
+      "search_terms": [
+        "恩诺沙星",
+        "enrofloxacin",
+        "抗菌",
+        "尿路",
+        "呼吸道",
+        "革兰阴性菌"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "敏感革兰阴性/部分革兰阳性细菌感染",
+          "route": "口服/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约5–20 mg/kg q24h；具体按感染、药敏和产品标签。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "敏感细菌感染",
+          "route": "口服/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考不超过5 mg/kg q24h；高剂量存在视网膜毒性风险。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "鸟类",
+          "species": "鸟类",
+          "indication": "特定细菌感染",
+          "route": "口服/饮水",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "物种专科参考",
+          "dose_notes": "物种差异大，按禽鸟专科资料和药敏。",
+          "label_status": "物种专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "猫必须避免高剂量；抗菌药应优先基于培养和药敏。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "恩诺沙星",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "marbofloxacin",
+      "generic_name_zh": "马波沙星",
+      "generic_name_en": "marbofloxacin",
+      "aliases": [
+        "Marbofloxacin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/氟喹诺酮",
+      "clinical_categories": [
+        "抗菌药/氟喹诺酮"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "敏感细菌感染"
+      ],
+      "indication_keywords": [
+        "抗菌",
+        "皮肤",
+        "尿路",
+        "呼吸道",
+        "抗菌治疗",
+        "皮肤治疗",
+        "尿路治疗",
+        "呼吸道治疗"
+      ],
+      "search_terms": [
+        "马波沙星",
+        "marbofloxacin",
+        "抗菌",
+        "皮肤",
+        "尿路",
+        "呼吸道"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "敏感细菌感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约2–5 mg/kg PO q24h；按感染和药敏调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "马波沙星",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "metronidazole",
+      "generic_name_zh": "甲硝唑",
+      "generic_name_en": "metronidazole",
+      "aliases": [
+        "Metronidazole"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌/抗原虫/硝基咪唑",
+      "clinical_categories": [
+        "抗菌/抗原虫/硝基咪唑"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "厌氧菌感染/贾第虫等特定原虫感染"
+      ],
+      "indication_keywords": [
+        "厌氧菌",
+        "贾第虫",
+        "胃肠道",
+        "厌氧菌治疗",
+        "贾第虫治疗",
+        "胃肠道治疗"
+      ],
+      "search_terms": [
+        "甲硝唑",
+        "metronidazole",
+        "厌氧菌",
+        "贾第虫",
+        "胃肠道"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用/多适应症超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "厌氧菌感染/贾第虫等特定原虫感染",
+          "route": "口服/静脉",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "剂量随适应症差异明显；常见范围约10–20 mg/kg q12h，但应按具体适应症和肝功能核定。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "高剂量或长期使用可致神经毒性；食品动物使用受法规限制。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "甲硝唑",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "trimethoprim-sulfa",
+      "generic_name_zh": "甲氧苄啶-磺胺类复方",
+      "generic_name_en": "",
+      "aliases": [
+        "TMP-SMX",
+        "复方新诺明"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/磺胺增效剂",
+      "clinical_categories": [
+        "抗菌药/磺胺增效剂"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "特定敏感感染",
+        "特定敏感细菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/部分物种谨慎",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "特定敏感细菌感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考按TMP组分约15–30 mg/kg PO q12h；具体制剂以总剂量/标签核定。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "特定敏感感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "需谨慎，长期使用应监测泪液/肝肾和血液学；剂量按专科资料。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "猫长期使用磺胺类需特别谨慎。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "gentamicin",
+      "generic_name_zh": "庆大霉素",
+      "generic_name_en": "",
+      "aliases": [
+        "Gentamicin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/氨基糖苷",
+      "clinical_categories": [
+        "抗菌药/氨基糖苷"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "严重革兰阴性细菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/监测要求高",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "严重革兰阴性细菌感染",
+          "route": "IV/IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约6–8 mg/kg q24h；肾功能和谷浓度监测非常重要。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "严重革兰阴性细菌感染",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "马专科参考",
+          "dose_notes": "需按马专科剂量和血药浓度监测。",
+          "label_status": "马专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "肾毒性和耳毒性；脱水动物慎用。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "amikacin",
+      "generic_name_zh": "阿米卡星",
+      "generic_name_en": "",
+      "aliases": [
+        "Amikacin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/氨基糖苷",
+      "clinical_categories": [
+        "抗菌药/氨基糖苷"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "耐药革兰阴性细菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/监测要求高",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "耐药革兰阴性细菌感染",
+          "route": "IV/IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约10–15 mg/kg q24h；肾功能/血药浓度监测。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "肾毒性；脱水或肾病病例谨慎。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "azithromycin",
+      "generic_name_zh": "阿奇霉素",
+      "generic_name_en": "azithromycin",
+      "aliases": [
+        "Azithromycin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/大环内酯",
+      "clinical_categories": [
+        "抗菌药/大环内酯"
+      ],
+      "species_groups": [
+        "犬猫",
+        "鸟类"
+      ],
+      "indications_general": [
+        "特定支原体、衣原体等敏感感染"
+      ],
+      "indication_keywords": [
+        "呼吸道",
+        "支原体",
+        "衣原体",
+        "呼吸道治疗",
+        "支原体治疗",
+        "衣原体治疗"
+      ],
+      "search_terms": [
+        "阿奇霉素",
+        "azithromycin",
+        "呼吸道",
+        "支原体",
+        "衣原体"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用/多为超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "特定支原体、衣原体等敏感感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约5–10 mg/kg q24h，具体按适应症和文献。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "阿奇霉素",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "chloramphenicol",
+      "generic_name_zh": "氯霉素",
+      "generic_name_en": "",
+      "aliases": [
+        "Chloramphenicol"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/酰胺醇",
+      "clinical_categories": [
+        "抗菌药/酰胺醇"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "特定细菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医超说明书/人用药",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "特定细菌感染",
+          "route": "口服/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "需按专科药理资料；不建议无培养依据经验性使用。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "人员接触存在再生障碍性贫血风险；食品动物禁用/严格法规限制。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "itraconazole",
+      "generic_name_zh": "伊曲康唑",
+      "generic_name_en": "itraconazole",
+      "aliases": [
+        "Itraconazole"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗真菌/三唑类",
+      "clinical_categories": [
+        "抗真菌/三唑类"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "鸟类"
+      ],
+      "indications_general": [
+        "皮肤癣菌/系统性真菌病"
+      ],
+      "indication_keywords": [
+        "皮肤真菌",
+        "隐球菌",
+        "系统性真菌病",
+        "皮肤真菌治疗",
+        "隐球菌治疗",
+        "系统性真菌病治疗"
+      ],
+      "search_terms": [
+        "伊曲康唑",
+        "itraconazole",
+        "皮肤真菌",
+        "隐球菌",
+        "系统性真菌病"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "皮肤癣菌/系统性真菌病",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约5–10 mg/kg q24h；不同真菌病疗程差异很大。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "猫肝毒性/厌食需监测；制剂生物利用度不同。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "伊曲康唑",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "fluconazole",
+      "generic_name_zh": "氟康唑",
+      "generic_name_en": "fluconazole",
+      "aliases": [
+        "Fluconazole"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗真菌/三唑类",
+      "clinical_categories": [
+        "抗真菌/三唑类"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "鸟类"
+      ],
+      "indications_general": [
+        "念珠菌、隐球菌及其他敏感真菌感染"
+      ],
+      "indication_keywords": [
+        "隐球菌",
+        "念珠菌",
+        "真菌病",
+        "隐球菌治疗",
+        "念珠菌治疗",
+        "真菌病治疗"
+      ],
+      "search_terms": [
+        "氟康唑",
+        "fluconazole",
+        "隐球菌",
+        "念珠菌",
+        "真菌病"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用/多为超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "念珠菌、隐球菌及其他敏感真菌感染",
+          "route": "口服/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约5–10 mg/kg q12–24h；中枢/眼部感染可能需要不同方案。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "氟康唑",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "terbinafine",
+      "generic_name_zh": "特比萘芬",
+      "generic_name_en": "terbinafine",
+      "aliases": [
+        "Terbinafine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗真菌/烯丙胺类",
+      "clinical_categories": [
+        "抗真菌/烯丙胺类"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "皮肤癣菌感染"
+      ],
+      "indication_keywords": [
+        "皮肤真菌",
+        "皮癣菌",
+        "皮肤真菌治疗",
+        "皮癣菌治疗"
+      ],
+      "search_terms": [
+        "特比萘芬",
+        "terbinafine",
+        "皮肤真菌",
+        "皮癣菌"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用/多为超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "皮肤癣菌感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约20–30 mg/kg q24h；疗程依真菌培养/临床反应。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "特比萘芬",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "famciclovir",
+      "generic_name_zh": "泛昔洛韦",
+      "generic_name_en": "",
+      "aliases": [
+        "Famciclovir"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗病毒",
+      "clinical_categories": [
+        "抗病毒"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "猫疱疹病毒相关疾病"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "猫疱疹病毒相关疾病",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约40–90 mg/kg q8–12h；需按严重程度、肾功能和专科资料调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "肾功能异常需调整；用于FHV-1多为超说明书。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "maropitant",
+      "generic_name_zh": "马罗匹坦",
+      "generic_name_en": "maropitant",
+      "aliases": [
+        "Maropitant",
+        "Cerenia"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化系统/止吐",
+      "clinical_categories": [
+        "消化系统/止吐"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "呕吐",
+        "急性呕吐/运动病"
+      ],
+      "indication_keywords": [
+        "呕吐",
+        "恶心",
+        "化疗相关呕吐",
+        "呕吐治疗",
+        "恶心治疗",
+        "化疗相关呕吐治疗"
+      ],
+      "search_terms": [
+        "马罗匹坦",
+        "maropitant",
+        "呕吐",
+        "恶心",
+        "化疗相关呕吐"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "急性呕吐/运动病",
+          "route": "SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按产品标签：急性呕吐常用1 mg/kg q24h；运动病为8 mg/kg PO q24h（犬，按标签年龄体重限制）。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "呕吐",
+          "route": "SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/兽医药理参考",
+          "dose_notes": "按产品标签/兽医药理资料使用；制剂和适应症决定剂量。",
+          "label_status": "FDA/兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "马罗匹坦",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "ondansetron",
+      "generic_name_zh": "昂丹司琼",
+      "generic_name_en": "ondansetron",
+      "aliases": [
+        "Ondansetron"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化系统/5-HT3拮抗剂",
+      "clinical_categories": [
+        "消化系统/5-HT3拮抗剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "化疗、胃肠疾病等相关恶心呕吐"
+      ],
+      "indication_keywords": [
+        "呕吐",
+        "恶心",
+        "胃肠道疾病",
+        "呕吐治疗",
+        "恶心治疗",
+        "胃肠道疾病治疗"
+      ],
+      "search_terms": [
+        "昂丹司琼",
+        "ondansetron",
+        "呕吐",
+        "恶心",
+        "胃肠道疾病"
+      ],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "化疗、胃肠疾病等相关恶心呕吐",
+          "route": "IV/IM/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约0.1–0.2 mg/kg q8–12h；按病例和制剂调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "昂丹司琼",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "metoclopramide",
+      "generic_name_zh": "甲氧氯普胺",
+      "generic_name_en": "metoclopramide",
+      "aliases": [
+        "Metoclopramide",
+        "胃复安"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化系统/促动力-止吐",
+      "clinical_categories": [
+        "消化系统/促动力-止吐"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "胃排空延迟、特定呕吐"
+      ],
+      "indication_keywords": [
+        "呕吐",
+        "胃排空延迟",
+        "反流",
+        "呕吐治疗",
+        "胃排空延迟治疗",
+        "反流治疗"
+      ],
+      "search_terms": [
+        "甲氧氯普胺",
+        "metoclopramide",
+        "呕吐",
+        "胃排空延迟",
+        "反流"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "胃排空延迟、特定呕吐",
+          "route": "PO/SC/IM/IV/CRI",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约0.2–0.5 mg/kg q6–8h；CRI方案需按专科资料。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "疑似胃肠机械性梗阻、穿孔时禁用/慎用。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "甲氧氯普胺",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "omeprazole",
+      "generic_name_zh": "奥美拉唑",
+      "generic_name_en": "omeprazole",
+      "aliases": [
+        "Omeprazole"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化系统/PPI",
+      "clinical_categories": [
+        "消化系统/PPI"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "胃溃疡综合征",
+        "胃酸相关疾病/胃溃疡等"
+      ],
+      "indication_keywords": [
+        "胃溃疡",
+        "十二指肠溃疡",
+        "胃酸相关疾病",
+        "胃溃疡治疗",
+        "十二指肠溃疡治疗",
+        "胃酸相关疾病治疗"
+      ],
+      "search_terms": [
+        "奥美拉唑",
+        "omeprazole",
+        "胃溃疡",
+        "十二指肠溃疡",
+        "胃酸相关疾病"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "胃酸相关疾病/胃溃疡等",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约0.7–1 mg/kg q24h；严重酸相关疾病可能需要q12h，按适应症。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "胃溃疡综合征",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按马用产品标签；常见约4 mg/kg q24h治疗剂量，预防方案较低。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "奥美拉唑",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "famotidine",
+      "generic_name_zh": "法莫替丁",
+      "generic_name_en": "",
+      "aliases": [
+        "Famotidine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化系统/H2RA",
+      "clinical_categories": [
+        "消化系统/H2RA"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "胃酸相关疾病辅助"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "胃酸相关疾病辅助",
+          "route": "PO/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用参考约0.5–1 mg/kg q12–24h；耐受性/疗效需个体化。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "sucralfate",
+      "generic_name_zh": "硫糖铝",
+      "generic_name_en": "sucralfate",
+      "aliases": [
+        "Sucralfate"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化系统/黏膜保护",
+      "clinical_categories": [
+        "消化系统/黏膜保护"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "胃十二指肠溃疡/黏膜损伤"
+      ],
+      "indication_keywords": [
+        "胃溃疡",
+        "口腔溃疡",
+        "食管炎",
+        "胃溃疡治疗",
+        "口腔溃疡治疗",
+        "食管炎治疗"
+      ],
+      "search_terms": [
+        "硫糖铝",
+        "sucralfate",
+        "胃溃疡",
+        "口腔溃疡",
+        "食管炎"
+      ],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "胃十二指肠溃疡/黏膜损伤",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "按体重分层给药，常见犬0.5–1 g/只、猫0.25–0.5 g/只 q6–8h；需与其他药物错开。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "影响其他口服药吸收；通常需错开给药。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "硫糖铝",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "meloxicam",
+      "generic_name_zh": "美洛昔康",
+      "generic_name_en": "meloxicam",
+      "aliases": [
+        "Meloxicam"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "NSAID/镇痛抗炎",
+      "clinical_categories": [
+        "NSAID/镇痛抗炎"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "术后疼痛/炎症等特定适应症",
+        "疼痛/炎症",
+        "骨关节炎疼痛/炎症"
+      ],
+      "indication_keywords": [
+        "骨关节炎疼痛",
+        "炎症",
+        "术后疼痛",
+        "骨关节炎疼痛治疗",
+        "炎症治疗",
+        "术后疼痛治疗"
+      ],
+      "search_terms": [
+        "美洛昔康",
+        "meloxicam",
+        "骨关节炎疼痛",
+        "炎症",
+        "术后疼痛"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "骨关节炎疼痛/炎症",
+          "route": "PO/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按具体产品标签；常见首剂约0.2 mg/kg，随后0.1 mg/kg q24h。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "术后疼痛/炎症等特定适应症",
+          "route": "SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "猫剂量与犬不同，必须按产品标签和当地法规。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "疼痛/炎症",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "按马用标签/专科资料；不得套用犬猫剂量。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "NSAID与其他NSAID或糖皮质激素合用会显著增加胃肠/肾脏风险。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "美洛昔康",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "carprofen",
+      "generic_name_zh": "卡洛芬",
+      "generic_name_en": "",
+      "aliases": [
+        "Carprofen",
+        "Rimadyl"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "NSAID/镇痛抗炎",
+      "clinical_categories": [
+        "NSAID/镇痛抗炎"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "骨关节炎/术后疼痛"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "骨关节炎/术后疼痛",
+          "route": "PO/SC/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "常用约4.4 mg/kg/日，可q24h或分q12h；按标签。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "犬用为主；猫使用需严格遵循当地标签/专科方案。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "firocoxib",
+      "generic_name_zh": "非罗考昔",
+      "generic_name_en": "firocoxib",
+      "aliases": [
+        "Firocoxib",
+        "Previcox"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "NSAID/COX-2选择性",
+      "clinical_categories": [
+        "NSAID/COX-2选择性"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "骨关节炎疼痛/炎症"
+      ],
+      "indication_keywords": [
+        "骨关节炎疼痛",
+        "术后疼痛",
+        "骨关节炎疼痛治疗",
+        "术后疼痛治疗"
+      ],
+      "search_terms": [
+        "非罗考昔",
+        "firocoxib",
+        "骨关节炎疼痛",
+        "术后疼痛"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "骨关节炎疼痛/炎症",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "常用5 mg/kg q24h，按标签。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "骨关节炎疼痛/炎症",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按马用标签；FDA 2026有马用产品批准。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "非罗考昔",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "robenacoxib",
+      "generic_name_zh": "罗贝考昔",
+      "generic_name_en": "robenacoxib",
+      "aliases": [
+        "Robenacoxib",
+        "Onsior"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "NSAID/COX-2选择性",
+      "clinical_categories": [
+        "NSAID/COX-2选择性"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "术后疼痛/炎症",
+        "术后疼痛和炎症"
+      ],
+      "indication_keywords": [
+        "术后疼痛",
+        "骨关节炎",
+        "炎症",
+        "术后疼痛治疗",
+        "骨关节炎治疗",
+        "炎症治疗"
+      ],
+      "search_terms": [
+        "罗本考昔",
+        "robenacoxib",
+        "术后疼痛",
+        "骨关节炎",
+        "炎症"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "术后疼痛和炎症",
+          "route": "PO/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按产品标签；常见剂量约2 mg/kg q24h，疗程受适应症限制。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "术后疼痛/炎症",
+          "route": "PO/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按产品标签；猫与犬剂量和疗程不同。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "罗本考昔",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "buprenorphine",
+      "generic_name_zh": "丁丙诺啡",
+      "generic_name_en": "",
+      "aliases": [
+        "Buprenorphine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇痛/阿片",
+      "clinical_categories": [
+        "镇痛/阿片"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "中度疼痛"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "中度疼痛",
+          "route": "IV/IM/SC/口腔黏膜",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约0.01–0.02 mg/kg q4–8h；按疼痛评分和方案滴定。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "butorphanol",
+      "generic_name_zh": "布托啡诺",
+      "generic_name_en": "",
+      "aliases": [
+        "Butorphanol"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇痛/阿片",
+      "clinical_categories": [
+        "镇痛/阿片"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "轻中度疼痛/镇静辅助",
+        "镇静/镇痛辅助"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "轻中度疼痛/镇静辅助",
+          "route": "IV/IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约0.2–0.4 mg/kg q2–4h；镇痛持续时间有限。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "镇静/镇痛辅助",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "马专科参考",
+          "dose_notes": "按马麻醉专科方案；不可直接套犬猫剂量。",
+          "label_status": "马专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "fentanyl",
+      "generic_name_zh": "芬太尼",
+      "generic_name_en": "fentanyl",
+      "aliases": [
+        "Fentanyl"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇痛/阿片/麻醉",
+      "clinical_categories": [
+        "镇痛/阿片/麻醉"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "围术期镇痛"
+      ],
+      "indication_keywords": [
+        "严重疼痛",
+        "麻醉镇痛",
+        "严重疼痛治疗",
+        "麻醉镇痛治疗"
+      ],
+      "search_terms": [
+        "芬太尼",
+        "fentanyl",
+        "严重疼痛",
+        "麻醉镇痛"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用/管制药",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "围术期镇痛",
+          "route": "IV/CRI/透皮",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "静注/CRI需按麻醉方案和疼痛滴定；常用CRI为微克/kg/h级别，具体按麻醉专科方案。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "强效阿片；呼吸抑制、胸壁僵硬等需监测。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "芬太尼",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "dexmedetomidine",
+      "generic_name_zh": "右美托咪定",
+      "generic_name_en": "dexmedetomidine",
+      "aliases": [
+        "Dexmedetomidine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇静/α2受体激动剂",
+      "clinical_categories": [
+        "镇静/α2受体激动剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "镇静、镇痛、麻醉前用药"
+      ],
+      "indication_keywords": [
+        "镇静",
+        "镇痛",
+        "麻醉前用药",
+        "镇静治疗",
+        "镇痛治疗",
+        "麻醉前用药治疗"
+      ],
+      "search_terms": [
+        "右美托咪定",
+        "dexmedetomidine",
+        "镇静",
+        "镇痛",
+        "麻醉前用药"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "镇静、镇痛、麻醉前用药",
+          "route": "IM/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "剂量高度依赖制剂浓度、目标镇静深度及联合方案；按产品标签/麻醉方案使用。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "心动过缓、低心排量和血管收缩；低容量/心血管疾病需谨慎。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "右美托咪定",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "midazolam",
+      "generic_name_zh": "咪达唑仑",
+      "generic_name_en": "midazolam",
+      "aliases": [
+        "Midazolam"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇静/苯二氮䓬类",
+      "clinical_categories": [
+        "镇静/苯二氮䓬类"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "镇静/抗惊厥",
+        "镇静/麻醉辅助",
+        "麻醉前/诱导辅助/抗惊厥"
+      ],
+      "indication_keywords": [
+        "镇静",
+        "抗惊厥",
+        "麻醉辅助",
+        "镇静治疗",
+        "抗惊厥治疗",
+        "麻醉辅助治疗"
+      ],
+      "search_terms": [
+        "咪达唑仑",
+        "midazolam",
+        "镇静",
+        "抗惊厥",
+        "麻醉辅助"
+      ],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "麻醉前/诱导辅助/抗惊厥",
+          "route": "IV/IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "常用约0.1–0.3 mg/kg；按年龄、ASA状态及联合药物滴定。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "鸟类",
+          "species": "鸟类",
+          "indication": "镇静/抗惊厥",
+          "route": "IM/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "物种专科参考",
+          "dose_notes": "物种差异大；按禽鸟麻醉资料。",
+          "label_status": "物种专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "爬宠",
+          "species": "爬宠",
+          "indication": "镇静/麻醉辅助",
+          "route": "IM/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "物种专科参考",
+          "dose_notes": "物种差异大；按爬宠麻醉资料。",
+          "label_status": "物种专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "咪达唑仑",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "ketamine",
+      "generic_name_zh": "氯胺酮",
+      "generic_name_en": "ketamine",
+      "aliases": [
+        "Ketamine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "麻醉/解离性麻醉",
+      "clinical_categories": [
+        "麻醉/解离性麻醉"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "诱导/麻醉组合/镇痛辅助",
+        "麻醉诱导",
+        "麻醉辅助"
+      ],
+      "indication_keywords": [
+        "麻醉诱导",
+        "镇痛",
+        "化学保定",
+        "麻醉诱导治疗",
+        "镇痛治疗",
+        "化学保定治疗"
+      ],
+      "search_terms": [
+        "氯胺酮",
+        "ketamine",
+        "麻醉诱导",
+        "镇痛",
+        "化学保定"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用/受控药物",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "诱导/麻醉组合/镇痛辅助",
+          "route": "IV/IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "剂量取决于联合方案；常见诱导为2–5 mg/kg IV或5–10 mg/kg IM级别，需效应滴定。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "麻醉诱导",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "马专科参考",
+          "dose_notes": "按马麻醉专科方案。",
+          "label_status": "马专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "鸟类",
+          "species": "鸟类/爬宠",
+          "indication": "麻醉辅助",
+          "route": "IM/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "物种专科参考",
+          "dose_notes": "物种和体温影响显著；按专科资料。",
+          "label_status": "物种专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "氯胺酮",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "propofol",
+      "generic_name_zh": "丙泊酚",
+      "generic_name_en": "propofol",
+      "aliases": [
+        "Propofol"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "全身麻醉/静脉诱导",
+      "clinical_categories": [
+        "全身麻醉/静脉诱导"
+      ],
+      "species_groups": [
+        "犬猫",
+        "鸟类"
+      ],
+      "indications_general": [
+        "全麻诱导"
+      ],
+      "indication_keywords": [
+        "诱导麻醉",
+        "短时麻醉",
+        "诱导麻醉治疗",
+        "短时麻醉治疗"
+      ],
+      "search_terms": [
+        "丙泊酚",
+        "propofol",
+        "诱导麻醉",
+        "短时麻醉"
+      ],
+      "evidence_grade": "B",
+      "use_type": "兽医用/人用制剂常见",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "全麻诱导",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "常见约2–6 mg/kg IV至效应；已镇静动物通常需要更低剂量。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "呼吸抑制/低血压；猫反复使用需注意氧化代谢相关问题。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "丙泊酚",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "alfaxalone",
+      "generic_name_zh": "阿法沙龙",
+      "generic_name_en": "alfaxalone",
+      "aliases": [
+        "Alfaxalone"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "全身麻醉/神经甾体",
+      "clinical_categories": [
+        "全身麻醉/神经甾体"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "鸟类"
+      ],
+      "indications_general": [
+        "全麻诱导"
+      ],
+      "indication_keywords": [
+        "诱导麻醉",
+        "维持麻醉",
+        "诱导麻醉治疗",
+        "维持麻醉治疗"
+      ],
+      "search_terms": [
+        "阿法沙龙",
+        "alfaxalone",
+        "诱导麻醉",
+        "维持麻醉"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "全麻诱导",
+          "route": "IV/IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "产品标签/麻醉专科",
+          "dose_notes": "IV诱导按效应滴定，常见约1–5 mg/kg范围；IM剂量依产品和物种。",
+          "label_status": "产品标签/麻醉专科",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "阿法沙龙",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "isoflurane",
+      "generic_name_zh": "异氟烷",
+      "generic_name_en": "isoflurane",
+      "aliases": [
+        "Isoflurane"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "吸入麻醉",
+      "clinical_categories": [
+        "吸入麻醉"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "全身麻醉",
+        "全身麻醉维持"
+      ],
+      "indication_keywords": [
+        "吸入麻醉",
+        "麻醉维持",
+        "吸入麻醉治疗",
+        "麻醉维持治疗"
+      ],
+      "search_terms": [
+        "异氟烷",
+        "isoflurane",
+        "吸入麻醉",
+        "麻醉维持"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "全身麻醉维持",
+          "route": "吸入",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "产品标签/麻醉专科",
+          "dose_notes": "吸入浓度需根据麻醉深度、通气、氧合及联合镇痛滴定；不能用单一固定浓度替代监测。",
+          "label_status": "产品标签/麻醉专科",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "全身麻醉",
+          "route": "吸入",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "马专科参考",
+          "dose_notes": "按马麻醉专科方案。",
+          "label_status": "马专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "异氟烷",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "sevoflurane",
+      "generic_name_zh": "七氟烷",
+      "generic_name_en": "",
+      "aliases": [
+        "Sevoflurane"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "吸入麻醉",
+      "clinical_categories": [
+        "吸入麻醉"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "全身麻醉维持"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/人用制剂常见",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "全身麻醉维持",
+          "route": "吸入",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "按麻醉深度和监测滴定；MAC和实际需求受物种、年龄、药物组合影响。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "gabapentin",
+      "generic_name_zh": "加巴喷丁",
+      "generic_name_en": "gabapentin",
+      "aliases": [
+        "Gabapentin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "神经/镇痛/抗惊厥",
+      "clinical_categories": [
+        "神经/镇痛/抗惊厥"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "神经病理性疼痛/焦虑辅助/抗惊厥辅助"
+      ],
+      "indication_keywords": [
+        "神经性疼痛",
+        "慢性疼痛",
+        "焦虑辅助",
+        "神经性疼痛治疗",
+        "慢性疼痛治疗",
+        "焦虑辅助治疗"
+      ],
+      "search_terms": [
+        "加巴喷丁",
+        "gabapentin",
+        "神经性疼痛",
+        "慢性疼痛",
+        "焦虑辅助"
+      ],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "神经病理性疼痛/焦虑辅助/抗惊厥辅助",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约5–20 mg/kg q8–12h；按适应症和镇静程度调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "肾功能不全需减量；镇静和共济失调常见。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "加巴喷丁",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "pregabalin",
+      "generic_name_zh": "普瑞巴林",
+      "generic_name_en": "pregabalin",
+      "aliases": [
+        "Pregabalin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "神经/镇痛/抗惊厥",
+      "clinical_categories": [
+        "神经/镇痛/抗惊厥"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "神经病理性疼痛/焦虑/特定癫痫辅助"
+      ],
+      "indication_keywords": [
+        "神经性疼痛",
+        "癫痫辅助",
+        "神经性疼痛治疗",
+        "癫痫辅助治疗"
+      ],
+      "search_terms": [
+        "普瑞巴林",
+        "pregabalin",
+        "神经性疼痛",
+        "癫痫辅助"
+      ],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "神经病理性疼痛/焦虑/特定癫痫辅助",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约2–4 mg/kg q8–12h；按适应症和肾功能调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "普瑞巴林",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "phenobarbital",
+      "generic_name_zh": "苯巴比妥",
+      "generic_name_en": "phenobarbital",
+      "aliases": [
+        "Phenobarbital"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "神经/抗癫痫",
+      "clinical_categories": [
+        "神经/抗癫痫"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "特发性癫痫长期控制",
+        "癫痫控制"
+      ],
+      "indication_keywords": [
+        "癫痫",
+        "癫痫长期管理",
+        "癫痫治疗",
+        "癫痫长期管理治疗"
+      ],
+      "search_terms": [
+        "苯巴比妥",
+        "phenobarbital",
+        "癫痫",
+        "癫痫长期管理"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用/受控药物",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "特发性癫痫长期控制",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医神经病学/药理",
+          "dose_notes": "常用起始约2–3 mg/kg q12h；依据血药浓度和发作控制调整。",
+          "label_status": "兽医神经病学/药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "癫痫控制",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约2–3 mg/kg q12h；根据血药浓度和肝功能调整。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "定期监测肝酶、CBC及血药浓度。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "苯巴比妥",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "levetiracetam",
+      "generic_name_zh": "左乙拉西坦",
+      "generic_name_en": "levetiracetam",
+      "aliases": [
+        "Levetiracetam"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "神经/抗癫痫",
+      "clinical_categories": [
+        "神经/抗癫痫"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "癫痫辅助/长期控制"
+      ],
+      "indication_keywords": [
+        "癫痫",
+        "癫痫持续状态辅助",
+        "癫痫治疗",
+        "癫痫持续状态辅助治疗"
+      ],
+      "search_terms": [
+        "左乙拉西坦",
+        "levetiracetam",
+        "癫痫",
+        "癫痫持续状态辅助"
+      ],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "癫痫辅助/长期控制",
+          "route": "PO/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约20–60 mg/kg q8h；XR制剂间隔不同。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "左乙拉西坦",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "praziquantel",
+      "generic_name_zh": "吡喹酮",
+      "generic_name_en": "praziquantel",
+      "aliases": [
+        "Praziquantel"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/抗绦虫",
+      "clinical_categories": [
+        "驱虫/抗绦虫"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "绦虫感染"
+      ],
+      "indication_keywords": [
+        "绦虫",
+        "吸虫",
+        "绦虫治疗",
+        "吸虫治疗"
+      ],
+      "search_terms": [
+        "吡喹酮",
+        "praziquantel",
+        "绦虫",
+        "吸虫"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "绦虫感染",
+          "route": "PO/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "常见犬猫约5–10 mg/kg，具体按产品和虫种。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "吡喹酮",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "pyrantel",
+      "generic_name_zh": "双羟萘酸噻嘧啶",
+      "generic_name_en": "",
+      "aliases": [
+        "Pyrantel",
+        "Pyrantel pamoate"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/抗线虫",
+      "clinical_categories": [
+        "驱虫/抗线虫"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "蛔虫/钩虫等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "蛔虫/钩虫等",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理/产品标签",
+          "dose_notes": "常用按pyrantel base约5 mg/kg，具体按制剂和虫种。",
+          "label_status": "兽医药理/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "fenbendazole",
+      "generic_name_zh": "芬苯达唑",
+      "generic_name_en": "fenbendazole",
+      "aliases": [
+        "Fenbendazole",
+        "Panacur"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/苯并咪唑",
+      "clinical_categories": [
+        "驱虫/苯并咪唑"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "胃肠道线虫",
+        "蛔虫、钩虫、鞭虫及特定原虫"
+      ],
+      "indication_keywords": [
+        "蛔虫",
+        "钩虫",
+        "鞭虫",
+        "贾第虫",
+        "蛔虫治疗",
+        "钩虫治疗",
+        "鞭虫治疗",
+        "贾第虫治疗"
+      ],
+      "search_terms": [
+        "芬苯达唑",
+        "fenbendazole",
+        "蛔虫",
+        "钩虫",
+        "鞭虫",
+        "贾第虫"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用/多物种",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "蛔虫、钩虫、鞭虫及特定原虫",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "产品标签/兽医药理",
+          "dose_notes": "常用犬猫50 mg/kg q24h，疗程随寄生虫而异；按产品标签。",
+          "label_status": "产品标签/兽医药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "胃肠道线虫",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "产品标签",
+          "dose_notes": "按马用产品标签，剂量依制剂和寄生虫。",
+          "label_status": "产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛羊",
+          "indication": "胃肠道线虫",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "官方标签",
+          "dose_notes": "按当地批准产品标签；食品动物必须同步核对休药期。",
+          "label_status": "官方标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-农业农村部-fda"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "食品动物休药期必须以当地批准产品最新官方标签为准。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "芬苯达唑",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "ivermectin",
+      "generic_name_zh": "伊维菌素",
+      "generic_name_en": "",
+      "aliases": [
+        "Ivermectin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/大环内酯",
+      "clinical_categories": [
+        "驱虫/大环内酯"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "体内外寄生虫",
+        "线虫/心丝虫预防等特定适应症",
+        "胃肠道线虫/肺线虫等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用/多物种",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "线虫/心丝虫预防等特定适应症",
+          "route": "PO/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "产品标签",
+          "dose_notes": "产品和适应症差异极大；按批准标签。",
+          "label_status": "产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "胃肠道线虫/肺线虫等",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "产品标签",
+          "dose_notes": "按马用批准制剂标签。",
+          "label_status": "产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛羊猪",
+          "indication": "体内外寄生虫",
+          "route": "SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "官方标签",
+          "dose_notes": "按物种和批准制剂标签；食品动物休药期必须核对官方标签。",
+          "label_status": "官方标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-农业农村部-fda"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "MDR1相关犬种对大剂量伊维菌素敏感；猫、爬宠等不能直接套犬剂量。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "moxidectin",
+      "generic_name_zh": "莫昔克丁",
+      "generic_name_en": "moxidectin",
+      "aliases": [
+        "Moxidectin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/大环内酯",
+      "clinical_categories": [
+        "驱虫/大环内酯"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "心丝虫预防/线虫等",
+        "胃肠道线虫"
+      ],
+      "indication_keywords": [
+        "心丝虫",
+        "线虫",
+        "螨虫",
+        "心丝虫治疗",
+        "线虫治疗",
+        "螨虫治疗"
+      ],
+      "search_terms": [
+        "莫昔克丁",
+        "moxidectin",
+        "心丝虫",
+        "线虫",
+        "螨虫"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "心丝虫预防/线虫等",
+          "route": "PO/外用",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按具体组合制剂标签。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "胃肠道线虫",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "产品标签",
+          "dose_notes": "按马用产品标签。",
+          "label_status": "产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "羊",
+          "indication": "胃肠道线虫",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA recent approval",
+          "dose_notes": "FDA 2026产品示例：0.2 mg/kg用于批准的羊寄生虫适应症；其他地区以当地标签为准。",
+          "label_status": "FDA recent approval",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "莫昔克丁",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "selamectin",
+      "generic_name_zh": "塞拉菌素",
+      "generic_name_en": "selamectin",
+      "aliases": [
+        "Selamectin",
+        "Revolution"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/大环内酯",
+      "clinical_categories": [
+        "驱虫/大环内酯"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "心丝虫预防、跳蚤及部分螨虫/线虫"
+      ],
+      "indication_keywords": [
+        "跳蚤",
+        "耳螨",
+        "心丝虫",
+        "蛔虫",
+        "跳蚤治疗",
+        "耳螨治疗",
+        "心丝虫治疗",
+        "蛔虫治疗"
+      ],
+      "search_terms": [
+        "塞拉菌素",
+        "selamectin",
+        "跳蚤",
+        "耳螨",
+        "心丝虫",
+        "蛔虫"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "心丝虫预防、跳蚤及部分螨虫/线虫",
+          "route": "外用",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按体重分档产品标签使用；不以统一mg/kg替代产品规格。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "塞拉菌素",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "fluralaner",
+      "generic_name_zh": "氟雷拉纳",
+      "generic_name_en": "",
+      "aliases": [
+        "Fluralaner",
+        "Bravecto"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/异噁唑啉",
+      "clinical_categories": [
+        "驱虫/异噁唑啉"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "跳蚤/蜱等外寄生虫"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "跳蚤/蜱等外寄生虫",
+          "route": "PO/外用",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA产品标签",
+          "dose_notes": "按体重分档产品标签；不同剂型、物种和适应症间隔不同。",
+          "label_status": "FDA产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "afoxolaner",
+      "generic_name_zh": "阿福拉纳",
+      "generic_name_en": "",
+      "aliases": [
+        "Afoxolaner",
+        "NexGard"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/异噁唑啉",
+      "clinical_categories": [
+        "驱虫/异噁唑啉"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "跳蚤/蜱"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "跳蚤/蜱",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA产品标签",
+          "dose_notes": "按体重分档产品标签；不同蜱种的批准适应症可能随地区更新。",
+          "label_status": "FDA产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "nitenpyram",
+      "generic_name_zh": "尼滕吡呤",
+      "generic_name_en": "",
+      "aliases": [
+        "Nitenpyram",
+        "Capstar"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/新烟碱类",
+      "clinical_categories": [
+        "驱虫/新烟碱类"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "成年跳蚤"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "成年跳蚤",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA Recent Approvals",
+          "dose_notes": "按产品标签；FDA 2026批准产品用于≥4周龄且≥2 lb犬猫的成年跳蚤。",
+          "label_status": "FDA Recent Approvals",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "lactated-ringers",
+      "generic_name_zh": "乳酸林格氏液",
+      "generic_name_en": "lactated-ringers",
+      "aliases": [
+        "乳酸钠林格注射液",
+        "LRS"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "液体治疗/晶体液",
+      "clinical_categories": [
+        "液体治疗/晶体液"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "复苏/补液/维持及持续丢失"
+      ],
+      "indication_keywords": [
+        "脱水",
+        "低血容量",
+        "维持液体",
+        "持续丢失",
+        "脱水治疗",
+        "低血容量治疗",
+        "维持液体治疗",
+        "持续丢失治疗"
+      ],
+      "search_terms": [
+        "乳酸林格氏液",
+        "lactated-ringers",
+        "脱水",
+        "低血容量",
+        "维持液体",
+        "持续丢失"
+      ],
+      "evidence_grade": "A",
+      "use_type": "液体治疗",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "复苏/补液/维持及持续丢失",
+          "route": "IV/IO/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "按复苏、脱水、维持及持续丢失分别计算；不存在适用于所有病例的固定速率。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "心肾功能不全病例需动态评估容量反应。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "乳酸林格氏液",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "sodium-chloride-0.9",
+      "generic_name_zh": "0.9%氯化钠注射液",
+      "generic_name_en": "sodium-chloride-0.9",
+      "aliases": [
+        "生理盐水",
+        "0.9% NaCl"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "液体治疗/晶体液",
+      "clinical_categories": [
+        "液体治疗/晶体液"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "补液/特定低钠和氯缺失等"
+      ],
+      "indication_keywords": [
+        "脱水",
+        "低氯性代谢性碱中毒",
+        "药物配伍",
+        "脱水治疗",
+        "低氯性代谢性碱中毒治疗",
+        "药物配伍治疗"
+      ],
+      "search_terms": [
+        "0.9%氯化钠",
+        "sodium-chloride-0.9",
+        "脱水",
+        "低氯性代谢性碱中毒",
+        "药物配伍"
+      ],
+      "evidence_grade": "A",
+      "use_type": "液体治疗",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "补液/特定低钠和氯缺失等",
+          "route": "IV/IO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "按容量状态、电解质和酸碱状态计算；避免长期大量使用造成高氯负荷。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "0.9%氯化钠",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "dextrose",
+      "generic_name_zh": "葡萄糖注射液",
+      "generic_name_en": "",
+      "aliases": [
+        "Dextrose",
+        "5%葡萄糖"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "液体治疗/代谢/急救",
+      "clinical_categories": [
+        "液体治疗/代谢/急救"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "低血糖"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "液体治疗/急救",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "低血糖",
+          "route": "IV/IO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "按血糖和制剂浓度计算并缓慢纠正；具体bolus/CRI方案按急救资料。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "高浓度葡萄糖外周静脉输注需谨慎；必须复测血糖。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "potassium-chloride",
+      "generic_name_zh": "氯化钾",
+      "generic_name_en": "potassium-chloride",
+      "aliases": [
+        "KCl"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "电解质",
+      "clinical_categories": [
+        "电解质"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "低钾血症"
+      ],
+      "indication_keywords": [
+        "低钾血症",
+        "低钾血症治疗"
+      ],
+      "search_terms": [
+        "氯化钾",
+        "potassium-chloride",
+        "低钾血症"
+      ],
+      "evidence_grade": "A",
+      "use_type": "电解质纠正",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "低钾血症",
+          "route": "IV输注",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "按血钾和体重计算，并严格限制输钾速率；严禁静脉推注。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "输注泵、尿量和心电监护要求取决于严重程度。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "氯化钾",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "calcium-gluconate",
+      "generic_name_zh": "葡萄糖酸钙",
+      "generic_name_en": "",
+      "aliases": [
+        "10%葡萄糖酸钙"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "急救/电解质",
+      "clinical_categories": [
+        "急救/电解质"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "高钾伴ECG异常/低钙等特定急症"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "急救",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "高钾伴ECG异常/低钙等特定急症",
+          "route": "IV缓慢",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "必须按制剂浓度、血钙/血钾和ECG监护核定；不能把不同浓度制剂按mL直接互换。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "sodium-bicarbonate",
+      "generic_name_zh": "碳酸氢钠",
+      "generic_name_en": "",
+      "aliases": [
+        "Sodium bicarbonate"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "酸碱/急救",
+      "clinical_categories": [
+        "酸碱/急救"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "特定严重代谢性酸中毒/高钾辅助"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "急救/特定适应症",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "特定严重代谢性酸中毒/高钾辅助",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "依据血气、HCO3-/BE和病因计算；不应仅凭低pH经验性大量补碱。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "epinephrine",
+      "generic_name_zh": "肾上腺素",
+      "generic_name_en": "epinephrine",
+      "aliases": [
+        "Epinephrine",
+        "Adrenaline"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "急救/CPR/升压",
+      "clinical_categories": [
+        "急救/CPR/升压"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "CPR",
+        "过敏性休克"
+      ],
+      "indication_keywords": [
+        "心肺复苏",
+        "过敏性休克",
+        "严重低血压",
+        "心肺复苏治疗",
+        "过敏性休克治疗",
+        "严重低血压治疗"
+      ],
+      "search_terms": [
+        "肾上腺素",
+        "epinephrine",
+        "心肺复苏",
+        "过敏性休克",
+        "严重低血压"
+      ],
+      "evidence_grade": "A",
+      "use_type": "急救",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "CPR",
+          "route": "IV/IO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "RECOVER",
+          "dose_notes": "按当前RECOVER CPR算法的低剂量/高剂量策略和节律执行；不得与过敏性休克剂量混用。",
+          "label_status": "RECOVER",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-recover-initiative"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "过敏性休克",
+          "route": "IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "急救指南",
+          "dose_notes": "按急救指南和制剂浓度核定；应立即处理气道和循环。",
+          "label_status": "急救指南",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-recover-initiative"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "肾上腺素",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "atropine",
+      "generic_name_zh": "阿托品",
+      "generic_name_en": "atropine",
+      "aliases": [
+        "Atropine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "急救/抗胆碱能",
+      "clinical_categories": [
+        "急救/抗胆碱能"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物",
+        "鸟类"
+      ],
+      "indications_general": [
+        "迷走性心动过缓/特定CPR情境"
+      ],
+      "indication_keywords": [
+        "心动过缓",
+        "迷走反射",
+        "麻醉辅助",
+        "心动过缓治疗",
+        "迷走反射治疗",
+        "麻醉辅助治疗"
+      ],
+      "search_terms": [
+        "阿托品",
+        "atropine",
+        "心动过缓",
+        "迷走反射",
+        "麻醉辅助"
+      ],
+      "evidence_grade": "A",
+      "use_type": "急救/麻醉",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "迷走性心动过缓/特定CPR情境",
+          "route": "IV/IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "RECOVER/麻醉资料",
+          "dose_notes": "按RECOVER/麻醉方案和心律使用；CPR剂量与普通心动过缓剂量不同。",
+          "label_status": "RECOVER/麻醉资料",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-recover-initiative"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "阿托品",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "naloxone",
+      "generic_name_zh": "纳洛酮",
+      "generic_name_en": "naloxone",
+      "aliases": [
+        "Naloxone"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "急救/阿片拮抗",
+      "clinical_categories": [
+        "急救/阿片拮抗"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "阿片过量/呼吸抑制"
+      ],
+      "indication_keywords": [
+        "阿片过量",
+        "呼吸抑制",
+        "阿片过量治疗",
+        "呼吸抑制治疗"
+      ],
+      "search_terms": [
+        "纳洛酮",
+        "naloxone",
+        "阿片过量",
+        "呼吸抑制"
+      ],
+      "evidence_grade": "B",
+      "use_type": "急救",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "阿片过量/呼吸抑制",
+          "route": "IV/IM/IN",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医急救/药理",
+          "dose_notes": "按效应滴定，目标是恢复通气而非完全逆转镇痛；具体剂量按专科急救资料。",
+          "label_status": "兽医急救/药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "纳洛酮",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "flumazenil",
+      "generic_name_zh": "氟马西尼",
+      "generic_name_en": "flumazenil",
+      "aliases": [
+        "Flumazenil"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "急救/苯二氮䓬拮抗",
+      "clinical_categories": [
+        "急救/苯二氮䓬拮抗"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "苯二氮䓬类过度镇静"
+      ],
+      "indication_keywords": [
+        "苯二氮卓过量",
+        "麻醉苏醒",
+        "苯二氮卓过量治疗",
+        "麻醉苏醒治疗"
+      ],
+      "search_terms": [
+        "氟马西尼",
+        "flumazenil",
+        "苯二氮卓过量",
+        "麻醉苏醒"
+      ],
+      "evidence_grade": "B",
+      "use_type": "急救/麻醉",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "苯二氮䓬类过度镇静",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "按效应滴定；具体剂量按麻醉/急救资料。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "氟马西尼",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "atipamezole",
+      "generic_name_zh": "阿替美唑",
+      "generic_name_en": "",
+      "aliases": [
+        "Atipamezole"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇静拮抗/α2拮抗",
+      "clinical_categories": [
+        "镇静拮抗/α2拮抗"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "逆转α2激动剂",
+        "逆转右美托咪定/美托咪定"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "逆转右美托咪定/美托咪定",
+          "route": "IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA产品标签",
+          "dose_notes": "按产品标签并结合所用α2激动剂剂量计算；2026 FDA有犬用批准产品。",
+          "label_status": "FDA产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-recent-approvals"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "逆转α2激动剂",
+          "route": "IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按产品标签和具体α2激动剂；犬猫方案不同。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "ciprofloxacin-oph",
+      "generic_name_zh": "环丙沙星滴眼液",
+      "generic_name_en": "",
+      "aliases": [
+        "Ciprofloxacin ophthalmic"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "眼科/抗菌",
+      "clinical_categories": [
+        "眼科/抗菌"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "细菌性角膜结膜炎等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "细菌性角膜结膜炎等",
+          "route": "滴眼",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医眼科参考",
+          "dose_notes": "常用每眼1滴q4–6h；重症可更频繁，必须结合角膜染色/培养。",
+          "label_status": "兽医眼科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-bsava-兽医眼科资料"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "tobramycin-oph",
+      "generic_name_zh": "妥布霉素滴眼液",
+      "generic_name_en": "",
+      "aliases": [
+        "Tobramycin ophthalmic"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "眼科/抗菌",
+      "clinical_categories": [
+        "眼科/抗菌"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "细菌性角膜结膜炎"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "细菌性角膜结膜炎",
+          "route": "滴眼",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医眼科参考",
+          "dose_notes": "常用1滴q4–6h；重症按眼科专科方案。",
+          "label_status": "兽医眼科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-bsava-兽医眼科资料"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "atropine-oph",
+      "generic_name_zh": "阿托品滴眼液",
+      "generic_name_en": "",
+      "aliases": [
+        "Atropine ophthalmic"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "眼科/散瞳-睫状肌麻痹",
+      "clinical_categories": [
+        "眼科/散瞳-睫状肌麻痹"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "葡萄膜炎、睫状肌痉挛"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/超说明书依制剂",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "葡萄膜炎、睫状肌痉挛",
+          "route": "滴眼",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医眼科参考",
+          "dose_notes": "按眼科检查和疼痛程度使用；常见1滴q12–24h，必要时调整。",
+          "label_status": "兽医眼科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-bsava-兽医眼科资料"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "可能升高眼压；青光眼未排除前慎用。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "chlorhexidine",
+      "generic_name_zh": "氯己定",
+      "generic_name_en": "",
+      "aliases": [
+        "Chlorhexidine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "皮肤/抗菌消毒",
+      "clinical_categories": [
+        "皮肤/抗菌消毒"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "浅表细菌/酵母性皮炎辅助"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "外用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "浅表细菌/酵母性皮炎辅助",
+          "route": "外用",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医皮肤科参考",
+          "dose_notes": "按产品浓度和制剂使用；常见2–4%洗液/擦洗，频率依皮肤病方案。",
+          "label_status": "兽医皮肤科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "避免眼内、耳鼓膜穿孔情况下的中耳接触；高浓度可刺激组织。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "oxytocin",
+      "generic_name_zh": "缩宫素",
+      "generic_name_en": "",
+      "aliases": [
+        "Oxytocin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "生殖/子宫收缩",
+      "clinical_categories": [
+        "生殖/子宫收缩"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "产后子宫收缩/特定难产病例",
+        "产科/产后子宫收缩"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "产后子宫收缩/特定难产病例",
+          "route": "IM/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医产科参考",
+          "dose_notes": "剂量依分娩阶段、宫颈状态和物种；必须先排除机械性梗阻。",
+          "label_status": "兽医产科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛羊猪马",
+          "indication": "产科/产后子宫收缩",
+          "route": "IM/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "官方标签/产科资料",
+          "dose_notes": "按物种和官方产品标签/产科资料；食品动物休药期按当地标签。",
+          "label_status": "官方标签/产科资料",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-农业农村部"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "机械性难产、胎位异常时不能以缩宫素替代产科处理。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "dinoprost",
+      "generic_name_zh": "地诺前列素",
+      "generic_name_en": "",
+      "aliases": [
+        "Dinoprost",
+        "PGF2α"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "生殖/前列腺素",
+      "clinical_categories": [
+        "生殖/前列腺素"
+      ],
+      "species_groups": [
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "特定生殖适应症",
+        "黄体溶解/同期化等批准适应症"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用/食品动物",
+      "records": [
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛",
+          "indication": "黄体溶解/同期化等批准适应症",
+          "route": "IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "官方兽药标签",
+          "dose_notes": "必须按当地批准产品标签和繁殖程序。",
+          "label_status": "官方兽药标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-农业农村部"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "马",
+          "indication": "特定生殖适应症",
+          "route": "IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "马专科参考",
+          "dose_notes": "按马专科/产品标签。",
+          "label_status": "马专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "人员暴露风险高；孕妇避免接触。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "florfenicol",
+      "generic_name_zh": "氟苯尼考",
+      "generic_name_en": "",
+      "aliases": [
+        "Florfenicol"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/酰胺醇",
+      "clinical_categories": [
+        "抗菌药/酰胺醇"
+      ],
+      "species_groups": [
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "呼吸道疾病等批准适应症"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "食品动物兽医用",
+      "records": [
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛",
+          "indication": "呼吸道疾病等批准适应症",
+          "route": "IM/SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "官方兽药标签",
+          "dose_notes": "按当地批准产品标签；不同制剂剂量和休药期不同。",
+          "label_status": "官方兽药标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-农业农村部"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "猪",
+          "indication": "呼吸道疾病等批准适应症",
+          "route": "IM/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "官方兽药标签",
+          "dose_notes": "按当地批准产品标签；不得套用牛剂量。",
+          "label_status": "官方兽药标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-农业农村部"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "食品动物必须记录产品批准文号、批次、剂量和休药期。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "tulathromycin",
+      "generic_name_zh": "土拉霉素",
+      "generic_name_en": "",
+      "aliases": [
+        "Tulathromycin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/大环内酯",
+      "clinical_categories": [
+        "抗菌药/大环内酯"
+      ],
+      "species_groups": [
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "BRD等批准适应症",
+        "特定呼吸道疾病"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "食品动物兽医用",
+      "records": [
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛",
+          "indication": "BRD等批准适应症",
+          "route": "SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/中国官方标签",
+          "dose_notes": "按当地批准产品标签；美国标签常见单次2.5 mg/kg，但中国休药期/批准范围需以本地标签为准。",
+          "label_status": "FDA/中国官方标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "猪",
+          "indication": "特定呼吸道疾病",
+          "route": "IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/中国官方标签",
+          "dose_notes": "按当地批准产品标签；不同国家批准适应症不同。",
+          "label_status": "FDA/中国官方标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "不得以国外批准标签替代中国批准标签。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "ceftiofur",
+      "generic_name_zh": "头孢噻呋",
+      "generic_name_en": "ceftiofur",
+      "aliases": [
+        "Ceftiofur"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗菌药/第三代头孢",
+      "clinical_categories": [
+        "抗菌药/第三代头孢"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "BRD等批准适应症",
+        "呼吸道感染等批准适应症"
+      ],
+      "indication_keywords": [
+        "抗菌",
+        "呼吸道",
+        "乳房炎",
+        "经济动物",
+        "抗菌治疗",
+        "呼吸道治疗",
+        "乳房炎治疗",
+        "经济动物治疗"
+      ],
+      "search_terms": [
+        "头孢噻呋",
+        "ceftiofur",
+        "抗菌",
+        "呼吸道",
+        "乳房炎",
+        "经济动物"
+      ],
+      "evidence_grade": "A",
+      "use_type": "兽医用/食品动物",
+      "records": [
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛",
+          "indication": "BRD等批准适应症",
+          "route": "IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/中国官方标签",
+          "dose_notes": "按当地批准产品标签；不同制剂规格和休药期不同。",
+          "label_status": "FDA/中国官方标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "猪",
+          "indication": "呼吸道感染等批准适应症",
+          "route": "IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/中国官方标签",
+          "dose_notes": "按当地批准产品标签。",
+          "label_status": "FDA/中国官方标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "食品动物使用需遵守抗菌药管理和休药期；不得凭经验延长疗程。"
+      ],
+      "contraindications": [],
+      "active_ingredient": "头孢噻呋",
+      "dosage_forms": [],
+      "concentrations": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "nystatin",
+      "generic_name_zh": "制霉菌素",
+      "generic_name_en": "",
+      "aliases": [
+        "Nystatin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗真菌/多烯类",
+      "clinical_categories": [
+        "抗真菌/多烯类"
+      ],
+      "species_groups": [
+        "爬宠",
+        "犬猫",
+        "鸟类"
+      ],
+      "indications_general": [
+        "口腔/消化道念珠菌等",
+        "念珠菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "多为外用/口服超说明书",
+      "records": [
+        {
+          "species_group": "鸟类",
+          "species": "鸟类",
+          "indication": "念珠菌感染",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "禽鸟专科药理",
+          "dose_notes": "常用按鸟类专科资料给药；不建议从犬猫剂量直接换算。",
+          "label_status": "禽鸟专科药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "爬宠",
+          "species": "爬宠",
+          "indication": "口腔/消化道念珠菌等",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "爬宠专科药理",
+          "dose_notes": "物种差异大，按爬宠专科资料。",
+          "label_status": "爬宠专科药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "terbinafine-reptile",
+      "generic_name_zh": "特比萘芬（爬宠）",
+      "generic_name_en": "",
+      "aliases": [
+        "Terbinafine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "抗真菌/爬宠",
+      "clinical_categories": [
+        "抗真菌/爬宠"
+      ],
+      "species_groups": [
+        "爬宠"
+      ],
+      "indications_general": [
+        "皮肤/甲壳真菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "C",
+      "use_type": "兽医超说明书",
+      "records": [
+        {
+          "species_group": "爬宠",
+          "species": "爬宠",
+          "indication": "皮肤/甲壳真菌感染",
+          "route": "外用/口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "爬宠专科文献",
+          "dose_notes": "证据有限，需物种、体温和病原学支持；本库不提供统一固定剂量。",
+          "label_status": "爬宠专科文献",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "龟/蜥蜴真菌病应优先病原学和环境控制。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "prednisolone",
+      "generic_name_zh": "泼尼松龙",
+      "generic_name_en": "",
+      "aliases": [
+        "Prednisolone"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "糖皮质激素",
+      "clinical_categories": [
+        "糖皮质激素"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "免疫介导疾病/抗炎等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "免疫介导疾病/抗炎等",
+          "route": "PO/注射",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "剂量高度依赖适应症；抗炎、免疫抑制和替代治疗不能共用一个剂量。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "猫通常优先泼尼松龙而非泼尼松；长期使用需监测感染、糖尿病和胃肠道风险。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "dexamethasone",
+      "generic_name_zh": "地塞米松",
+      "generic_name_en": "",
+      "aliases": [
+        "Dexamethasone"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "糖皮质激素",
+      "clinical_categories": [
+        "糖皮质激素"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "抗炎/免疫抑制/特定急症",
+        "特定炎症/过敏/内分泌试验等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "抗炎/免疫抑制/特定急症",
+          "route": "IV/IM/SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "剂量随适应症差异显著；必须按目标效应和具体制剂。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "经济动物/大动物",
+          "species": "牛羊马",
+          "indication": "特定炎症/过敏/内分泌试验等",
+          "route": "IM/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "官方标签",
+          "dose_notes": "按物种批准标签和法规；食品动物休药期以当地标签为准。",
+          "label_status": "官方标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-农业农村部"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "tranexamic-acid",
+      "generic_name_zh": "氨甲环酸",
+      "generic_name_en": "",
+      "aliases": [
+        "Tranexamic acid"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "止血/抗纤溶",
+      "clinical_categories": [
+        "止血/抗纤溶"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "高纤溶性出血/围术期辅助"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医常用/部分超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "高纤溶性出血/围术期辅助",
+          "route": "IV/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医急救/药理",
+          "dose_notes": "常用方案按体重和给药间隔个体化；需结合出血病因与凝血评估。",
+          "label_status": "兽医急救/药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "vitamin-k1",
+      "generic_name_zh": "维生素K1",
+      "generic_name_en": "",
+      "aliases": [
+        "Phytonadione",
+        "Vitamin K1"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "止血/解毒",
+      "clinical_categories": [
+        "止血/解毒"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "抗凝血灭鼠药中毒/维生素K依赖性凝血障碍"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "抗凝血灭鼠药中毒/维生素K依赖性凝血障碍",
+          "route": "SC/PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "常用约2.5 mg/kg PO q12h；疗程依据毒物和PT复查，严重病例先按急救方案。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "避免将维生素K1误写成K3；注射途径存在过敏/局部反应风险。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "torsemide",
+      "generic_name_zh": "托拉塞米",
+      "generic_name_en": "",
+      "aliases": [
+        "Torasemide",
+        "Torsemide"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/袢利尿剂",
+      "clinical_categories": [
+        "心血管/袢利尿剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "充血性心衰/利尿"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "充血性心衰/利尿",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医心脏病学/药理",
+          "dose_notes": "常用约0.1–0.3 mg/kg q24h；转换自呋塞米时必须按利尿效应和电解质监测个体化。",
+          "label_status": "兽医心脏病学/药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "低钾、低钠、肾前性氮质血症风险；需监测肾功能和电解质。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "sildenafil",
+      "generic_name_zh": "西地那非",
+      "generic_name_en": "",
+      "aliases": [
+        "Sildenafil"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/肺血管扩张",
+      "clinical_categories": [
+        "心血管/肺血管扩张"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "肺动脉高压"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "肺动脉高压",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "ACVIM/兽医药理",
+          "dose_notes": "常用约1–2 mg/kg q8h；按肺高压专科方案调整。",
+          "label_status": "ACVIM/兽医药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-acvim"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "clopidogrel",
+      "generic_name_zh": "氯吡格雷",
+      "generic_name_en": "",
+      "aliases": [
+        "Clopidogrel"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "心血管/抗血小板",
+      "clinical_categories": [
+        "心血管/抗血小板"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "动脉血栓栓塞风险降低"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "动脉血栓栓塞风险降低",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医心脏病学",
+          "dose_notes": "常用75 mg/猫负荷后37.5 mg/猫 q24h的经典方案；负荷方案需由心脏/内科医生决定。",
+          "label_status": "兽医心脏病学",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-acvim"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "aspirin",
+      "generic_name_zh": "阿司匹林",
+      "generic_name_en": "",
+      "aliases": [
+        "Aspirin",
+        "乙酰水杨酸"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "NSAID/抗血小板",
+      "clinical_categories": [
+        "NSAID/抗血小板"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "特定血栓风险病例"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "特定血栓风险病例",
+          "route": "口服",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "ACVIM/兽医药理",
+          "dose_notes": "低剂量方案应由心脏/内科专科制定；猫对NSAID敏感，不建议自行套用犬剂量。",
+          "label_status": "ACVIM/兽医药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-acvim"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "与其他NSAID/糖皮质激素合用风险高。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "methadone",
+      "generic_name_zh": "美沙酮",
+      "generic_name_en": "",
+      "aliases": [
+        "Methadone"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇痛/阿片",
+      "clinical_categories": [
+        "镇痛/阿片"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "中重度围术期疼痛"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/受控药物",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "中重度围术期疼痛",
+          "route": "IV/IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "常用约0.1–0.3 mg/kg q4–6h，按疼痛和联合镇痛滴定。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "hydromorphone",
+      "generic_name_zh": "氢吗啡酮",
+      "generic_name_en": "",
+      "aliases": [
+        "Hydromorphone"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇痛/阿片",
+      "clinical_categories": [
+        "镇痛/阿片"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "中重度疼痛"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/受控药物",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "中重度疼痛",
+          "route": "IV/IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "常用约0.05–0.2 mg/kg q2–6h；按效应滴定。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "猫可出现与剂量相关的高热等不良反应；需监测呼吸。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "morphine",
+      "generic_name_zh": "吗啡",
+      "generic_name_en": "",
+      "aliases": [
+        "Morphine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "镇痛/阿片",
+      "clinical_categories": [
+        "镇痛/阿片"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "中重度疼痛"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "兽医用/受控药物",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "中重度疼痛",
+          "route": "IV/IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "常用约0.1–0.5 mg/kg q2–6h；具体方案依麻醉与疼痛管理。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "lidocaine",
+      "generic_name_zh": "利多卡因",
+      "generic_name_en": "",
+      "aliases": [
+        "Lidocaine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "局麻/抗心律失常",
+      "clinical_categories": [
+        "局麻/抗心律失常"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "局部麻醉",
+        "局部麻醉/室性心律失常"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医常用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "局部麻醉/室性心律失常",
+          "route": "局部/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉/心脏专科",
+          "dose_notes": "局麻与抗心律失常剂量完全不同；IV抗心律失常常用负荷后CRI，按ECG和专科方案。",
+          "label_status": "麻醉/心脏专科",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "局部麻醉",
+          "route": "局部",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科",
+          "dose_notes": "猫对局麻药毒性更敏感；按局部麻醉专科剂量。",
+          "label_status": "麻醉专科",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "猫静脉利多卡因用于心律失常需特别谨慎。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "bupivacaine",
+      "generic_name_zh": "布比卡因",
+      "generic_name_en": "",
+      "aliases": [
+        "Bupivacaine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "局麻",
+      "clinical_categories": [
+        "局麻"
+      ],
+      "species_groups": [
+        "犬猫",
+        "经济动物/大动物"
+      ],
+      "indications_general": [
+        "局部浸润/神经阻滞/硬膜外"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "麻醉用药",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "局部浸润/神经阻滞/硬膜外",
+          "route": "局部",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "麻醉专科参考",
+          "dose_notes": "常用按总mg/kg限制剂量并按浓度计算；不能只看mL。",
+          "label_status": "麻醉专科参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "心脏毒性；避免血管内注射。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "mannitol",
+      "generic_name_zh": "甘露醇",
+      "generic_name_en": "",
+      "aliases": [
+        "Mannitol"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "神经/渗透性利尿",
+      "clinical_categories": [
+        "神经/渗透性利尿"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "颅内压升高/脑水肿等特定适应症"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "颅内压升高/脑水肿等特定适应症",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "Merck Veterinary Manual",
+          "dose_notes": "常用0.25–1 g/kg IV，根据颅压/神经状态和循环状态调整。",
+          "label_status": "Merck Veterinary Manual",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-merck-veterinary-manual"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "低血容量、心衰或无尿时慎用。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "lactulose",
+      "generic_name_zh": "乳果糖",
+      "generic_name_en": "",
+      "aliases": [
+        "Lactulose"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化/肝性脑病/泻剂",
+      "clinical_categories": [
+        "消化/肝性脑病/泻剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "肝性脑病/便秘"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "肝性脑病/便秘",
+          "route": "PO/灌肠",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约0.5 mL/kg PO q8–12h，目标为软便2–3次/日；需个体化。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "cisapride",
+      "generic_name_zh": "西沙必利",
+      "generic_name_en": "",
+      "aliases": [
+        "Cisapride"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化/促胃肠动力",
+      "clinical_categories": [
+        "消化/促胃肠动力"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "胃肠动力障碍/便秘等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "胃肠动力障碍/便秘等",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约0.2–0.5 mg/kg q8–12h；按专科方案。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "misoprostol",
+      "generic_name_zh": "米索前列醇",
+      "generic_name_en": "",
+      "aliases": [
+        "Misoprostol"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "消化/胃黏膜保护",
+      "clinical_categories": [
+        "消化/胃黏膜保护"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "NSAID相关胃肠黏膜保护"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "人用药/兽医超说明书",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "NSAID相关胃肠黏膜保护",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医药理参考",
+          "dose_notes": "常用约2–5 µg/kg q8h；孕妇操作人员需避免接触。",
+          "label_status": "兽医药理参考",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "vincristine",
+      "generic_name_zh": "长春新碱",
+      "generic_name_en": "",
+      "aliases": [
+        "Vincristine"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "肿瘤/长春花生物碱",
+      "clinical_categories": [
+        "肿瘤/长春花生物碱"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "淋巴瘤、白血病等化疗方案"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "肿瘤专科/人用药",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "淋巴瘤、白血病等化疗方案",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医肿瘤学",
+          "dose_notes": "按体表面积和肿瘤方案给药；不可用一个固定mg/kg覆盖所有化疗方案。",
+          "label_status": "兽医肿瘤学",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "必须严格避免血管外渗；化疗需CBC监测。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "cyclophosphamide",
+      "generic_name_zh": "环磷酰胺",
+      "generic_name_en": "",
+      "aliases": [
+        "Cyclophosphamide"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "肿瘤/免疫抑制",
+      "clinical_categories": [
+        "肿瘤/免疫抑制"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "淋巴瘤/免疫介导疾病等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "肿瘤专科/人用药",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "淋巴瘤/免疫介导疾病等",
+          "route": "PO/IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医肿瘤学",
+          "dose_notes": "按具体化疗方案和体表面积；不同方案间隔差异大。",
+          "label_status": "兽医肿瘤学",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "出血性膀胱炎、骨髓抑制；需CBC和尿液监测。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "doxorubicin",
+      "generic_name_zh": "多柔比星",
+      "generic_name_en": "",
+      "aliases": [
+        "Doxorubicin",
+        "阿霉素"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "肿瘤/蒽环类",
+      "clinical_categories": [
+        "肿瘤/蒽环类"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "淋巴瘤、血管肉瘤等",
+        "淋巴瘤等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "肿瘤专科/人用药",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "淋巴瘤、血管肉瘤等",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医肿瘤学",
+          "dose_notes": "按体表面积和化疗方案；犬常见剂量约25–30 mg/m² q2–3周，具体按方案。",
+          "label_status": "兽医肿瘤学",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "淋巴瘤等",
+          "route": "IV",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医肿瘤学",
+          "dose_notes": "按猫肿瘤方案和肾功能调整；不套用犬方案。",
+          "label_status": "兽医肿瘤学",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "心脏毒性和外渗风险；严格静脉通路和监测。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "lomustine",
+      "generic_name_zh": "洛莫司汀",
+      "generic_name_en": "",
+      "aliases": [
+        "Lomustine",
+        "CCNU"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "肿瘤/烷化剂",
+      "clinical_categories": [
+        "肿瘤/烷化剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "淋巴瘤/肥大细胞瘤等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "B",
+      "use_type": "肿瘤专科",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "淋巴瘤/肥大细胞瘤等",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "兽医肿瘤学",
+          "dose_notes": "常见约60–90 mg/m² q3–6周，需按肝功能和CBC调整。",
+          "label_status": "兽医肿瘤学",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-plumb-s-veterinary-drug-handbook"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "明显骨髓抑制和肝毒性风险。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "oclacitinib",
+      "generic_name_zh": "奥拉替尼",
+      "generic_name_en": "",
+      "aliases": [
+        "Oclacitinib",
+        "Apoquel"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "皮肤/止痒/JAK抑制剂",
+      "clinical_categories": [
+        "皮肤/止痒/JAK抑制剂"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "过敏性皮炎/特应性皮炎相关瘙痒"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "过敏性皮炎/特应性皮炎相关瘙痒",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA产品标签",
+          "dose_notes": "常用0.4–0.6 mg/kg q12h，最多14天后改q24h；按产品标签。",
+          "label_status": "FDA产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "不适用于严重感染、肿瘤风险病例的无评估使用；按标签年龄限制。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "lokivetmab",
+      "generic_name_zh": "洛基维单抗",
+      "generic_name_en": "",
+      "aliases": [
+        "Lokivetmab",
+        "Cytopoint"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "皮肤/单克隆抗体",
+      "clinical_categories": [
+        "皮肤/单克隆抗体"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "特应性皮炎相关瘙痒"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "特应性皮炎相关瘙痒",
+          "route": "SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按体重分档产品标签；不能将单抗按常规mg/kg口服药逻辑替代。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "milbemycin-oxime",
+      "generic_name_zh": "米尔贝肟",
+      "generic_name_en": "",
+      "aliases": [
+        "Milbemycin oxime"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/大环内酯",
+      "clinical_categories": [
+        "驱虫/大环内酯"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "心丝虫预防及线虫等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬",
+          "indication": "心丝虫预防及线虫等",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA产品标签",
+          "dose_notes": "按体重分档产品标签；适应症和年龄限制依产品。",
+          "label_status": "FDA产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        },
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "心丝虫预防及线虫等",
+          "route": "PO",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA产品标签",
+          "dose_notes": "按猫用产品标签。",
+          "label_status": "FDA产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "pyriproxyfen-imidacloprid",
+      "generic_name_zh": "吡虫啉复方外用制剂",
+      "generic_name_en": "",
+      "aliases": [
+        "Imidacloprid combinations"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/外寄生虫",
+      "clinical_categories": [
+        "驱虫/外寄生虫"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "跳蚤控制"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "犬猫",
+          "indication": "跳蚤控制",
+          "route": "外用",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按体重分档产品标签；复方成分和给药间隔不同。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "emodepside",
+      "generic_name_zh": "依莫德司",
+      "generic_name_en": "",
+      "aliases": [
+        "Emodepside"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "驱虫/环肽",
+      "clinical_categories": [
+        "驱虫/环肽"
+      ],
+      "species_groups": [
+        "犬猫"
+      ],
+      "indications_general": [
+        "蛔虫、钩虫等"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "A",
+      "use_type": "兽医用",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "蛔虫、钩虫等",
+          "route": "口服/外用",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "FDA/产品标签",
+          "dose_notes": "按具体复方制剂标签。",
+          "label_status": "FDA/产品标签",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-fda-green-book"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "meloxicam-bird",
+      "generic_name_zh": "美洛昔康（鸟类）",
+      "generic_name_en": "",
+      "aliases": [
+        "Meloxicam"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "鸟类镇痛/NSAID",
+      "clinical_categories": [
+        "鸟类镇痛/NSAID"
+      ],
+      "species_groups": [
+        "鸟类"
+      ],
+      "indications_general": [
+        "疼痛/炎症"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "C",
+      "use_type": "兽医超说明书",
+      "records": [
+        {
+          "species_group": "鸟类",
+          "species": "鸟类",
+          "indication": "疼痛/炎症",
+          "route": "PO/IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "禽鸟药理/专科文献",
+          "dose_notes": "物种差异很大；鸟类剂量不应由犬猫剂量直接换算，本库仅提示需查鸟类专科资料。",
+          "label_status": "禽鸟药理/专科文献",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-bsava"
+          ]
+        }
+      ],
+      "special_warnings": [
+        "鸟类肾功能和水合状态影响NSAID安全性。"
+      ],
+      "contraindications": []
+    },
+    {
+      "id": "enrofloxacin-reptile",
+      "generic_name_zh": "恩诺沙星（爬宠）",
+      "generic_name_en": "",
+      "aliases": [
+        "Enrofloxacin"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "爬宠抗菌",
+      "clinical_categories": [
+        "爬宠抗菌"
+      ],
+      "species_groups": [
+        "爬宠"
+      ],
+      "indications_general": [
+        "特定细菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "C",
+      "use_type": "兽医超说明书",
+      "records": [
+        {
+          "species_group": "爬宠",
+          "species": "爬宠",
+          "indication": "特定细菌感染",
+          "route": "PO/IM",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "爬宠专科药理",
+          "dose_notes": "物种、温度和感染部位差异显著；需按爬宠专科资料和药敏，不提供犬猫剂量外推。",
+          "label_status": "爬宠专科药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-bsava"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "ceftazidime-reptile",
+      "generic_name_zh": "头孢他啶（爬宠）",
+      "generic_name_en": "",
+      "aliases": [
+        "Ceftazidime"
+      ],
+      "brand_names": [],
+      "pharmacologic_class": "爬宠抗菌/第三代头孢",
+      "clinical_categories": [
+        "爬宠抗菌/第三代头孢"
+      ],
+      "species_groups": [
+        "爬宠"
+      ],
+      "indications_general": [
+        "革兰阴性细菌感染"
+      ],
+      "indication_keywords": [],
+      "search_terms": [],
+      "evidence_grade": "C",
+      "use_type": "兽医超说明书",
+      "records": [
+        {
+          "species_group": "爬宠",
+          "species": "爬宠",
+          "indication": "革兰阴性细菌感染",
+          "route": "IM/SC",
+          "dose": null,
+          "dose_unit": "",
+          "frequency": "",
+          "duration": "",
+          "dose_basis": "爬宠专科药理",
+          "dose_notes": "龟类等爬宠常用但剂量/间隔高度依物种和体温；应查爬宠专科资料。",
+          "label_status": "爬宠专科药理",
+          "monitoring": [],
+          "source_ids": [
+            "legacy-bsava"
+          ]
+        }
+      ],
+      "special_warnings": [],
+      "contraindications": []
+    },
+    {
+      "id": "milbemycin oxime",
+      "generic_name_zh": "米尔贝肟",
+      "generic_name_en": "milbemycin oxime",
+      "aliases": [],
+      "brand_names": [],
+      "active_ingredient": "米尔贝肟",
+      "pharmacologic_class": "大环内酯类抗寄生虫药",
+      "clinical_categories": [
+        "蛔虫",
+        "钩虫",
+        "心丝虫预防"
+      ],
+      "dosage_forms": [],
+      "concentrations": [],
+      "indications_general": [
+        "蛔虫",
+        "钩虫",
+        "心丝虫预防"
+      ],
+      "indication_keywords": [
+        "蛔虫",
+        "钩虫",
+        "心丝虫预防",
+        "蛔虫治疗",
+        "钩虫治疗",
+        "心丝虫预防治疗"
+      ],
+      "contraindications": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "records": [],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "search_terms": [
+        "米尔贝肟",
+        "milbemycin oxime",
+        "蛔虫",
+        "钩虫",
+        "心丝虫预防"
+      ],
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "fipronil",
+      "generic_name_zh": "非泼罗尼",
+      "generic_name_en": "fipronil",
+      "aliases": [],
+      "brand_names": [],
+      "active_ingredient": "非泼罗尼",
+      "pharmacologic_class": "苯基吡唑类杀虫药",
+      "clinical_categories": [
+        "跳蚤",
+        "蜱",
+        "体外寄生虫"
+      ],
+      "dosage_forms": [],
+      "concentrations": [],
+      "indications_general": [
+        "跳蚤",
+        "蜱",
+        "体外寄生虫"
+      ],
+      "indication_keywords": [
+        "跳蚤",
+        "蜱",
+        "体外寄生虫",
+        "跳蚤治疗",
+        "蜱治疗",
+        "体外寄生虫治疗"
+      ],
+      "contraindications": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "records": [],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "search_terms": [
+        "非泼罗尼",
+        "fipronil",
+        "跳蚤",
+        "蜱",
+        "体外寄生虫"
+      ],
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "ursodeoxycholic acid",
+      "generic_name_zh": "熊去氧胆酸",
+      "generic_name_en": "ursodeoxycholic acid",
+      "aliases": [],
+      "brand_names": [],
+      "active_ingredient": "熊去氧胆酸",
+      "pharmacologic_class": "胆汁酸",
+      "clinical_categories": [
+        "胆汁淤积",
+        "胆管疾病",
+        "慢性肝病"
+      ],
+      "dosage_forms": [],
+      "concentrations": [],
+      "indications_general": [
+        "胆汁淤积",
+        "胆管疾病",
+        "慢性肝病"
+      ],
+      "indication_keywords": [
+        "胆汁淤积",
+        "胆管疾病",
+        "慢性肝病",
+        "胆汁淤积治疗",
+        "胆管疾病治疗",
+        "慢性肝病治疗"
+      ],
+      "contraindications": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "records": [],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "search_terms": [
+        "熊去氧胆酸",
+        "ursodeoxycholic acid",
+        "胆汁淤积",
+        "胆管疾病",
+        "慢性肝病"
+      ],
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "telmisartan",
+      "generic_name_zh": "替米沙坦",
+      "generic_name_en": "telmisartan",
+      "aliases": [],
+      "brand_names": [],
+      "active_ingredient": "替米沙坦",
+      "pharmacologic_class": "ARB",
+      "clinical_categories": [
+        "蛋白尿",
+        "高血压"
+      ],
+      "dosage_forms": [],
+      "concentrations": [],
+      "indications_general": [
+        "蛋白尿",
+        "高血压"
+      ],
+      "indication_keywords": [
+        "蛋白尿",
+        "高血压",
+        "蛋白尿治疗",
+        "高血压治疗"
+      ],
+      "contraindications": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "records": [],
+      "species_groups": [
+        "猫",
+        "犬"
+      ],
+      "search_terms": [
+        "替米沙坦",
+        "telmisartan",
+        "蛋白尿",
+        "高血压"
+      ],
+      "last_verified": "2026-08-11",
+      "review_status": "待核验"
+    },
+    {
+      "id": "insulin glargine",
+      "generic_name_zh": "甘精胰岛素",
+      "generic_name_en": "insulin glargine",
+      "aliases": [],
+      "brand_names": [],
+      "active_ingredient": "甘精胰岛素",
+      "pharmacologic_class": "胰岛素",
+      "clinical_categories": [
+        "糖尿病",
+        "高血糖"
+      ],
+      "dosage_forms": [],
+      "concentrations": [],
+      "indications_general": [
+        "糖尿病",
+        "高血糖"
+      ],
+      "indication_keywords": [
+        "糖尿病",
+        "高血糖",
+        "糖尿病治疗",
+        "高血糖治疗"
+      ],
+      "contraindications": [],
+      "adverse_effects": [],
+      "major_interactions": [],
+      "special_warnings": [
+        "剂量记录必须按物种、适应症、制剂浓度和来源逐条核验；未核验剂量不自动生成。"
+      ],
+      "pregnancy_lactation": "需按具体药物、物种及官方资料核验。",
+      "records": [
+        {
+          "species_group": "犬猫",
+          "species": "猫",
+          "indication": "糖尿病起始治疗参考",
+          "indication_keywords": [
+            "猫糖尿病",
+            "糖尿病",
+            "高血糖"
+          ],
+          "label_status": "指南/文献参考",
+          "route": "皮下注射",
+          "dose": 1,
+          "dose_unit": "U/animal",
+          "dose_basis": "IU/animal",
+          "frequency": "q12h",
+          "duration": "个体化",
+          "concentration": "U-100或具体制剂浓度必须核对",
+          "dose_notes": "2026 AAHA猫糖尿病指南给出通常1 U/猫、每12小时作为起始参考；后续依据血糖监测和临床状态调整。",
+          "monitoring": [
+            "血糖",
+            "低血糖症状",
+            "体重",
+            "饮食摄入"
+          ],
+          "source_ids": [
+            "AAHA"
+          ]
+        }
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "search_terms": [
+        "甘精胰岛素",
+        "insulin glargine",
+        "糖尿病",
+        "高血糖"
+      ],
+      "last_verified": "2026-08-11",
+      "review_status": "部分核验"
+    }
+  ]
+}
