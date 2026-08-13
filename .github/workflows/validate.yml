@@ -1,0 +1,106 @@
+name: Validate veterinary toolbox
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "data/drugs.json"
+      - "sources.v3.2.json"
+      - "drugs.schema.v3.2.json"
+      - ".github/workflows/validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          files = [
+              Path("data/drugs.json"),
+              Path("sources.v3.2.json"),
+              Path("drugs.schema.v3.2.json"),
+          ]
+
+          for path in files:
+              if not path.exists():
+                  raise SystemExit(f"Missing file: {path}")
+              try:
+                  with path.open("r", encoding="utf-8") as f:
+                      json.load(f)
+              except Exception as e:
+                  raise SystemExit(f"Invalid JSON: {path}: {e}")
+              print(f"OK: {path}")
+
+      - name: Validate database contract
+        shell: python
+        run: |
+          import json
+
+          with open("data/drugs.json", "r", encoding="utf-8") as f:
+              db = json.load(f)
+
+          required = ["schema_version", "database_version", "last_reviewed", "drugs"]
+          for key in required:
+              if key not in db:
+                  raise SystemExit(f"Missing top-level field: {key}")
+
+          if not isinstance(db["drugs"], list):
+              raise SystemExit("'drugs' must be an array")
+
+          ids = set()
+          for i, drug in enumerate(db["drugs"], 1):
+              if not isinstance(drug, dict):
+                  raise SystemExit(f"Drug #{i} is not an object")
+              if not drug.get("id"):
+                  raise SystemExit(f"Drug #{i} missing id")
+              if drug["id"] in ids:
+                  raise SystemExit(f"Duplicate drug id: {drug['id']}")
+              ids.add(drug["id"])
+              if not drug.get("generic_name_zh"):
+                  raise SystemExit(f"Drug #{i} ({drug['id']}) missing generic_name_zh")
+              if "records" in drug and not isinstance(drug["records"], list):
+                  raise SystemExit(f"Drug {drug['id']} records must be an array")
+
+          print("Database contract passed.")
+          print("Schema:", db["schema_version"])
+          print("Version:", db["database_version"])
+          print("Drug count:", len(db["drugs"]))
+
+      - name: Validate index
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          s = Path("index.html").read_text(encoding="utf-8")
+          required_ids = [
+              "home", "drugs", "gas", "electro", "fluid",
+              "nutrition", "diabetes", "transfusion",
+              "anesthesia", "emergency", "update"
+          ]
+          for item in required_ids:
+              if f'id="{item}"' not in s:
+                  raise SystemExit(f"Missing page section: {item}")
+
+          if "data/drugs.json" not in s:
+              raise SystemExit("index.html is not pointing at data/drugs.json")
+
+          if "function renderRecord" not in s:
+              raise SystemExit("Drug record renderer missing")
+
+          print("index.html contract passed.")
+
+      - name: Done
+        run: echo "Veterinary toolbox validation passed."
