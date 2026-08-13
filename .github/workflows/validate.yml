@@ -1,0 +1,42 @@
+name: Validate veterinary toolbox 3.4
+on:
+  push:
+    branches: [main]
+    paths: [index.html, data/drugs.json, sources.v3.4.json, drugs.schema.v3.4.json, .github/workflows/validate.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          for p in [Path("data/drugs.json"),Path("sources.v3.4.json"),Path("drugs.schema.v3.4.json")]:
+              if not p.exists(): raise SystemExit(f"Missing: {p}")
+              json.load(p.open(encoding="utf-8"))
+              print("OK:",p)
+      - name: Validate database
+        shell: python
+        run: |
+          import json
+          db=json.load(open("data/drugs.json",encoding="utf-8"))
+          assert db["schema_version"]=="3.4"
+          assert isinstance(db["drugs"],list) and db["drugs"]
+          ids=[d.get("id") for d in db["drugs"]]
+          assert all(ids) and len(ids)==len(set(ids))
+          assert all(d.get("generic_name_zh") and isinstance(d.get("records"),list) for d in db["drugs"])
+          print("database_version:",db["database_version"])
+          print("drug entities:",len(db["drugs"]))
+      - name: Validate index
+        shell: python
+        run: |
+          from pathlib import Path
+          s=Path("index.html").read_text(encoding="utf-8")
+          for x in ["data/drugs.json","function renderDrugs","function renderRecord","sources.v3.4.json","drugs.schema.v3.4.json"]:
+              assert x in s,x
+          print("index contract OK")
