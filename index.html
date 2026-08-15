@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>兽医临床工具箱 5.0</title>
+<style>
+:root{--p:#0f766e;--p2:#115e59;--bg:#f4f7f7;--card:#fff;--line:#d9e4e5;--text:#172126;--muted:#64747a;--warn:#8a4b00;--danger:#991b1b;--blue:#1d4ed8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans SC","Microsoft YaHei",sans-serif;line-height:1.6}
+button,input,select,textarea{font:inherit}header{position:sticky;top:0;z-index:30;background:var(--p);color:#fff;padding:12px 15px;box-shadow:0 2px 10px #0002}h1{font-size:20px;margin:0}.sub{font-size:12px;opacity:.92}
+nav{position:sticky;top:64px;z-index:29;background:#fff;border-bottom:1px solid var(--line);display:flex;gap:6px;padding:8px;overflow:auto}nav button{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;cursor:pointer}nav button.active{background:#dff7f2;border-color:#79cbbb;color:var(--p2)}
+main{max-width:1240px;margin:auto;padding:12px}.view{display:none}.view.active{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+label{display:block;color:var(--muted);font-size:13px;margin:8px 0 4px}input,select,textarea{width:100%;padding:10px;border:1px solid #cbd6d9;border-radius:9px;background:#fff}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.toolbar>*{flex:1;min-width:170px}
+button.primary{background:var(--p);color:#fff;border:0;border-radius:9px;padding:10px 14px;cursor:pointer}button.secondary{background:#eef5f4;border:1px solid #cfe2df;border-radius:9px;padding:10px 14px;cursor:pointer}
+.muted,.small{color:var(--muted);font-size:13px}.result{background:#effaf7;border:1px solid #a5d8ce;border-radius:10px;padding:11px;margin-top:10px}.warn{background:#fff7ed;border:1px solid #fed7aa;color:var(--warn);border-radius:10px;padding:10px;margin-top:10px}.bad{background:#fef2f2;border:1px solid #fecaca;color:var(--danger);border-radius:10px;padding:10px}.info{background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;border-radius:10px;padding:10px}.special{background:#fff1f2;border:1px solid #fecdd3;color:#9f1239;border-radius:10px;padding:10px;margin-top:8px}.caution{background:#fffbeb;border:1px solid #fde68a;color:#854d0e;border-radius:10px;padding:10px;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}th{background:#f7faf9}.pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:11px;background:#edf4f3;margin:2px}.drug{border:1px solid var(--line);border-radius:10px;padding:11px;margin-top:8px}.drug b.title{font-size:17px}.source{font-size:12px;color:var(--muted)}.formula{font-family:ui-monospace,Consolas,monospace;background:#f7faf9;border-radius:8px;padding:9px;margin-top:8px}.timer{font-size:42px;font-weight:800;text-align:center;font-variant-numeric:tabular-nums}.checklist label{color:var(--text);font-size:14px}
+footer{max-width:1240px;margin:auto;padding:20px 14px 45px;color:var(--muted);font-size:12px}@media(max-width:600px){main{padding:9px}.grid{grid-template-columns:1fr}.toolbar>*{min-width:100%}}
+</style>
+</head>
+<body>
+<header><h1>兽医临床工具箱 5.0</h1><div class="sub">药物剂量与制剂换算 · 麻醉 · 急救 · 液体 · 血气 · 电解质 · 营养 · 输血 · 疼痛 · 中毒 · 疫苗/生物制品 · 临床工作台</div></header>
+<nav id="nav">
+<button data-v="home" class="active">首页</button><button data-v="dose">剂量/制剂计算</button><button data-v="reconstitute">粉针稀释</button><button data-v="anesthesia">麻醉</button><button data-v="drugs">药物数据库</button><button data-v="vaccine">疫苗/生物制品</button><button data-v="fluid">液体</button><button data-v="gas">血气</button><button data-v="electro">电解质</button><button data-v="nutrition">营养</button><button data-v="transfusion">输血</button><button data-v="emergency">急救/CPR</button><button data-v="pain">疼痛</button><button data-v="ai">AI临床助手</button><button data-v="toxic">中毒</button><button data-v="surgery">围手术期</button>
+</nav>
+<main>
+<section id="home" class="view active">
+<div class="card"><h2>5.0 临床工作台 · 一体化诊疗分析引擎</h2><p>患者资料、药物、剂量、制剂、麻醉、液体、血气、电解质、急救及围手术期工具统一入口。</p>
+<div class="grid"><div class="card"><h3>患者资料</h3><label>物种<select id="patientSpecies"><option>犬</option><option>猫</option><option>鹦鹉/鸟类</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option><option>其他</option></select></label><label>品种<input id="patientBreed" placeholder="如：边牧、英短"></label><label>体重 kg<input id="patientWeight" type="number" step=".01"></label><button class="primary" id="syncPatientBtn">同步到计算器</button><div id="patientMsg" class="muted"></div></div>
+<div class="card"><h3>数据库</h3><div id="dbStatus">正在读取 data/drugs.json…</div><div class="info">数据库只做已存在资料的检索与数学换算；没有可靠剂量依据时不会自动创造剂量。</div></div></div></div>
+<div class="card"><h3>安全原则</h3><ul><li>犬、猫、鸟类、兔/啮齿类、爬宠/龟鳖分开处理。</li><li>品种默认仅用于特殊风险提示，不凭空改变普通剂量。</li><li>柯利系/边牧/澳牧等涉及ABCB1/MDR1时单独警示。</li><li>特殊物种没有可靠证据时停止跨物种自动推荐。</li></ul></div>
+</section>
+
+<section id="dose" class="view"><div class="card"><h2>药物剂量 → 实际给药量</h2>
+<div class="grid"><div><label>物种<select id="doseSpecies"><option>犬</option><option>猫</option><option>鹦鹉/鸟类</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option><option>其他</option></select></label><label>品种<input id="doseBreed"></label><label>体重 kg<input id="doseWeight" type="number" step=".01"></label><label>药物<select id="doseDrug"><option>正在读取…</option></select></label><label>适应症<input id="doseInd"></label><button class="primary" id="doseRefBtn">读取剂量参考</button></div>
+<div><label>目标剂量<input id="doseValue" type="number" step=".001"></label><label>单位<select id="doseUnit"><option>mg/kg</option><option>µg/kg</option><option>mg/kg/day</option><option>mg/m²</option></select></label><label>频次<input id="doseFreq" placeholder="q12h"></label><label>制剂浓度<input id="doseConc" type="number" step=".001"></label><label>浓度单位<select id="doseConcUnit"><option>mg/mL</option><option>µg/mL</option><option>mg/片</option><option>mg/粒</option><option>mg/瓶</option></select></label><button class="primary" id="doseCalcBtn">计算</button></div></div>
+<div id="doseReference"></div><div id="doseResult"></div></div></section>
+
+<section id="reconstitute" class="view"><div class="card"><h2>粉针剂/冻干制剂复溶</h2><div class="grid"><div><label>物种<select id="rwSpecies"><option>犬</option><option>猫</option><option>鸟类</option><option>兔/啮齿类</option><option>爬宠</option></select></label><label>品种<input id="rwBreed"></label><label>体重 kg<input id="rwWeight" type="number" step=".01"></label><label>药物<select id="rwDrug"><option>正在读取…</option></select></label><label>医嘱剂量<input id="rwDose" type="number" step=".001"></label><select id="rwDoseUnit"><option>mg/kg</option><option>µg/kg</option></select></div><div><label>每瓶总药量<input id="vialAmount" type="number" step=".001"></label><label>单位<select id="vialUnit"><option>mg</option><option>g</option><option>µg</option></select></label><label>加入稀释液 mL<input id="diluentVolume" type="number" step=".01"></label><label>复溶后最终体积 mL<input id="finalVolume" type="number" step=".01"></label><button class="primary" id="reconstituteBtn">计算抽取体积</button></div></div><div id="reOut"></div><div class="warn">若说明书规定最终定容/置换体积，必须以最终体积或最终浓度为准，不能简单把加入液量当成最终体积。</div></div></section>
+
+<section id="anesthesia" class="view"><div class="grid"><div class="card"><h2>吸入麻醉方案助手</h2><label>物种<select id="anSpecies"><option>犬</option><option>猫</option><option>其他小动物</option></select></label><label>体重 kg<input id="anWeight" type="number" step=".01"></label><label>麻醉药<select id="anAgent"><option>异氟烷</option><option>七氟烷</option></select></label><label>回路<select id="anCircuit"><option>循环回路（再呼吸）</option><option>非再呼吸回路</option></select></label><button class="primary" id="anGuideBtn">生成参考</button><div id="anGuide"></div></div><div class="card"><h2>监测核查</h2><div class="checklist"><label><input type="checkbox"> ECG</label><label><input type="checkbox"> SpO₂</label><label><input type="checkbox"> EtCO₂</label><label><input type="checkbox"> NIBP/IBP</label><label><input type="checkbox"> 体温</label><label><input type="checkbox"> 麻醉气体分析</label><label><input type="checkbox"> 呼吸机/通气参数</label></div><div class="info">麻醉维持浓度必须滴定。异氟烷无镇痛作用；低血压先评估麻醉深度、容量状态、心率/心律及基础疾病。</div></div></div></section>
+
+<section id="drugs" class="view"><div class="card"><h2>药物数据库</h2><div class="toolbar"><input id="drugQ" placeholder="药名/商品名/疾病/适应症"><select id="drugSp"><option value="">全部物种</option><option>犬</option><option>猫</option><option>鹦鹉</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option></select><button class="primary" id="drugSearchBtn">检索</button></div><div id="drugList" class="muted">正在读取数据库…</div></div></section>
+
+<section id="vaccine" class="view"><div class="card"><h2>疫苗 / 生物制品数据库</h2><p class="muted">商品名优先显示。具体批准文号、规格、接种程序及当前标签需按实际产品核验。</p><div id="vaxList"></div></div></section>
+
+<section id="fluid" class="view"><div class="grid"><div class="card"><h2>脱水 + 持续丢失</h2><label>体重 kg<input id="fw" type="number" step=".01"></label><label>脱水 %<input id="fde" type="number" step=".1"></label><label>持续丢失 mL<input id="floss" type="number" value="0"></label><label>纠正时间 h<input id="fh" type="number" value="12"></label><button class="primary" id="fluidBtn">计算</button><div id="fo"></div></div><div class="card"><h2>犬猫维持液</h2><label>体重 kg<input id="mw" type="number" step=".01"></label><label>物种<select id="mSpecies"><option>犬</option><option>猫</option></select></label><button class="primary" id="maintBtn">计算</button><div id="mo"></div></div><div class="card"><h2>复苏数学</h2><label>体重 kg<input id="sw" type="number" step=".01"></label><label>方案 mL/kg<input id="sb" type="number" step=".1"></label><label>次数<input id="sn" type="number" value="1"></label><button class="primary" id="shockBtn">计算</button><div id="so"></div></div></div></section>
+
+<section id="gas" class="view"><div class="grid"><div class="card"><h2>血气 + 酸碱综合分析</h2><div class="grid"><label>pH<input id="gph" type="number" step=".001"></label><label>PaCO₂ mmHg<input id="gco2" type="number" step=".1"></label><label>HCO₃⁻ mmol/L<input id="ghco3" type="number" step=".1"></label><label>BE mmol/L<input id="gbe" type="number" step=".1"></label><label>Na mmol/L<input id="gna" type="number" step=".1"></label><label>Cl mmol/L<input id="gcl" type="number" step=".1"></label><label>Albumin g/dL<input id="galb" type="number" step=".1" value="3"></label><label>Lactate mmol/L<input id="glac" type="number" step=".1"></label></div><label>临床背景<textarea id="gasCtx" rows="3"></textarea></label><button class="primary" id="gasBtn">计算并分析</button><div id="gasOut"></div></div><div class="card"><h3>计算公式</h3><div class="formula">AG = Na − (Cl + HCO₃⁻)<br>校正AG = AG + 2.5 × (4 − Albumin)<br>Winter = 1.5 × HCO₃⁻ + 8 ± 2<br>Delta ratio = (校正AG − 12) / (24 − HCO₃⁻)</div><div class="info">单次血气不能替代连续趋势、灌注和完整病因诊断。</div></div></div></section>
+
+<section id="electro" class="view"><div class="grid"><div class="card"><h2>校正钠 · 高血糖</h2><label>实测 Na mmol/L<input id="cna" type="number" step=".1"></label><label>血糖 mg/dL<input id="cglu" type="number" step=".1"></label><label>系数<select id="cfac"><option value="1.6">1.6 mmol/L/100 mg/dL</option><option value="2.4">2.4 mmol/L/100 mg/dL</option></select></label><button class="primary" id="corrNaBtn">计算</button><div id="cnao"></div></div><div class="card"><h2>补钾输入安全</h2><div class="grid"><label>体重 kg<input id="pkw" type="number" step=".01"></label><label>添加量 mEq/L<input id="pkadd" type="number" step=".1"></label><label>泵速 mL/h<input id="pkrate" type="number" step=".1"></label><label>KCl原液 mEq/mL<input id="pkc" type="number" step=".001"></label><label>最大输入 mEq/kg/h<input id="pkmax" type="number" step=".01" value=".5"></label></div><button class="primary" id="potassiumBtn">计算</button><div id="pko"></div><div class="bad">补钾前必须确认尿量/肾功能、ECG、静脉通路、最终浓度及复测血钾；高钾或少尿/无尿时停止自动补钾。</div></div></div></section>
+
+<section id="nutrition" class="view"><div class="grid"><div class="card"><h2>RER</h2><label>体重 kg<input id="nw"></label><label>目标倍数<input id="nf" value="1"></label><button class="primary" id="rerBtn">计算</button><div id="nro"></div></div><div class="card"><h2>肠内营养</h2><label>目标 kcal/day<input id="nk"></label><label>营养液 kcal/mL<input id="nd"></label><label>次数/day<input id="nfq" value="4"></label><button class="primary" id="enteralBtn">计算</button><div id="neo"></div></div></div></section>
+
+<section id="transfusion" class="view"><div class="grid"><div class="card"><h2>红细胞制品体积估算</h2><label>体重 kg<input id="tw"></label><label>当前PCV %<input id="tc"></label><label>目标PCV %<input id="tt"></label><label>制品PCV %<input id="td"></label><label>血容量 mL/kg<input id="tbv" value="80"></label><button class="primary" id="transBtn">估算</button><div id="tro"></div></div><div class="card"><h2>输血安全核查</h2><div class="checklist"><label><input type="checkbox"> 身份/血型</label><label><input type="checkbox"> 相容性检查</label><label><input type="checkbox"> 基线生命体征</label><label><input type="checkbox"> 输血反应监测</label><label><input type="checkbox"> 输后PCV/TP</label></div></div></div></section>
+
+<section id="emergency" class="view"><div class="grid"><div class="card"><h2>CPR 2分钟计时</h2><div id="timer" class="timer">02:00</div><button class="primary" id="cprStart">开始</button><button class="secondary" id="cprReset">复位</button><div class="result">高质量胸外按压目标100–120/min；每2分钟尽量短暂停顿复评。</div></div><div class="card"><h2>急症ABCDE</h2><ol><li>Airway 气道</li><li>Breathing 呼吸/氧合/通气</li><li>Circulation 循环/灌注</li><li>Disability 神经/意识/血糖</li><li>Exposure 全身检查、体温、毒物/创伤</li></ol></div></div></section>
+
+<section id="pain" class="view"><div class="grid"><div class="card"><h2>疼痛评估 · 犬猫临床版</h2><label>物种<select id="painSp"><option>犬</option><option>猫</option></select></label><label>场景<select id="painType"><option>术后急性</option><option>创伤</option><option>骨科/肌肉骨骼</option><option>内脏</option><option>神经病理性</option><option>慢性/骨关节炎</option></select></label><div class="grid"><label>疼痛评分0–10<input id="painScore" type="number" min="0" max="10" step=".5"></label><label>镇静评分0–3<input id="painSed" type="number" min="0" max="3" step=".5"></label><label>HR相对基线<input id="painHR"></label><label>活动/食欲<input id="painFunc"></label></div><label>行为/姿势/触诊<textarea id="painObs" rows="4"></textarea></label><button class="primary" id="painBtn">生成评估与管理计划</button><div id="painOut"></div></div><div class="card"><h3>评估原则</h3><ul><li>急性/围术期应使用已验证量表并连续复评。</li><li>猫可结合Feline Grimace Scale；犬可结合Glasgow CMPS-SF等。</li><li>计划必须包含评估→干预→复评→调整。</li></ul><div class="source">依据AAHA犬猫疼痛管理指南；具体量表应按原始工具使用。</div></div></div></section>
+
+<section id="toxic" class="view"><div class="grid"><div class="card"><h2>中毒初筛 · 诊疗决策支持</h2><label>物种<select id="toxSp"><option>犬</option><option>猫</option><option>其他</option></select></label><label>体重 kg<input id="toxw" type="number" step=".01"></label><label>毒物/活性成分<input id="toxx"></label><div class="grid"><label>暴露时间 h<input id="toxt" type="number" step=".1"></label><label>估计摄入量<input id="toxAmt"></label></div><label>症状/生命体征<textarea id="toxSigns" rows="4"></textarea></label><button class="primary" id="toxicBtn">生成处理建议</button><div id="toxo"></div></div><div class="card"><h3>核心原则</h3><div class="warn">先ABC稳定、确认活性成分/浓度/最大暴露量，再判断去污收益与误吸/腐蚀风险；未知毒物不能自动选择解毒剂。</div></div></div></section>
+
+<section id="surgery" class="view"><div class="grid"><div class="card"><h2>围手术期安全核查 · 风险评估</h2><div class="grid"><label>物种<select id="sxSp"><option>犬</option><option>猫</option></select></label><label>ASA<select id="sxASA"><option>Ⅰ</option><option>Ⅱ</option><option>Ⅲ</option><option>Ⅳ</option><option>Ⅴ</option></select></label><label>手术类型<input id="sxProc"></label><label>失血风险<input id="sxBlood" placeholder="低/中/高"></label></div><div class="checklist"><label><input type="checkbox" class="sxck"> 患者/术式确认</label><label><input type="checkbox" class="sxck"> 体重/过敏/麻醉史</label><label><input type="checkbox" class="sxck"> 气道及困难气道方案</label><label><input type="checkbox" class="sxck"> 麻醉机/氧源/吸引/复苏设备</label><label><input type="checkbox" class="sxck"> IV通路与液体方案</label><label><input type="checkbox" class="sxck"> 多模式镇痛</label><label><input type="checkbox" class="sxck"> 低血压/低体温/低通气预案</label><label><input type="checkbox" class="sxck"> 抗菌药适应证及给药时点</label><label><input type="checkbox" class="sxck"> 高失血时输血/止血方案</label><label><input type="checkbox" class="sxck"> 术后监护/镇痛/氧疗计划</label></div><button class="primary" id="surgeryBtn">专业风险评估</button><div id="sxOut"></div></div><div class="card"><h3>评估原则</h3><div>ASA、手术创伤、失血风险、气道/通气、循环、镇痛和术后去向必须一起评估。勾选完成度不能代替风险评估。</div></div></div></section>
+
+<section id="ai" class="view"><div class="card"><h2>AI 临床助手 · 5.0</h2><p class="muted">唯一正式AI入口。支持API Base URL、模型、API Key本机配置。AI不替代执业兽医，也不自动创造药物剂量。</p>
+<div class="grid"><div><h3>患者基本信息</h3><label>物种<select id="ai_species"><option>犬</option><option>猫</option><option>鹦鹉/鸟类</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option><option>其他</option></select></label><label>品种<input id="ai_breed"></label><label>年龄<input id="ai_age"></label><label>性别<select id="ai_sex"><option>未说明</option><option>雄</option><option>雌</option><option>雄性已绝育</option><option>雌性已绝育</option></select></label><label>体重 kg<input id="ai_weight"></label></div>
+<div><h3>API配置</h3><label>API Base URL<input id="ai_base" value="https://api.openai.com/v1"></label><label>模型<input id="ai_model" placeholder="输入实际模型"></label><label>API Key<input id="ai_key" type="password" autocomplete="off"></label><div class="toolbar"><button class="secondary" id="ai_save">保存配置</button><button class="secondary" id="ai_test">测试连接</button><button class="secondary" id="ai_clear">清除Key</button></div><div id="ai_status" class="muted"></div></div></div>
+<label>主诉<textarea id="ai_cc" rows="3"></textarea></label><label>现病史/既往史/用药史/疫苗驱虫史<textarea id="ai_history" rows="5"></textarea></label><label>临床检查<textarea id="ai_exam" rows="5"></textarea></label><label>检查项目<textarea id="ai_tests" rows="4"></textarea></label><label>检查结果<textarea id="ai_results" rows="8"></textarea></label><label>当前治疗/用药<textarea id="ai_treatment" rows="5"></textarea></label><label>医生重点问题<textarea id="ai_question" rows="4"></textarea></label>
+<div class="toolbar"><button class="primary" id="ai_run">运行AI临床分析</button><button class="secondary" id="ai_copy">复制结果</button><button class="secondary" id="ai_clear_case">清空病例</button></div><pre id="ai_output" class="result">尚未运行。</pre></div></section>
+</main>
+<footer>兽医临床工具箱 5.0 · 所有剂量/处方建议必须核对说明书、指南和患者实际情况。</footer>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const num=id=>{const v=parseFloat($(id)?.value);return Number.isFinite(v)?v:NaN};
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let db=[]; let cprTimer=null,cprLeft=120;
+
+const vaccines=[
+["妙三多","猫三联活疫苗","猫","硕腾/Zoetis","疫苗"],["喵倍护","猫三联灭活疫苗","猫","博莱得利","疫苗"],["喵倍利","猫三联相关产品","猫","中牧实业","疫苗"],["瑞喵舒","猫三联相关产品","猫","瑞普生物","疫苗"],
+["卫佳伍","犬核心多联活疫苗","犬","硕腾/Zoetis","疫苗"],["卫佳捌","犬多联活疫苗","犬","硕腾/Zoetis","疫苗"],["卫佳细","犬细小病毒疫苗","犬","硕腾/Zoetis","疫苗"],["宠必威优免康","犬核心多联活疫苗","犬","MSD Animal Health","疫苗"],["宠必威幼犬保","犬瘟热+细小病毒二联","犬","MSD Animal Health","疫苗"],["宠必威锐必威","犬猫狂犬病灭活疫苗","犬/猫","MSD Animal Health","疫苗"],["宠必威乐必妥","犬钩端螺旋体相关疫苗","犬","MSD Animal Health","疫苗"],
+["犬细小病毒单克隆抗体","犬细小病毒相关单克隆抗体","犬","具体企业/批准文号需核验","生物制品"],["犬瘟热单克隆抗体","犬瘟热病毒相关单克隆抗体","犬","具体企业/批准文号需核验","生物制品"],["猫干扰素","猫干扰素相关生物制品","猫","具体企业/批准文号需核验","生物制品"],["犬干扰素","犬干扰素相关生物制品","犬","具体企业/批准文号需核验","生物制品"]
+];
+
+function activateView(id,updateHash=true){
+  let target=$(id); if(!target) {id="home";target=$("home")}
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v===target));
+  document.querySelectorAll("#nav button[data-v]").forEach(b=>b.classList.toggle("active",b.dataset.v===id));
+  if(updateHash) history.replaceState(null,"","#"+id);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function initNav(){
+ document.querySelectorAll("#nav button[data-v]").forEach(btn=>btn.addEventListener("click",e=>{e.preventDefault();activateView(btn.dataset.v)}));
+ const h=location.hash.slice(1); if(h) activateView(h,false);
+ window.addEventListener("popstate",()=>activateView(location.hash.slice(1)||"home",false));
+}
+
+function speciesAliases(s){
+ const m={"犬":["犬","dog","canine"],"猫":["猫","cat","feline"],"鹦鹉/鸟类":["鹦鹉","鸟","avian","parrot"],"兔/啮齿类":["兔","啮齿","rabbit","rodent"],"爬宠/龟鳖":["爬宠","龟","鳖","蜥蜴","蛇","reptile","turtle","tortoise"]};
+ return m[s]||[s];
+}
+function recMatches(r,sp){
+ const text=String(r?.species||"").toLowerCase(); return speciesAliases(sp).some(x=>text.includes(x.toLowerCase()));
+}
+function extractDose(text){
+ const out=[]; const re=/(\d+(?:\.\d+)?)\s*(?:[–-]\s*(\d+(?:\.\d+)?))?\s*(mg|µg|mcg|g)\/kg(?:\/day)?/gi; let m;
+ while((m=re.exec(text||""))) out.push({lo:+m[1],hi:m[2]?+m[2]:+m[1],unit:m[3],daily:/\/day/i.test(m[0])});
+ return out;
+}
+function warnings(drug,sp,b){
+ const a=[]; const n=String(drug||""); const breed=String(b||"");
+ if(sp==="犬" && /伊维菌素|阿维菌素|莫昔克丁|多拉菌素/i.test(n) && /柯利|边牧|边境|澳牧|澳洲牧羊|喜乐蒂|牧羊犬|collie|border/i.test(breed))
+  a.push("ABCB1/MDR1特殊风险：柯利系、边牧、澳牧、喜乐蒂等需核实个体/基因型、具体药物及剂量。");
+ if(sp==="猫" && /对乙酰氨基酚|扑热息痛|acetaminophen|paracetamol/i.test(n))
+  a.push("猫对乙酰氨基酚具有显著毒性风险，不得按犬剂量迁移。");
+ if((sp.includes("鸟")||sp.includes("爬宠")||sp.includes("兔")) && !/鸟|鹦鹉|爬宠|龟|兔|啮齿/i.test(n))
+  a.push("特殊物种：未确认物种特异证据时禁止自动套用犬猫剂量。");
+ return a;
+}
+function fillDrugSelects(){
+ const opts='<option value="">请选择药物</option>'+db.map((d,i)=>`<option value="${i}">${esc(d.generic_name_zh||"未命名")}${(d.brand_names||[]).length?"｜"+esc(d.brand_names.join("、")):""}</option>`).join("");
+ $("doseDrug").innerHTML=opts;$("rwDrug").innerHTML=opts;
+}
+async function loadDB(){
+ $("dbStatus").textContent="正在读取 data/drugs.json…";
+ try{
+  const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),15000);const r=await fetch("./data/drugs.json?v="+Date.now(),{cache:"no-store",signal:ctrl.signal});clearTimeout(timer);
+  if(!r.ok) throw new Error("HTTP "+r.status);
+  const x=await r.json();
+  if(!Array.isArray(x.drugs)) throw new Error("JSON结构中未找到 drugs 数组");
+  db=x.drugs.slice();
+  try{const a=await fetch("./data/clinical_drug_additions_5.0.json?v="+Date.now(),{cache:"no-store"});if(a.ok){const y=await a.json();if(Array.isArray(y.drugs))db=db.concat(y.drugs)}}catch(_){}
+  $("dbStatus").innerHTML=`<b>${db.length}</b> 个药物实体已读取；主库版本：${esc(x.database_version||x.schema_version||"未知")}；最后审核：${esc(x.last_reviewed||"未知")}`;
+  fillDrugSelects(); renderDrugSearch();
+ }catch(e){
+  $("dbStatus").innerHTML=`<div class="bad">数据库读取失败：${esc(e.message)}<br><span class="small">请确认 GitHub Pages 中存在 data/drugs.json，且路径大小写一致。数据库问题不会影响其他模块。</span></div>`;
+  $("drugList").innerHTML=$("dbStatus").innerHTML;
+ }
+}
+function renderDrugSearch(){
+ const q=($("drugQ").value||"").trim().toLowerCase(),sp=$("drugSp").value;
+ const a=db.filter(d=>{const s=JSON.stringify(d).toLowerCase();return(!q||s.includes(q))&&(!sp||s.includes(sp.toLowerCase()))}).slice(0,100);
+ $("drugList").innerHTML=`<div class="muted">匹配 ${a.length} 条</div>`+a.map(d=>{const r=(d.records||[])[0]||{};return `<div class="drug"><b class="title">${esc(d.generic_name_zh||"未命名")}</b>${(d.brand_names||[]).map(x=>`<span class="pill">${esc(x)}</span>`).join("")}<br>类别：${esc(d.pharmacologic_class||"")}<br>适应症：${esc((d.indications_general||[]).join("、"))}<br>剂量备注：${esc(r.dose_notes||"暂无")}<br><span class="source">${esc(r.label_status||r.dose_basis||"")} · ${esc(d.review_status||"")}</span></div>`}).join("");
+}
+function doseReference(){
+ const i=parseInt($("doseDrug").value,10),d=db[i]; if(!d)return;
+ const sp=$("doseSpecies").value; const rec=(d.records||[]).find(r=>recMatches(r,sp))||(d.records||[])[0]||{};
+ const parsed=extractDose(rec.dose_notes||""); const ws=warnings(d.generic_name_zh||"",sp,$("doseBreed").value);
+ $("doseReference").innerHTML=`<div class="card"><b>${esc(d.generic_name_zh||"未命名")}</b><br>适应症：${esc(rec.indication||"未指定")}<br>途径：${esc(rec.route||"按制剂")}<br>剂量备注：${esc(rec.dose_notes||"暂无结构化剂量")}<br><span class="source">来源：${esc((rec.source_ids||[]).join("、")||"未提供")}；状态：${esc(rec.label_status||rec.dose_basis||"未标记")}</span>${parsed.length?`<div class="result">识别到数值剂量：${parsed.map(x=>`${x.lo}${x.hi!==x.lo?"–"+x.hi:""} ${x.unit}/kg${x.daily?"/day":""}`).join("；")}</div>`:""}${ws.map(x=>`<div class="special">${esc(x)}</div>`).join("")}</div>`;
+ if(parsed.length){$("doseValue").value=parsed[0].lo;$("doseUnit").value=parsed[0].unit+"/kg"+(parsed[0].daily?"/day":"")}
+}
+function calcDose(){
+ const w=num("doseWeight"),d=num("doseValue"),c=num("doseConc"),u=$("doseUnit").value,cu=$("doseConcUnit").value;
+ if(!Number.isFinite(w)||!Number.isFinite(d)||!Number.isFinite(c)||w<=0||d<0||c<=0){$("doseResult").innerHTML='<div class="warn">请输入体重、目标剂量和制剂浓度。</div>';return}
+ if(u==="mg/m²"){$("doseResult").innerHTML='<div class="caution">mg/m²需要体表面积（BSA）或明确的BSA公式；当前不猜测。</div>';return}
+ let mg=u==="mg/kg"?w*d:u==="µg/kg"?w*d/1000:u==="mg/kg/day"?w*d:u==="µg/kg/min"?w*d/1000:NaN;
+ if(!Number.isFinite(mg))return;
+ let amount=cu==="mg/mL"?mg/c:cu==="µg/mL"?mg*1000/c:mg/c;
+ const drow=db[parseInt($("doseDrug").value,10)]; const ws=drow?warnings(drow.generic_name_zh,$("doseSpecies").value,$("doseBreed").value):[];
+ $("doseResult").innerHTML=`<div class="result">每次总剂量 <b>${mg.toFixed(3)} mg</b>；制剂 ${c} ${esc(cu)}；实际给药 <strong>${amount.toFixed(3)} ${cu.includes("mL")?"mL":cu.includes("片")?"片":cu.includes("粒")?"粒":"单位"}</strong>；频次 ${esc($("doseFreq").value||"按医嘱")}。</div>${ws.map(x=>`<div class="special">${esc(x)}</div>`).join("")}<div class="warn">计算器只进行数学换算。具体剂量、适应症、禁忌和超说明书使用必须人工核对。</div>`;
+}
+function calcReconstitution(){
+ const w=num("rwWeight"),d=num("rwDose"),a=num("vialAmount"),dv=num("diluentVolume"),fv=num("finalVolume"),u=$("rwDoseUnit").value;
+ if(![w,d,a].every(Number.isFinite)||w<=0||d<0||a<=0){$("reOut").innerHTML='<div class="warn">请完整输入体重、医嘱剂量和每瓶含量。</div>';return}
+ const unitFactor={mg:1,g:1000,µg:.001}[$("vialUnit").value]; const totalMg=a*unitFactor; const final=Number.isFinite(fv)&&fv>0?fv:dv;
+ if(!final||final<=0){$("reOut").innerHTML='<div class="warn">请填写复溶后最终体积；若说明书规定定容，以定容后的最终体积为准。</div>';return}
+ const conc=totalMg/final, need=w*d*(u==="µg/kg"?0.001:1), vol=need/conc;
+ $("reOut").innerHTML=`<div class="result">复溶浓度 <b>${conc.toFixed(3)} mg/mL</b>；患者需要 <b>${need.toFixed(3)} mg</b>；应抽取 <strong>${vol.toFixed(3)} mL</strong>。<br><span class="source">数学换算采用最终体积 ${final} mL。</span></div>`;
+}
+function anestheticGuide(){
+ const sp=$("anSpecies").value,w=num("anWeight"),a=$("anAgent").value,c=$("anCircuit").value;
+ if(!Number.isFinite(w)||w<=0){$("anGuide").innerHTML='<div class="muted">请输入体重。</div>';return}
+ if(a==="七氟烷"){$("anGuide").innerHTML='<div class="info">七氟烷维护浓度必须按物种、前麻、镇痛和麻醉深度滴定。本工具不把单一浓度作为普适处方。</div>';return}
+ const mac=sp==="猫"?1.63:1.28; const flow=c==="非再呼吸回路"?Math.max(.2,w*.2):Math.max(.25,w*.02); const high=c==="非再呼吸回路"?Math.max(.5,w*.3):Math.max(.25,w*.05);
+ $("anGuide").innerHTML=`<div class="result"><b>异氟烷 · ${sp}</b><br>MAC参考约 ${mac}%（文献参考值）；维护浓度通常需根据麻醉深度、前麻、镇痛和手术刺激滴定。<br>新鲜气体/氧流量参考：${flow.toFixed(2)}–${high.toFixed(2)} L/min（取决于回路、漏气及设备）。<br>重点监测：SpO₂、EtCO₂、血压、ECG、体温、麻醉气体浓度。</div><div class="warn">异氟烷无镇痛作用；低血压不能简单等同于缺液。</div>`;
+}
+function fluidCalc(){const w=num("fw"),d=num("fde"),l=num("floss"),h=num("fh");if(!(w>0)||!(d>=0)||!(h>0))return;const def=w*d*10,total=def+(Number.isFinite(l)?l:0);$("fo").innerHTML=`<div class="result">脱水缺失 ${def.toFixed(0)} mL；含持续丢失 ${total.toFixed(0)} mL；若平均在${h}h输入，数学平均 ${ (total/h).toFixed(1)} mL/h。</div>`}
+function maint(){const w=num("mw"),s=$("mSpecies").value;if(!(w>0))return;const day=s==="犬"?60*w:40*w;$("mo").innerHTML=`<div class="result">${s}常用维持液数学参考约 ${day.toFixed(1)} mL/day（${(day/24).toFixed(1)} mL/h）。具体需按患者状态、并发症和液体超负荷风险个体化。</div>`}
+function shock(){const w=num("sw"),b=num("sb"),n=num("sn");if(!(w>0&&b>0&&n>0))return;$("so").innerHTML=`<div class="result">按输入参数计算总量 ${(w*b*n).toFixed(1)} mL。复苏实际方案需依据灌注、血压、超声/PCV/乳酸等动态评估。</div>`}
+function gasPro(){
+ const p=num("gph"),co=num("gco2"),h=num("ghco3"),na=num("gna"),cl=num("gcl"),alb=num("galb"),lac=num("glac");
+ if([p,co,h].some(v=>!Number.isFinite(v))){$("gasOut").innerHTML='<div class="warn">至少输入 pH、PaCO₂、HCO₃⁻。</div>';return}
+ const ag=Number.isFinite(na)&&Number.isFinite(cl)?na-cl-h:NaN;
+ const cag=Number.isFinite(ag)&&Number.isFinite(alb)?ag+2.5*(4-alb):NaN;
+ const winter=h<24?1.5*h+8:NaN;
+ const dr=Number.isFinite(cag)&&h!==24?(cag-12)/(24-h):NaN;
+ const out=[];
+ if(p<7.35&&h<24){out.push("<b>代谢性酸中毒方向。</b>");if(Number.isFinite(winter)){const diff=co-winter;out.push(Math.abs(diff)<=2?"呼吸代偿大致合适。":diff>2?"PaCO₂高于Winter预计：合并呼吸性酸中毒可能。":"PaCO₂低于Winter预计：合并呼吸性碱中毒可能。")}}
+ else if(p>7.45&&h>26)out.push("<b>代谢性碱中毒方向。</b>结合呕吐、利尿剂、低氯/低钾和容量状态。");
+ if(p<7.35&&co>45)out.push("<b>呼吸性酸中毒方向。</b>重点评估通气、气道、呼吸肌、麻醉/镇静及胸肺疾病。");
+ if(p>7.45&&co<35)out.push("<b>呼吸性碱中毒方向。</b>评估低氧、疼痛、发热、CNS和肺部疾病。");
+ if(!out.length)out.push("<b>未形成单一典型模式。</b>需警惕混合性酸碱紊乱并结合完整临床资料。");
+ if(Number.isFinite(cag)&&cag>16)out.push("校正AG升高，支持高阴离子间隙代谢性酸中毒可能。");
+ if(Number.isFinite(dr)&&dr>2)out.push("Delta ratio偏高，考虑并存代谢性碱中毒/慢性呼吸性酸中毒等可能。");
+ if(Number.isFinite(dr)&&dr<0.4)out.push("Delta ratio偏低，考虑额外正常阴离子间隙代谢性酸中毒。");
+ let plan="处理原则：先稳定ABC和灌注，再寻找病因；不要仅凭单一数值直接选择碳酸氢盐、液体或呼吸机方案。";
+ if(lac>2)plan+=" 乳酸升高时重点评估灌注、氧供/耗氧和采样趋势。";
+ $("gasOut").innerHTML=`<div class="result">${out.join("<br>")}<br><b>AG：</b>${Number.isFinite(ag)?ag.toFixed(1):"未计算"}；<b>校正AG：</b>${Number.isFinite(cag)?cag.toFixed(1):"未计算"}；<b>Winter：</b>${Number.isFinite(winter)?winter.toFixed(1)+" ±2 mmHg":"不适用"}；<b>Delta ratio：</b>${Number.isFinite(dr)?dr.toFixed(2):"不适用"}<br><b>下一步：</b>${plan}</div>`;
+}
+function corrNa(){const na=num("cna"),glu=num("cglu"),f=num("cfac");if(!Number.isFinite(na)||!Number.isFinite(glu)||glu<100)return;$("cnao").innerHTML=`<div class="result">校正Na ≈ <b>${(na+f*((glu-100)/100)).toFixed(1)} mmol/L</b>。不同公式可得到不同结果，应结合实验室/临床背景。</div>`}
+function potassium(){const w=num("pkw"),add=num("pkadd"),rate=num("pkrate"),conc=num("pkc"),max=num("pkmax")||.5;if(!(w>0&&add>0&&rate>0&&conc>0))return;const delivered=add*rate/1000,perkg=delivered/w,vol=add*rate/conc,alarm=perkg>max;$("pko").innerHTML=`<div class="${alarm?"bad":"result"}">K输入 ${delivered.toFixed(3)} mEq/h；${perkg.toFixed(3)} mEq/kg/h；按当前袋液浓度数学关系对应原液 ${vol.toFixed(2)} mL/h。${alarm?" 已超过你设定的最大速率，必须重新核对。":" 未超过当前设定上限 "+max+" mEq/kg/h。"}<br>必须确认尿量/肾功能、ECG、最终浓度和复测血钾。</div>`}
+function rer(){const w=num("nw"),f=num("nf");if(!(w>0&&f>0))return;const r=70*w**.75;$("nro").innerHTML=`<div class="result">RER ${r.toFixed(0)} kcal/day；目标 ${Math.round(r*f)} kcal/day。</div>`}
+function enteral(){const k=num("nk"),d=num("nd"),q=num("nfq");if(!(k>0&&d>0&&q>0))return;$("neo").innerHTML=`<div class="result">每日 ${ (k/d).toFixed(1)} mL；每次 ${ (k/d/q).toFixed(1)} mL。</div>`}
+function transfusion(){const w=num("tw"),c=num("tc"),t=num("tt"),d=num("td"),bv=num("tbv");if(!(w>0&&d>0&&bv>0&&t>c))return;$("tro").innerHTML=`<div class="result">简化估算 ${(w*bv*(t-c)/d).toFixed(0)} mL。实际输血应结合患者循环状态、制品类型、PCV/TP和临床反应动态调整。</div>`}
+function pain(){const sp=$("painSp").value,type=$("painType").value,s=parseFloat($("painScore").value),obs=$("painObs").value,urgent=Number.isFinite(s)&&s>=7;$("painOut").innerHTML=`<div class="${urgent?"bad":"result"}"><b>评估：</b>${sp} · ${type}；疼痛评分 ${Number.isFinite(s)?s:"未填"}/10。${urgent?"当前评分提示高疼痛负荷，建议立即复评并实施镇痛干预。":"建立基线并动态复评。"}<br><b>管理计划：</b>采用已验证疼痛量表→记录行为/姿势/触诊和生命体征→按疼痛机制实施多模式镇痛→设定复评时间→根据疼痛趋势、镇静、呼吸、血压、胃肠道和肾灌注调整。<br><b>观察：</b>${esc(obs||"未填")}</div>`}
+function toxic(){const x=($("toxx").value||"").trim().toLowerCase(),sp=$("toxSp").value,w=num("toxw"),t=num("toxt"),amt=$("toxAmt").value,signs=$("toxSigns").value;
+ let hit=null; const rules=[
+ ["乙二醇","犬猫均属急症；早期应尽快核对可用特异性治疗并纠正脱水、酸碱和电解质异常；进入肾损伤期后处理重点改变。"],
+ ["对乙酰氨基酚","猫高危；立即停止暴露，评估高铁血红蛋白血症和肝损伤；N-乙酰半胱氨酸是核心特异性治疗之一。"],
+ ["木糖醇","犬重点；立即监测并纠正低血糖，同时评估肝损伤；去污须根据时间线、意识和误吸风险决定。"],
+ ["溴敌隆","抗凝血灭鼠药；评估PT/PTT并监测延迟性出血；维生素K1是核心特异性治疗。"],
+ ["有机磷","胆碱能综合征；脱离暴露、去污、呼吸支持；阿托品等特异治疗需依据具体毒物与临床表现。"],
+ ["鼠药","必须确认活性成分；不同灭鼠药的解毒方案完全不同，不能仅凭“鼠药”选解毒剂。"]
+ ]; for(const r of rules)if(x.includes(r[0].toLowerCase())){hit=r;break}
+ $("toxo").innerHTML=hit?`<div class="result"><b>识别：</b>${hit[0]}<br><b>处理重点：</b>${hit[1]}</div>`:`<div class="warn">未匹配特异性毒物。先确认活性成分、浓度、最大可能暴露量、暴露时间和症状；完成ABC稳定后再决定去污和特异性治疗。</div>`+`<div class="small">物种 ${esc(sp)}；体重 ${Number.isFinite(w)?w:"未填"} kg；暴露 ${Number.isFinite(t)?t:"未知"} h；摄入量 ${esc(amt||"未填")}；症状 ${esc(signs||"未填")}</div>`}
+function surgery(){const asa=$("sxASA").value,proc=$("sxProc").value,blood=$("sxBlood").value,checks=[...document.querySelectorAll(".sxck")],done=checks.filter(x=>x.checked).length,risks=[];if(["Ⅲ","Ⅳ","Ⅴ"].includes(asa))risks.push("ASA较高：建议加强监护、复苏准备并明确术后去向。");if(/中|高/.test(blood))risks.push("失血风险：提前准备止血、血型/相容性及输血方案。");if(/胃肠|胸|骨科/.test(proc))risks.push("手术创伤/并发症风险较高：镇痛和监护应前置。");$("sxOut").innerHTML=`<div class="${risks.length?"warn":"result"}"><b>核查：</b>${done}/${checks.length}<br><b>ASA：</b>${asa}<br>${risks.join("<br>")||"当前输入未触发额外高风险规则。"}<br><b>必须形成：</b>气道/通气预案、ECG/SpO₂/EtCO₂/血压/体温监测、镇痛与救援镇痛、低血压处理、液体/失血策略和术后监护级别。</div>`}
+
+function renderVax(){$("vaxList").innerHTML=vaccines.map(x=>`<div class="drug"><b class="title">${esc(x[0])}</b> <span class="pill">${esc(x[2])}</span><span class="pill">${esc(x[4])}</span><br>${esc(x[1])}<br>企业：${esc(x[3])}<br><span class="source">具体批准文号、规格、接种程序和当前说明书需按产品核验。</span></div>`).join("")}
+
+const AI_STORE="vet_toolbox_ai_v5";
+const AI_SYS="你是兽医临床辅助分析助手，服务于执业兽医。只根据输入事实分析，不虚构检查结果、批准状态或文献。涉及药物剂量时优先使用工具箱结构化数据库；无可靠依据时明确写需人工核对，不得猜测。急症先评估ABC、循环、呼吸、灌注、意识及可逆致命问题。区分已知事实、推断和建议。最终决定由执业兽医负责。";
+function aiLoad(){try{const x=JSON.parse(localStorage.getItem(AI_STORE)||"{}");if(x.base)$("ai_base").value=x.base;if(x.model)$("ai_model").value=x.model;if(x.key)$("ai_key").value=x.key}catch(_){}}
+function aiSave(){localStorage.setItem(AI_STORE,JSON.stringify({base:$("ai_base").value.trim().replace(/\/+$/,""),model:$("ai_model").value.trim(),key:$("ai_key").value}));$("ai_status").textContent="配置已保存到当前浏览器。"}
+function aiClearKey(){try{const x=JSON.parse(localStorage.getItem(AI_STORE)||"{}");delete x.key;localStorage.setItem(AI_STORE,JSON.stringify(x))}catch(_){}$("ai_key").value="";$("ai_status").textContent="API Key已清除。"}
+async function aiCall(messages){
+ const base=$("ai_base").value.trim().replace(/\/+$/,""),model=$("ai_model").value.trim(),key=$("ai_key").value.trim();
+ if(!base||!model||!key)throw new Error("请填写API Base URL、模型和API Key。");
+ const r=await fetch(base+"/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+key},body:JSON.stringify({model,temperature:.2,messages})});
+ const t=await r.text();let d;try{d=JSON.parse(t)}catch(_){throw new Error("API返回非JSON："+t.slice(0,300))}
+ if(!r.ok)throw new Error(d.error?.message||("HTTP "+r.status));
+ return d.choices?.[0]?.message?.content||"API未返回文本";
+}
+function aiCase(){return `【基本信息】物种：${$("ai_species").value}；品种：${$("ai_breed").value}；年龄：${$("ai_age").value}；性别：${$("ai_sex").value}；体重：${$("ai_weight").value} kg
+【主诉】${$("ai_cc").value}
+【现病史/既往史/用药史/疫苗驱虫史】${$("ai_history").value}
+【临床检查】${$("ai_exam").value}
+【检查项目】${$("ai_tests").value}
+【检查结果】${$("ai_results").value}
+【当前治疗/用药】${$("ai_treatment").value}
+【医生重点问题】${$("ai_question").value}`}
+
+document.addEventListener("DOMContentLoaded",()=>{
+ initNav();renderVax();loadDB();aiLoad();
+ $("syncPatientBtn").onclick=()=>{const s=$("patientSpecies").value,b=$("patientBreed").value,w=$("patientWeight").value;["doseSpecies","rwSpecies","anSpecies"].forEach(id=>$(id)&&($(id).value=s));["doseBreed","rwBreed"].forEach(id=>$(id)&&($(id).value=b));["doseWeight","rwWeight","anWeight","fw","mw","pkw"].forEach(id=>$(id)&&($(id).value=w));$("patientMsg").textContent="已同步。"};
+ $("doseRefBtn").onclick=doseReference;$("doseCalcBtn").onclick=calcDose;$("reconstituteBtn").onclick=calcReconstitution;$("anGuideBtn").onclick=anestheticGuide;$("drugSearchBtn").onclick=renderDrugSearch;
+ $("fluidBtn").onclick=fluidCalc;$("maintBtn").onclick=maint;$("shockBtn").onclick=shock;$("gasBtn").onclick=gasPro;$("corrNaBtn").onclick=corrNa;$("potassiumBtn").onclick=potassium;$("rerBtn").onclick=rer;$("enteralBtn").onclick=enteral;$("transBtn").onclick=transfusion;$("painBtn").onclick=pain;$("toxicBtn").onclick=toxic;$("surgeryBtn").onclick=surgery;
+ $("cprStart").onclick=()=>{if(cprTimer)return;cprTimer=setInterval(()=>{cprLeft--;if(cprLeft<=0){clearInterval(cprTimer);cprTimer=null;cprLeft=120;alert("2分钟周期结束：短暂停顿复评节律/脉搏。")}$("timer").textContent=String(Math.floor(cprLeft/60)).padStart(2,"0")+":"+String(cprLeft%60).padStart(2,"0")},1000)};
+ $("cprReset").onclick=()=>{if(cprTimer)clearInterval(cprTimer);cprTimer=null;cprLeft=120;$("timer").textContent="02:00"};
+ $("ai_save").onclick=aiSave;$("ai_clear").onclick=aiClearKey;$("ai_test").onclick=async()=>{try{aiSave();$("ai_status").textContent="测试中…";$("ai_status").textContent=await aiCall([{role:"system",content:AI_SYS},{role:"user",content:"只回复：AI连接测试成功。"}])}catch(e){$("ai_status").textContent="连接失败："+e.message}};
+ $("ai_run").onclick=async()=>{const c=aiCase();$("ai_output").textContent="AI分析中…";try{aiSave();const r=await aiCall([{role:"system",content:AI_SYS},{role:"user",content:`请按以下结构输出：1.病例摘要 2.立即危险问题/ABC与循环呼吸风险 3.检查结果解释 4.血气/酸碱/电解质综合分析（有数据才分析） 5.主要鉴别诊断及支持/反对证据 6.建议补充检查及目的 7.治疗优先级与监护重点 8.当前用药审核、相互作用和物种风险 9.复查指标和时间节点 10.需要执业兽医人工核对的事项。病例如下：\n${c}`}] );$("ai_output").textContent=r.replace(/\*+/g,"")}catch(e){$("ai_output").textContent="AI调用失败："+e.message}};
+ $("ai_copy").onclick=async()=>{try{await navigator.clipboard.writeText($("ai_output").textContent);$("ai_status").textContent="结果已复制。"}catch(_){$("ai_status").textContent="复制失败，请手动复制。"}};
+ $("ai_clear_case").onclick=()=>{["ai_breed","ai_age","ai_weight","ai_cc","ai_history","ai_exam","ai_tests","ai_results","ai_treatment","ai_question"].forEach(id=>$(id).value="");$("ai_output").textContent="病例已清空。"};
+});
+</script>
+</body></html>
