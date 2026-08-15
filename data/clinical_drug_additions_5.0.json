@@ -1,0 +1,205 @@
+{
+  "schema_version": "5.0",
+  "database_type": "clinical_drug_additions",
+  "last_reviewed": "2026-08-15",
+  "policy": {
+    "no_guessing": true,
+    "dose_requires_source": true,
+    "off_label_must_be_marked": true,
+    "product_registration_requires_local_verification": true
+  },
+  "drugs": [
+    {
+      "id": "add-gabapentin",
+      "generic_name_zh": "加巴喷丁",
+      "generic_name_en": "gabapentin",
+      "clinical_categories": [
+        "镇痛辅助",
+        "抗惊厥"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "神经病理性疼痛/多模式镇痛辅助；部分病例用于抗惊厥",
+          "dose": null,
+          "dose_notes": "犬猫临床常用，但剂量受适应症、肾功能和镇静程度影响；必须核对最新版兽医药理资料/具体方案。",
+          "label_status": "兽医临床常用/多为超说明书或地区性处方属性，需核验",
+          "source_ids": [
+            "PLUMBS",
+            "AAHA"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "add-pregabalin",
+      "generic_name_zh": "普瑞巴林",
+      "generic_name_en": "pregabalin",
+      "clinical_categories": [
+        "镇痛辅助",
+        "抗惊厥"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "神经病理性疼痛/镇痛辅助；抗惊厥",
+          "dose": null,
+          "dose_notes": "犬猫常用参考需按适应症、肾功能和镇静程度核对；不要把人用说明书直接迁移。",
+          "label_status": "兽医临床常用/处方属性需按当地法规和具体产品核验",
+          "source_ids": [
+            "PLUMBS",
+            "AAHA"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "add-maropitant",
+      "generic_name_zh": "马罗匹坦",
+      "generic_name_en": "maropitant",
+      "clinical_categories": [
+        "止吐"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "呕吐/恶心",
+          "dose": null,
+          "dose_notes": "犬猫存在兽用批准制剂；剂量与给药途径按具体产品说明书核对。",
+          "label_status": "兽用产品/说明书核验",
+          "source_ids": [
+            "US-FDA-GREEN",
+            "PLUMBS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "add-ondansetron",
+      "generic_name_zh": "昂丹司琼",
+      "generic_name_en": "ondansetron",
+      "clinical_categories": [
+        "止吐"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "恶心、呕吐辅助",
+          "dose": null,
+          "dose_notes": "常见人用药在兽医临床使用；具体剂量和给药途径按兽医药理资料核对。",
+          "label_status": "常见超说明书兽医使用",
+          "source_ids": [
+            "PLUMBS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "add-levetiracetam",
+      "generic_name_zh": "左乙拉西坦",
+      "generic_name_en": "levetiracetam",
+      "clinical_categories": [
+        "抗惊厥"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "癫痫/惊厥控制",
+          "dose": null,
+          "dose_notes": "犬猫常用；剂量、普通/缓释制剂和肾功能调整需核对具体方案。",
+          "label_status": "兽医临床常用",
+          "source_ids": [
+            "PLUMBS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "add-clopidogrel",
+      "generic_name_zh": "氯吡格雷",
+      "generic_name_en": "clopidogrel",
+      "clinical_categories": [
+        "抗血小板"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "血栓形成风险管理",
+          "dose": null,
+          "dose_notes": "猫犬常用；剂量及与其他抗凝/抗血小板药联用风险需按指南核对。",
+          "label_status": "兽医临床常用/多为超说明书",
+          "source_ids": [
+            "ACVIM",
+            "PLUMBS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "add-mirtazapine",
+      "generic_name_zh": "米氮平",
+      "generic_name_en": "mirtazapine",
+      "clinical_categories": [
+        "食欲刺激",
+        "止吐辅助"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "食欲下降/部分病例恶心辅助",
+          "dose": null,
+          "dose_notes": "猫需特别注意肝肾功能及剂型；经皮制剂和口服制剂不能混用剂量。",
+          "label_status": "兽医临床常用",
+          "source_ids": [
+            "PLUMBS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "add-n-acetylcysteine",
+      "generic_name_zh": "N-乙酰半胱氨酸",
+      "generic_name_en": "N-acetylcysteine",
+      "clinical_categories": [
+        "解毒",
+        "抗氧化"
+      ],
+      "species_groups": [
+        "犬",
+        "猫"
+      ],
+      "records": [
+        {
+          "indication": "对乙酰氨基酚中毒等",
+          "dose": null,
+          "dose_notes": "特异性解毒方案按毒物、暴露时间和肝损伤状态核对；不要把普通化痰用法当作中毒方案。",
+          "label_status": "中毒治疗参考",
+          "source_ids": [
+            "MERCK"
+          ]
+        }
+      ]
+    }
+  ]
+}

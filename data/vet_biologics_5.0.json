@@ -1,0 +1,62 @@
+{
+  "schema_version": "5.0",
+  "last_reviewed": "2026-08-15",
+  "products": [
+    {
+      "name": "妙三多",
+      "type": "疫苗",
+      "species": "猫",
+      "category": "猫三联",
+      "verification": "产品批准文号/说明书需按当前中国官方数据库核验"
+    },
+    {
+      "name": "喵倍护",
+      "type": "疫苗",
+      "species": "猫",
+      "category": "猫三联",
+      "verification": "产品批准文号/说明书需按当前中国官方数据库核验"
+    },
+    {
+      "name": "卫佳伍",
+      "type": "疫苗",
+      "species": "犬",
+      "category": "犬核心多联",
+      "verification": "产品批准文号/说明书需按当前中国官方数据库核验"
+    },
+    {
+      "name": "卫佳捌",
+      "type": "疫苗",
+      "species": "犬",
+      "category": "犬多联",
+      "verification": "产品批准文号/说明书需按当前中国官方数据库核验"
+    },
+    {
+      "name": "犬细小病毒单克隆抗体",
+      "type": "生物制品",
+      "species": "犬",
+      "category": "单克隆抗体",
+      "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验"
+    },
+    {
+      "name": "犬瘟热单克隆抗体",
+      "type": "生物制品",
+      "species": "犬",
+      "category": "单克隆抗体",
+      "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验"
+    },
+    {
+      "name": "猫干扰素",
+      "type": "生物制品",
+      "species": "猫",
+      "category": "干扰素",
+      "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验"
+    },
+    {
+      "name": "犬干扰素",
+      "type": "生物制品",
+      "species": "犬",
+      "category": "干扰素",
+      "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验"
+    }
+  ]
+}
