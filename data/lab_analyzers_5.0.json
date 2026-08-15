@@ -1,0 +1,2046 @@
+{
+  "schema_version": "5.0",
+  "last_reviewed": "2026-08-15",
+  "policy": {
+    "reference_priority": [
+      "manufacturer_current_report_or_IFU",
+      "hospital_validated_interval",
+      "reference_laboratory",
+      "textbook_general_reference"
+    ],
+    "no_guessing": true,
+    "note": "Analyzer-, method-, reagent- and laboratory-specific intervals may differ. When the instrument report provides a current interval, use that interval."
+  },
+  "analyzers": [
+    {
+      "id": "idexx-catalyst-one",
+      "manufacturer": "IDEXX 爱德士",
+      "origin": "美国/国内上市",
+      "model": "Catalyst One",
+      "category": "兽用生化/电解质/免疫分析",
+      "tests": [
+        "常规生化",
+        "电解质",
+        "部分高级检测"
+      ],
+      "reference_intervals": {
+        "status": "official",
+        "values": [
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.3,
+            "high": 4.0,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 23,
+            "high": 212,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 10,
+            "high": 125,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 50,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 7,
+            "high": 27,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.9,
+            "high": 12.0,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 110,
+            "high": 320,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 10,
+            "high": 200,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.5,
+            "high": 1.8,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CRP",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 1,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 11,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.5,
+            "high": 4.5,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 143,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.5,
+            "high": 2.5,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 40,
+            "high": 400,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 200,
+            "high": 1800,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.4,
+            "high": 2.38,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 98,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 2.5,
+            "high": 6.8,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.2,
+            "high": 8.2,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 144,
+            "high": 160,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 109,
+            "high": 122,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.3,
+            "high": 4.0,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 23,
+            "high": 212,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 10,
+            "high": 125,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 50,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 7,
+            "high": 27,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.9,
+            "high": 12.0,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 110,
+            "high": 320,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 10,
+            "high": 200,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.5,
+            "high": 1.8,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CRP",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 1,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 11,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.5,
+            "high": 4.5,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 143,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.5,
+            "high": 2.5,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 40,
+            "high": 400,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 200,
+            "high": 1800,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.4,
+            "high": 2.38,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 98,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 2.5,
+            "high": 6.8,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.2,
+            "high": 8.2,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 144,
+            "high": 160,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 109,
+            "high": 122,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.2,
+            "high": 4.0,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 14,
+            "high": 111,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 12,
+            "high": 130,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 48,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 16,
+            "high": 36,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.8,
+            "high": 11.3,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 65,
+            "high": 225,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 0,
+            "high": 314,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.8,
+            "high": 2.4,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 4,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.8,
+            "high": 5.1,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 159,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.6,
+            "high": 2.5,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 0,
+            "high": 798,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 100,
+            "high": 1400,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.5,
+            "high": 3.0,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 95,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 3.1,
+            "high": 7.5,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.7,
+            "high": 8.9,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 150,
+            "high": 165,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 112,
+            "high": 129,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.2,
+            "high": 4.0,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 14,
+            "high": 111,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 12,
+            "high": 130,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 48,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 16,
+            "high": 36,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.8,
+            "high": 11.3,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 65,
+            "high": 225,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 0,
+            "high": 314,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.8,
+            "high": 2.4,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 4,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.8,
+            "high": 5.1,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 159,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.6,
+            "high": 2.5,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 0,
+            "high": 798,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 100,
+            "high": 1400,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.5,
+            "high": 3.0,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 95,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 3.1,
+            "high": 7.5,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.7,
+            "high": 8.9,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 150,
+            "high": 165,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 112,
+            "high": 129,
+            "species": "猫",
+            "age_group": "老年"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "IDEXX Catalyst One/Catalyst Dx Reference Ranges",
+          "url": "https://www.idexx.com/files/catalyst-species-reference-ranges.pdf"
+        }
+      ]
+    },
+    {
+      "id": "idexx-catalyst-dx",
+      "manufacturer": "IDEXX 爱德士",
+      "origin": "美国/国内上市",
+      "model": "Catalyst Dx",
+      "category": "兽用生化/电解质/免疫分析",
+      "tests": [
+        "常规生化",
+        "电解质",
+        "部分高级检测"
+      ],
+      "reference_intervals": {
+        "status": "official",
+        "values": [
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.3,
+            "high": 4.0,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 23,
+            "high": 212,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 10,
+            "high": 125,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 50,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 7,
+            "high": 27,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.9,
+            "high": 12.0,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 110,
+            "high": 320,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 10,
+            "high": 200,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.5,
+            "high": 1.8,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CRP",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 1,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 11,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.5,
+            "high": 4.5,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 143,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.5,
+            "high": 2.5,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 40,
+            "high": 400,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 200,
+            "high": 1800,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.4,
+            "high": 2.38,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 98,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 2.5,
+            "high": 6.8,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.2,
+            "high": 8.2,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 144,
+            "high": 160,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 109,
+            "high": 122,
+            "species": "犬",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.3,
+            "high": 4.0,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 23,
+            "high": 212,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 10,
+            "high": 125,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 50,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 7,
+            "high": 27,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.9,
+            "high": 12.0,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 110,
+            "high": 320,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 10,
+            "high": 200,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.5,
+            "high": 1.8,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CRP",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 1,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 11,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.5,
+            "high": 4.5,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 143,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.5,
+            "high": 2.5,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 40,
+            "high": 400,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 200,
+            "high": 1800,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.4,
+            "high": 2.38,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 98,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 2.5,
+            "high": 6.8,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.2,
+            "high": 8.2,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 144,
+            "high": 160,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 109,
+            "high": 122,
+            "species": "犬",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.2,
+            "high": 4.0,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 14,
+            "high": 111,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 12,
+            "high": 130,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 48,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 16,
+            "high": 36,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.8,
+            "high": 11.3,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 65,
+            "high": 225,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 0,
+            "high": 314,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.8,
+            "high": 2.4,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 4,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.8,
+            "high": 5.1,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 159,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.6,
+            "high": 2.5,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 0,
+            "high": 798,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 100,
+            "high": 1400,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.5,
+            "high": 3.0,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 95,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 3.1,
+            "high": 7.5,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.7,
+            "high": 8.9,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 150,
+            "high": 165,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 112,
+            "high": 129,
+            "species": "猫",
+            "age_group": "成年"
+          },
+          {
+            "analyte": "ALB",
+            "unit": "g/dL",
+            "low": 2.2,
+            "high": 4.0,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "low": 14,
+            "high": 111,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "low": 12,
+            "high": 130,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AMYL",
+            "unit": "U/L",
+            "low": 500,
+            "high": 1500,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "low": 0,
+            "high": 48,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "BUN/UREA",
+            "unit": "mg/dL",
+            "low": 16,
+            "high": 36,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mg/dL",
+            "low": 7.8,
+            "high": 11.3,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mg/dL",
+            "low": 65,
+            "high": 225,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "low": 0,
+            "high": 314,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "CREA",
+            "unit": "mg/dL",
+            "low": 0.8,
+            "high": 2.4,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GGT",
+            "unit": "U/L",
+            "low": 0,
+            "high": 4,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/dL",
+            "low": 2.8,
+            "high": 5.1,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mg/dL",
+            "low": 74,
+            "high": 159,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LAC",
+            "unit": "mmol/L",
+            "low": 0.6,
+            "high": 2.5,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "low": 0,
+            "high": 798,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "LIPA",
+            "unit": "U/L",
+            "low": 100,
+            "high": 1400,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Mg",
+            "unit": "mg/dL",
+            "low": 1.5,
+            "high": 3.0,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "NH3",
+            "unit": "µmol/L",
+            "low": 0,
+            "high": 95,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mg/dL",
+            "low": 3.1,
+            "high": 7.5,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "SDMA",
+            "unit": "µg/dL",
+            "low": 0,
+            "high": 14,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "mg/dL",
+            "low": 0,
+            "high": 0.9,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/dL",
+            "low": 5.7,
+            "high": 8.9,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mg/dL",
+            "low": 10,
+            "high": 100,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Na",
+            "unit": "mmol/L",
+            "low": 150,
+            "high": 165,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "K",
+            "unit": "mmol/L",
+            "low": 3.5,
+            "high": 5.8,
+            "species": "猫",
+            "age_group": "老年"
+          },
+          {
+            "analyte": "Cl",
+            "unit": "mmol/L",
+            "low": 112,
+            "high": 129,
+            "species": "猫",
+            "age_group": "老年"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "IDEXX Catalyst One/Catalyst Dx Reference Ranges",
+          "url": "https://www.idexx.com/files/catalyst-species-reference-ranges.pdf"
+        }
+      ]
+    },
+    {
+      "id": "mnchip-celercare-v5s",
+      "manufacturer": "微纳芯 MNCHIP",
+      "origin": "中国",
+      "model": "Celercare V5S",
+      "category": "动物全自动生化/电解质/凝血/炎症",
+      "tests": [
+        "临床生化",
+        "电解质",
+        "凝血",
+        "炎症",
+        "血气组合"
+      ],
+      "reference_intervals": {
+        "status": "official_interval_not_embedded",
+        "values": [],
+        "note": "官方操作手册确认结果会按参考范围标记，但公开资料未提供可直接结构化录入的完整犬猫参考区间；不在工具中自行猜测。"
+      },
+      "sources": [
+        {
+          "title": "MNCHIP Celercare V5 官方操作手册",
+          "url": "https://cn.mnchip.com/PDFs/V_IFU_EN/Celercare_V5/Celercare_V5_Operator-s-Manual_V1.4.pdf"
+        },
+        {
+          "title": "MNCHIP Celercare V5S 官方产品页",
+          "url": "https://cn.mnchip.com/celercare-v5"
+        }
+      ]
+    },
+    {
+      "id": "mindray-vetxpert-c5",
+      "manufacturer": "迈瑞动物医疗",
+      "origin": "中国",
+      "model": "vetXpert C5",
+      "category": "兽用生化分析",
+      "tests": [
+        "生化",
+        "电解质",
+        "计算项目"
+      ],
+      "reference_intervals": {
+        "status": "official_interval_not_embedded",
+        "values": [],
+        "note": "官方产品资料确认检测平台与项目，但未公开完整可结构化的犬猫参考区间；使用设备当前报告区间。"
+      },
+      "sources": [
+        {
+          "title": "Mindray Animal Medical vetXpert C5",
+          "url": "https://www.mindrayanimal.com/en/product/vetXpert_C5"
+        }
+      ]
+    },
+    {
+      "id": "mindray-vetxpert-cube",
+      "manufacturer": "迈瑞动物医疗",
+      "origin": "中国",
+      "model": "vetXpert Cube",
+      "category": "兽用生化/免疫分析",
+      "tests": [
+        "生化",
+        "电解质",
+        "免疫",
+        "部分血液学"
+      ],
+      "reference_intervals": {
+        "status": "official_interval_not_embedded",
+        "values": [],
+        "note": "官方产品资料确认检测菜单；参考区间以设备/试剂当前报告为准。"
+      },
+      "sources": [
+        {
+          "title": "Mindray vetXpert Cube 产品资料",
+          "url": "https://www.medicalexpo.com.cn/prod/shenzhen-mindray-animal-medical-technology-co-ltd/product-304944-1180976.html"
+        }
+      ]
+    },
+    {
+      "id": "seamaty-smt-120vp",
+      "manufacturer": "斯马特 Seamaty",
+      "origin": "中国",
+      "model": "SMT-120VP",
+      "category": "兽用全自动生化/凝血/电解质/炎症",
+      "tests": [
+        "常规生化",
+        "凝血",
+        "血气电解质",
+        "犬猫炎症"
+      ],
+      "reference_intervals": {
+        "status": "official_interval_not_embedded",
+        "values": [],
+        "note": "官方资料确认检测项目与质量控制，但公开资料未提供完整可结构化犬猫参考区间。"
+      },
+      "sources": [
+        {
+          "title": "Seamaty SMT-120VP 官方产品页",
+          "url": "https://cn.seamaty.com/index.php?s=%2Fsys%2F7.html"
+        }
+      ]
+    },
+    {
+      "id": "powfo-120vp",
+      "manufacturer": "深圳博孚/POWFO",
+      "origin": "中国",
+      "model": "120VP",
+      "category": "兽用生化/凝血/电解质/炎症",
+      "tests": [
+        "生化",
+        "凝血",
+        "电解质",
+        "炎症"
+      ],
+      "reference_intervals": {
+        "status": "official_interval_not_embedded",
+        "values": []
+      },
+      "sources": [
+        {
+          "title": "POWFO 120VP 官方产品页",
+          "url": "https://www.powfo.cn/ProDetail.aspx?ProID=88"
+        }
+      ]
+    },
+    {
+      "id": "urit-ca-180vet",
+      "manufacturer": "优利特 URIT",
+      "origin": "中国广西",
+      "model": "CA-180Vet",
+      "category": "动物全自动生化分析仪",
+      "tests": [
+        "生化"
+      ],
+      "reference_intervals": {
+        "status": "manufacturer_specific_not_embedded",
+        "values": [],
+        "note": "公开产品资料说明具有动物专用参数参考范围；实际以设备当前软件/报告为准。"
+      },
+      "sources": [
+        {
+          "title": "URIT CA-180Vet 产品资料（公开行业资料）",
+          "url": "https://m.instrument.com.cn/show/C567242.html"
+        }
+      ]
+    },
+    {
+      "id": "urit-ca-200vet",
+      "manufacturer": "优利特 URIT",
+      "origin": "中国广西",
+      "model": "CA-200Vet",
+      "category": "动物全自动生化分析仪",
+      "tests": [
+        "生化"
+      ],
+      "reference_intervals": {
+        "status": "manufacturer_specific_not_embedded",
+        "values": [],
+        "note": "公开产品资料确认兽医专用平台；实际以设备当前软件/报告为准。"
+      },
+      "sources": [
+        {
+          "title": "URIT CA-200Vet 产品资料（公开行业资料）",
+          "url": "https://m.instrument.com.cn/show/C569472.html"
+        }
+      ]
+    },
+    {
+      "id": "mindray-bs-240vet",
+      "manufacturer": "迈瑞动物医疗",
+      "origin": "中国广东",
+      "model": "BS-240 Vet",
+      "category": "动物全自动生化分析仪",
+      "tests": [
+        "生化"
+      ],
+      "reference_intervals": {
+        "status": "manufacturer_specific_not_embedded",
+        "values": [],
+        "note": "公开资料说明制定了猫狗专属常用参数参考范围；工具不复制未公开的完整表格，临床以设备当前报告为准。"
+      },
+      "sources": [
+        {
+          "title": "迈瑞 BS-240 Vet 产品资料",
+          "url": "https://www.instrument.com.cn/netshow/SH114089/c469263.htm"
+        }
+      ]
+    },
+    {
+      "id": "seamaty-smt-120v",
+      "manufacturer": "斯马特 Seamaty",
+      "origin": "中国四川",
+      "model": "SMT-120V",
+      "category": "便携式兽用自动生化分析仪",
+      "tests": [
+        "生化",
+        "电解质"
+      ],
+      "reference_intervals": {
+        "status": "manufacturer_specific_not_embedded",
+        "values": []
+      },
+      "sources": [
+        {
+          "title": "SMT-120V 产品资料",
+          "url": "https://www.instrument.com.cn/netshow/SH111974/C340827.htm"
+        }
+      ]
+    },
+    {
+      "id": "seamaty-sd1",
+      "manufacturer": "斯马特 Seamaty",
+      "origin": "中国四川",
+      "model": "SD1",
+      "category": "便携式干式生化分析仪",
+      "tests": [
+        "生化"
+      ],
+      "reference_intervals": {
+        "status": "manufacturer_specific_not_embedded",
+        "values": []
+      },
+      "sources": [
+        {
+          "title": "国产兽用生化仪产品资料",
+          "url": "https://www.instrument.com.cn/netshow/SH111974/C340827.htm"
+        }
+      ]
+    },
+    {
+      "id": "wondfo-bga-102",
+      "manufacturer": "万孚/万德康 Wondfo-Wondko",
+      "origin": "中国广东",
+      "model": "BGA-102",
+      "category": "血气/电解质 POCT",
+      "tests": [
+        "pH",
+        "pCO2",
+        "pO2",
+        "Na",
+        "K",
+        "Ca",
+        "Cl",
+        "Glu",
+        "Lac"
+      ],
+      "reference_intervals": {
+        "status": "manufacturer_specific_not_embedded",
+        "values": [],
+        "note": "用于血气/电解质平台；参考区间应以仪器/试剂当前说明书及本院验证为准。"
+      },
+      "sources": [
+        {
+          "title": "Wondfo BGA 血气平台",
+          "url": "https://en.wondfo.com/Blood-Gas-Platform.html"
+        }
+      ]
+    },
+    {
+      "id": "wondfo-dc-101",
+      "manufacturer": "万孚 Wondfo",
+      "origin": "中国广东",
+      "model": "DC-101",
+      "category": "干式生化分析",
+      "tests": [
+        "ALT",
+        "AST",
+        "ALB",
+        "UREA",
+        "CREA",
+        "UA",
+        "CK",
+        "CK-MB",
+        "LDH",
+        "α-AMY",
+        "GLU",
+        "HB"
+      ],
+      "reference_intervals": {
+        "status": "manufacturer_specific_not_embedded",
+        "values": [],
+        "note": "公开资料提供测量范围，不等同于犬猫临床参考区间；不得混用。"
+      },
+      "sources": [
+        {
+          "title": "Wondfo DC-101 官方资料",
+          "url": "https://en.wondfo.com/vancheerfile/files/2020/9/20200921141149390.pdf"
+        }
+      ]
+    }
+  ]
+}
