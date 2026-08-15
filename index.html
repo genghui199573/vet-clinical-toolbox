@@ -146,6 +146,24 @@ footer{max-width:1280px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 </main>
 <footer>兽医临床工具箱 5.0 · 固定版本。计算结果仅供执业兽医临床决策辅助；实验室参考范围、产品标签、批准适应证、物种、制剂和患者状态优先。</footer>
 
+<script id="vet5-bootstrap">
+(function(){
+  const dose=document.getElementById('dose');
+  if(!dose || document.getElementById('reconstituteBtn')) return;
+  const card=document.createElement('div');
+  card.className='card';
+  card.id='reconstituteCard';
+  card.innerHTML=`<h2>粉针复溶 / 抽取量</h2><div class="grid"><div>
+    <label>物种<select id="rwSpecies"><option>犬</option><option>猫</option><option>鹦鹉/鸟类</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option></select></label>
+    <label>品种<input id="rwBreed"></label><label>体重 kg<input id="rwWeight" type="number" step=".01"></label>
+    <label>目标剂量<input id="rwDose" type="number" step=".001"></label><label>剂量单位<select id="rwDoseUnit"><option>mg/kg</option><option>µg/kg</option></select></label>
+    <label>每瓶总药量<input id="vialAmount" type="number" step=".001"></label><label>药量单位<select id="vialUnit"><option>mg</option><option>g</option><option>µg</option></select></label>
+    </div><div><label>稀释液加入量 mL<input id="diluentVolume" type="number" step=".1"></label>
+    <label>复溶后最终体积 mL<input id="finalVolume" type="number" step=".1"></label>
+    <button class="primary" id="reconstituteBtn" type="button">计算复溶后抽取量</button><div id="reOut"></div></div></div>`;
+  dose.appendChild(card);
+})();
+</script>
 <script src="clinical_enhancements_5.0.js"></script>
 <script>
 "use strict";
