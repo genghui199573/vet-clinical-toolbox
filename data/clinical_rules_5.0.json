@@ -1,0 +1,27 @@
+{
+  "version": "5.0",
+  "purpose": "clinical decision-support rules; not a substitute for product labels or clinician judgment",
+  "modules": [
+    "case",
+    "CBC",
+    "biochemistry",
+    "blood_gas",
+    "electrolytes",
+    "shock_lactate",
+    "fluid",
+    "nutrition",
+    "transfusion",
+    "pain",
+    "toxicology",
+    "perioperative",
+    "differential_diagnosis",
+    "AI"
+  ],
+  "safety": {
+    "no_guessing": true,
+    "dose_requires_source": true,
+    "lab_ranges_local_priority": true,
+    "product_label_priority": true,
+    "off_label_must_be_marked": true
+  }
+}
