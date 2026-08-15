@@ -1,0 +1,46 @@
+{
+  "sources_version": "2026.08-v5.0",
+  "schema_version": "5.0",
+  "sources": [
+    {
+      "source_id": "CN-MOA",
+      "title": "中华人民共和国农业农村部",
+      "url": "https://www.moa.gov.cn/"
+    },
+    {
+      "source_id": "CN-IVDC",
+      "title": "中国兽药信息网",
+      "url": "https://www.ivdc.org.cn/"
+    },
+    {
+      "source_id": "FDA-GREEN",
+      "title": "FDA Animal Drugs Green Book",
+      "url": "https://www.fda.gov/animal-veterinary/products/approved-animal-drug-products-green-book"
+    },
+    {
+      "source_id": "MERCK",
+      "title": "Merck Veterinary Manual",
+      "url": "https://www.merckvetmanual.com/"
+    },
+    {
+      "source_id": "AAHA",
+      "title": "AAHA",
+      "url": "https://www.aaha.org/"
+    },
+    {
+      "source_id": "RECOVER",
+      "title": "RECOVER Initiative",
+      "url": "https://recoverinitiative.org/"
+    },
+    {
+      "source_id": "ISCAID",
+      "title": "ISCAID",
+      "url": "https://iscaid.org/"
+    },
+    {
+      "source_id": "ACVIM",
+      "title": "ACVIM",
+      "url": "https://www.acvim.org/"
+    }
+  ]
+}

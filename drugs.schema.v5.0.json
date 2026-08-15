@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vet-clinical-toolbox/drugs.schema.v5.0.json",
+  "title": "兽医临床工具箱药物数据库 v5.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "database_version",
+    "last_reviewed",
+    "drugs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.0"
+    },
+    "database_version": {
+      "type": "string"
+    },
+    "last_reviewed": {
+      "type": "string"
+    },
+    "drugs": {
+      "type": "array"
+    }
+  }
+}
