@@ -1,0 +1,44 @@
+name: Vet Toolbox 5.0 one-time enhancement patch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Patch index.html
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          s=p.read_text(encoding="utf-8")
+          tag='<script src="clinical_enhancements_5.0.js"></script>'
+          if tag not in s:
+              marker='<script>\n"use strict";'
+              if marker not in s:
+                  raise SystemExit("main inline script marker not found")
+              s=s.replace(marker, tag+"\n"+marker, 1)
+              p.write_text(s,encoding="utf-8")
+          print("index.html patched")
+          PY
+
+      - name: Commit patched index
+        run: |
+          git config user.name "vet-toolbox-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No change needed."
+          else
+            git commit -m "fix: restore 5.0 runtime initialization and CPR"
+            git push
+          fi
