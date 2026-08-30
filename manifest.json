@@ -1,0 +1,13 @@
+{
+  "name": "兽医临床工具箱 5.0",
+  "short_name": "兽医工具箱 5.0",
+  "version": "5.0",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f7f7",
+  "theme_color": "#0f766e",
+  "description": "犬猫及其他伴侣动物临床计算、药物数据库与安全决策工具箱",
+  "icons": []
+}
