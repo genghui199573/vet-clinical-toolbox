@@ -1,0 +1,25 @@
+name: Validate veterinary toolbox 5.0
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON and 5.0 runtime
+        run: |
+          node tests/smoke.mjs
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('.')
+          idx=(root/'index.html').read_text(encoding='utf-8')
+          assert '兽医临床工具箱 5.0' in idx
+          db=json.loads((root/'data/drugs.json').read_text(encoding='utf-8'))
+          assert isinstance(db.get('drugs'),list)
+          assert (root/'clinical_enhancements_5.0_clinical_addon.js').exists()
+          print('JSON validation OK; drugs:',len(db['drugs']))
+          PY
