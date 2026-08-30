@@ -1,0 +1,31 @@
+{
+  "version": "5.0",
+  "build": "5.0-r08",
+  "purpose": "Veterinary clinical decision-support rules. Product labels, laboratory reports and current professional guidelines take priority.",
+  "safety": {
+    "no_guessing": true,
+    "dose_requires_source": true,
+    "product_label_priority": true,
+    "lab_report_priority": true,
+    "off_label_must_be_marked": true,
+    "hard_blocks": [
+      "feline acetaminophen",
+      "feline pyrethroid exposure/product misuse",
+      "feline enrofloxacin > 5 mg/kg/day",
+      "KCl > 0.5 mEq/kg/h in the built-in safety calculator",
+      "sodium correction absolute rate > 0.5 mEq/L/h"
+    ]
+  },
+  "patientState": ["species","breed","weight","age","sex","pcv","temp","hr","rr","sbp","dbp","spo2","albumin","na","k","cl","hco3","glucose","creatinine","sdma","upc","uop","uopHours"],
+  "shock_bolus_ml_kg": {"dog": [10,20], "cat": [10,15], "minutes": [15,20]},
+  "cpr": {"compression_rate_bpm": [100,120], "epinephrine_low_mg_kg": 0.01, "epinephrine_high_historical_mg_kg": 0.1, "atropine_mg_kg": 0.04, "current_note": "RECOVER 2024 no longer recommends high-dose epinephrine; atropine, if indicated, is administered only once."},
+  "sodium": {"max_absolute_rate_mEq_L_h": 0.5},
+  "kcl": {"max_rate_mEq_kg_h": 0.5},
+  "references": [
+    {"name":"IRIS CKD Staging System", "url":"https://www.iris-kidney.com/iris-staging-system"},
+    {"name":"IRIS Guidelines", "url":"https://www.iris-kidney.com/iris-guidelines-1"},
+    {"name":"RECOVER 2024 CPR Guidelines", "url":"https://pubmed.ncbi.nlm.nih.gov/38924627/"},
+    {"name":"ACVIM MMVD Consensus 2019", "url":"https://onlinelibrary.wiley.com/doi/full/10.1111/jvim.15488"},
+    {"name":"ISCAID Guidelines", "url":"https://www.iscaid.org/guidelines"}
+  ]
+}
