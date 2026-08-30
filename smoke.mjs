@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const read=f=>fs.readFileSync(path.join(root,f),'utf8');
+const index=read('index.html');
+assert.match(index,/clinical_enhancements_5_0\.js|clinical_enhancements_5\.0\.js/,'core enhancement missing');
+assert.match(index,/clinical_rules_engine_5\.0\.js/,'rules engine not loaded');
+assert.match(index,/clinical_enhancements_5\.0_clinical_addon\.js/,'clinical addon not loaded');
+assert.doesNotMatch(index,/clinical_enhancements_5\.1/,'5.1 reference found');
+const addon=read('clinical_enhancements_5.0_clinical_addon.js');
+assert.match(addon,/v5ClinicalR08/); assert.match(addon,/0\.01/); assert.match(addon,/0\.04/); assert.match(addon,/0\.5/);
+const engine=read('clinical_rules_engine_5.0.js'); assert.match(engine,/5\.0-r08/); assert.match(engine,/patientState/);
+const core=read('clinical_enhancements_5.0.js'); assert.match(core,/function main\(\)\{bindNav\(\);addLabSection\(\);addPWA\(\)\}/,'legacy duplicate clinical runtime still active');
+assert.equal(fs.existsSync(path.join(root,'.github/workflows/github-workflow-patch_v5_0.yml')),false,'self-modifying patch workflow must remain removed');
+const sw=read('sw.js'); assert.match(sw,/5\.0-r08/); assert.match(sw,/clinical_rules_engine_5\.0\.js/); assert.match(sw,/clinical_enhancements_5\.0_clinical_addon\.js/);
+for(const f of ['data/clinical_rules_5.0.json','manifest.json','drugs.schema.v5.0.json','sources.v5.0.json']) JSON.parse(read(f));
+console.log('Vet Clinical Toolbox 5.0-r08 smoke validation: OK');
