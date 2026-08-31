@@ -1,548 +1,210 @@
 {
   "schema_version": "5.0",
-  "last_reviewed": "2026-08-30",
-  "scope": "companion_animal_biologics",
-  "status_taxonomy": [
-    "中国已注册/批准",
-    "中国市场待逐品核验",
-    "国际上市参考",
-    "研发/试验"
-  ],
-  "notes": "本库是临床检索索引，不替代官方批准文号、说明书、标签或当地法规。所谓“市场参考”不代表中国可购或可临床使用。产品数量会随注册、变更注册、转国内生产及市场状态变化而变化。",
+  "database": "vet_biologics",
+  "last_reviewed": "2026-08-31",
   "products": [
     {
       "name": "妙三多",
       "type": "疫苗",
-      "species": [
-        "猫"
-      ],
+      "species": "猫",
       "category": "猫三联",
       "verification": "产品批准文号/说明书需按当前中国官方数据库核验",
-      "id": "legacy-妙三多",
-      "product_name": "妙三多",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-001",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
       "name": "喵倍护",
       "type": "疫苗",
-      "species": [
-        "猫"
-      ],
+      "species": "猫",
       "category": "猫三联",
       "verification": "产品批准文号/说明书需按当前中国官方数据库核验",
-      "id": "legacy-喵倍护",
-      "product_name": "喵倍护",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-002",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
       "name": "卫佳伍",
       "type": "疫苗",
-      "species": [
-        "犬"
-      ],
+      "species": "犬",
       "category": "犬核心多联",
       "verification": "产品批准文号/说明书需按当前中国官方数据库核验",
-      "id": "legacy-卫佳伍",
-      "product_name": "卫佳伍",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-003",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
       "name": "卫佳捌",
       "type": "疫苗",
-      "species": [
-        "犬"
-      ],
+      "species": "犬",
       "category": "犬多联",
       "verification": "产品批准文号/说明书需按当前中国官方数据库核验",
-      "id": "legacy-卫佳捌",
-      "product_name": "卫佳捌",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-004",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
       "name": "犬细小病毒单克隆抗体",
       "type": "生物制品",
-      "species": [
-        "犬"
-      ],
+      "species": "犬",
       "category": "单克隆抗体",
       "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验",
-      "id": "legacy-犬细小病毒单克隆抗体",
-      "product_name": "犬细小病毒单克隆抗体",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-005",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
       "name": "犬瘟热单克隆抗体",
       "type": "生物制品",
-      "species": [
-        "犬"
-      ],
+      "species": "犬",
       "category": "单克隆抗体",
       "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验",
-      "id": "legacy-犬瘟热单克隆抗体",
-      "product_name": "犬瘟热单克隆抗体",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-006",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
       "name": "猫干扰素",
       "type": "生物制品",
-      "species": [
-        "猫"
-      ],
+      "species": "猫",
       "category": "干扰素",
       "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验",
-      "id": "legacy-猫干扰素",
-      "product_name": "猫干扰素",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-007",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
       "name": "犬干扰素",
       "type": "生物制品",
-      "species": [
-        "犬"
-      ],
+      "species": "犬",
       "category": "干扰素",
       "verification": "具体企业、批准文号、规格和适应症必须按官方兽药信息核验",
-      "id": "legacy-犬干扰素",
-      "product_name": "犬干扰素",
-      "market_status_cn": "待核验"
+      "id": "legacy-biologic-008",
+      "market_status_cn": "原数据库条目；需以当前官方注册信息核验",
+      "evidence_level": "待复核",
+      "source_type": "legacy_database",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前有效批准说明书/标签使用"
     },
     {
-      "id": "miaosan-duo",
-      "product_name": "妙三多",
-      "generic_name_zh": "猫三联疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫三联",
-      "market_status_cn": "中国临床常见产品；具体批准文号/当前标签以官方数据库及说明书核验",
-      "manufacturer": "硕腾 Zoetis",
-      "antigens": [
-        "猫泛白细胞减少症病毒",
-        "猫疱疹病毒1型",
-        "猫杯状病毒"
-      ],
-      "verification": "不得脱离当前官方说明书推定接种程序"
-    },
-    {
-      "id": "miaobei-hu",
-      "product_name": "喵倍护",
-      "generic_name_zh": "猫三联疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫三联",
-      "market_status_cn": "中国上市产品；具体批准文号/当前标签以官方资料核验",
-      "manufacturer": "博莱得利",
-      "antigens": [
-        "猫泛白细胞减少症病毒",
-        "猫疱疹病毒1型",
-        "猫杯状病毒"
-      ],
-      "verification": "不得脱离当前官方说明书推定接种程序"
-    },
-    {
-      "id": "weijiawu",
-      "product_name": "卫佳伍",
-      "generic_name_zh": "犬五联/核心多联活疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬核心多联",
-      "market_status_cn": "中国注册/上市；当前标签以官方说明书为准",
-      "manufacturer": "硕腾 Zoetis",
-      "antigens": [
-        "犬瘟热病毒",
-        "犬腺病毒2型",
-        "犬副流感病毒",
-        "犬细小病毒"
-      ],
-      "verification": "2025年官方说明书资料可核验"
-    },
-    {
-      "id": "weijia-ba",
-      "product_name": "卫佳捌",
-      "generic_name_zh": "犬多联疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬多联",
-      "market_status_cn": "中国注册/上市；当前标签以官方说明书为准",
-      "manufacturer": "硕腾 Zoetis",
-      "verification": "以当前官方说明书为准"
-    },
-    {
-      "id": "dog-distemper-parvo-bivalent-2026",
-      "product_name": "犬瘟热、细小病毒病二联活疫苗（LT90株+JM35株）",
-      "generic_name_zh": "犬瘟热/细小二联活疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬二联",
-      "market_status_cn": "中国新兽药注册（2026）",
-      "manufacturer": "普莱柯生物工程股份有限公司等",
-      "registration": "（2026）新兽药证字47号",
-      "verification": "农业农村部公告1011号"
-    },
-    {
-      "id": "cat-rcp-inactivated-2026",
-      "product_name": "猫鼻气管炎、杯状病毒病、泛白细胞减少症三联灭活疫苗（HBJ06株+CHZ05株+PSY01株）",
-      "generic_name_zh": "猫三联灭活疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫三联",
-      "market_status_cn": "中国新兽药注册（2026）",
-      "manufacturer": "中牧实业股份有限公司",
-      "registration": "（2026）新兽药证字43号",
-      "verification": "农业农村部公告1002号"
-    },
-    {
-      "id": "cat-rcp-inactivated-2025",
-      "product_name": "猫鼻气管炎、杯状病毒病、泛白细胞减少症三联灭活疫苗（RPVF0304株+RPVF0207株+RPVF0110株）",
-      "generic_name_zh": "猫三联灭活疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫三联",
-      "market_status_cn": "中国新兽药注册（2025）",
-      "manufacturer": "瑞普生物股份有限公司等",
-      "registration": "（2025）新兽药证字127号",
-      "verification": "农业农村部公告970号"
-    },
-    {
-      "id": "feline-panleukopenia-yolk-antibody-2026",
+      "id": "cn-2026-fpv-yolk-antibody",
       "product_name": "猫泛白细胞减少症病毒冻干卵黄抗体",
-      "generic_name_zh": "猫泛白细胞减少症病毒卵黄抗体",
+      "generic_name_zh": "猫泛白细胞减少症病毒冻干卵黄抗体",
       "type": "抗体/免疫制品",
       "species": [
         "猫"
       ],
-      "category": "特异性抗体",
-      "market_status_cn": "中国一类新兽药注册（2026）",
-      "manufacturer": "长春西诺生物科技有限公司、吉林农业大学",
+      "target": "FPV",
+      "market_status_cn": "中国新兽药注册",
       "registration": "（2026）新兽药证字45号",
-      "verification": "农业农村部公告1011号；剂量及适应症必须按批准说明书"
+      "source_type": "农业农村部公告第1011号",
+      "evidence_level": "官方监管文件",
+      "source_url": "https://xmsyj.moa.gov.cn/zwfw/202604/t20260416_6483273.htm",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按批准说明书及标签使用"
     },
     {
-      "id": "nobivac-dhppi",
-      "product_name": "Nobivac DHPPi",
-      "generic_name_zh": "犬瘟热/腺病毒/细小/副流感活疫苗",
+      "id": "cn-2026-canine-cdv-cpv-live-bivalent",
+      "product_name": "犬瘟热、细小病毒病二联活疫苗（LT90株+JM35株）",
+      "generic_name_zh": "犬瘟热、细小病毒病二联活疫苗",
       "type": "疫苗",
       "species": [
         "犬"
       ],
-      "category": "犬核心多联",
-      "market_status_cn": "国际上市参考；中国可售状态需单独核验",
-      "manufacturer": "MSD Animal Health",
-      "market_status_global": "国际上市"
+      "target": "CDV + CPV",
+      "market_status_cn": "中国新兽药注册",
+      "registration": "（2026）新兽药证字47号",
+      "source_type": "农业农村部公告第1011号",
+      "evidence_level": "官方监管文件",
+      "source_url": "https://xmsyj.moa.gov.cn/zwfw/202604/t20260416_6483273.htm",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按批准说明书及标签使用"
     },
     {
-      "id": "nobivac-lepto4",
-      "product_name": "Nobivac L4",
-      "generic_name_zh": "犬钩端螺旋体疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬非核心/地区性",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "MSD Animal Health",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "nobivac-rabies",
-      "product_name": "Nobivac Rabies",
-      "generic_name_zh": "狂犬病疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬",
-        "猫"
-      ],
-      "category": "狂犬病",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "MSD Animal Health",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "nobivac-tricat-trio",
-      "product_name": "Nobivac Tricat Trio",
-      "generic_name_zh": "猫三联活疫苗",
+      "id": "cn-2025-feline-triple-inactivated-708-60-64",
+      "product_name": "猫泛白细胞减少症、杯状病毒病、鼻气管炎三联灭活疫苗（708株+60株+64株）",
+      "generic_name_zh": "猫三联灭活疫苗",
       "type": "疫苗",
       "species": [
         "猫"
       ],
-      "category": "猫三联",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "MSD Animal Health",
-      "market_status_global": "国际上市"
+      "target": "FPV + FCV + FHV-1",
+      "market_status_cn": "中国注册/批准产品（官方说明书资料）",
+      "source_type": "农业农村部公报",
+      "evidence_level": "官方说明书资料",
+      "source_url": "https://www.moa.gov.cn/nybgb/2025/202511/202511/P020251121558229716855.pdf",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "按当前批准说明书执行"
     },
     {
-      "id": "nobivac-feline-leukemia",
-      "product_name": "Nobivac Feline 1-HCPCh+FeLV",
-      "generic_name_zh": "猫白血病/核心联合疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫联合疫苗",
-      "market_status_cn": "国际上市参考；具体地区标签不同",
-      "manufacturer": "MSD Animal Health",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "purevax-rcp",
-      "product_name": "Purevax RCP",
-      "generic_name_zh": "猫三联重组/非佐剂疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫三联",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "Boehringer Ingelheim",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "purevax-rcp-felv",
-      "product_name": "Purevax RCP FeLV",
-      "generic_name_zh": "猫三联+FeLV疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫联合疫苗",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "Boehringer Ingelheim",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "felocell-3",
-      "product_name": "Felocell 3",
-      "generic_name_zh": "猫三联疫苗",
-      "type": "疫苗",
-      "species": [
-        "猫"
-      ],
-      "category": "猫三联",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "Zoetis",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "vanguard-plus-5",
-      "product_name": "Vanguard Plus 5",
-      "generic_name_zh": "犬核心多联疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬核心多联",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "Zoetis",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "vanguard-plus-5-l4",
-      "product_name": "Vanguard Plus 5/L4",
-      "generic_name_zh": "犬核心多联+钩端疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬联合疫苗",
-      "market_status_cn": "国际上市参考；地区标签不同",
-      "manufacturer": "Zoetis",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "recombitek-c4-cv",
-      "product_name": "RECOMBITEK C4/CV",
-      "generic_name_zh": "犬核心多联疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬核心多联",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "Boehringer Ingelheim",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "eurican-dhppi2-l",
-      "product_name": "Eurican DHPPI2-L",
-      "generic_name_zh": "犬核心多联+钩端疫苗",
-      "type": "疫苗",
-      "species": [
-        "犬"
-      ],
-      "category": "犬联合疫苗",
-      "market_status_cn": "国际上市参考；地区标签不同",
-      "manufacturer": "Boehringer Ingelheim",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "cytopoint-lokivetmab",
-      "product_name": "Cytopoint / 赛妥敏",
+      "id": "intl-lokivetmab",
+      "product_name": "Lokivetmab（Cytopoint，国际参考）",
       "generic_name_zh": "洛基维单抗",
       "generic_name_en": "Lokivetmab",
       "type": "单克隆抗体",
       "species": [
         "犬"
       ],
-      "category": "治疗性单抗",
       "target": "IL-31",
-      "indications": [
-        "犬特应性皮炎相关瘙痒控制"
-      ],
-      "market_status_cn": "中国已上市；按当前中国说明书使用",
-      "manufacturer": "Zoetis",
-      "market_status_global": "国际上市"
+      "market_status_cn": "国际上市参考；中国状态需另行核验",
+      "source_type": "international_reference",
+      "evidence_level": "国际官方产品资料",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "不得以国际标签替代中国批准说明书"
     },
     {
-      "id": "librela-bedinvetmab",
-      "product_name": "Librela",
-      "generic_name_zh": "贝尼维单抗",
+      "id": "intl-bedinvetmab",
+      "product_name": "Bedinvetmab（Librela，国际参考）",
+      "generic_name_zh": "贝定维单抗",
       "generic_name_en": "Bedinvetmab",
       "type": "单克隆抗体",
       "species": [
         "犬"
       ],
-      "category": "治疗性单抗",
       "target": "NGF",
-      "indications": [
-        "犬骨关节炎相关疼痛"
-      ],
-      "market_status_cn": "中国注册/上市状态需按当前官方资料核验",
-      "manufacturer": "Zoetis",
-      "market_status_global": "国际上市"
+      "market_status_cn": "国际上市参考；中国状态需另行核验",
+      "source_type": "international_reference",
+      "evidence_level": "国际官方产品资料",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "不得以国际标签替代中国批准说明书"
     },
     {
-      "id": "solensia-frunevetmab",
-      "product_name": "Solensia",
+      "id": "intl-frunevetmab",
+      "product_name": "Frunevetmab（Solensia，国际参考）",
       "generic_name_zh": "弗鲁内维单抗",
       "generic_name_en": "Frunevetmab",
       "type": "单克隆抗体",
       "species": [
         "猫"
       ],
-      "category": "治疗性单抗",
       "target": "NGF",
-      "indications": [
-        "猫骨关节炎相关疼痛"
-      ],
-      "market_status_cn": "中国注册/上市状态需按当前官方资料核验",
-      "manufacturer": "Zoetis",
-      "market_status_global": "国际上市"
-    },
-    {
-      "id": "gilvetmab",
-      "product_name": "Gilvetmab",
-      "generic_name_zh": "吉维单抗",
-      "generic_name_en": "Gilvetmab",
-      "type": "单克隆抗体",
-      "species": [
-        "犬"
-      ],
-      "category": "肿瘤免疫治疗单抗",
-      "target": "PD-1",
-      "market_status_cn": "国际/地区性上市参考；中国临床可用状态需核验",
-      "manufacturer": "Elanco",
-      "market_status_global": "部分市场上市/参考"
-    },
-    {
-      "id": "virbagen-omega-dog-cat",
-      "product_name": "Virbagen Omega",
-      "generic_name_zh": "重组猫/犬ω-干扰素",
-      "generic_name_en": "Interferon omega",
-      "type": "干扰素",
-      "species": [
-        "犬",
-        "猫"
-      ],
-      "category": "重组细胞因子",
-      "market_status_cn": "国际上市参考；中国注册状态需核验",
-      "manufacturer": "Virbac",
-      "market_status_global": "部分市场上市"
-    },
-    {
-      "id": "recombinant-feline-interferon",
-      "product_name": "重组猫干扰素类制品",
-      "generic_name_zh": "猫干扰素",
-      "type": "干扰素",
-      "species": [
-        "猫"
-      ],
-      "category": "重组细胞因子",
-      "market_status_cn": "中国市场存在多种兽用生物制品，具体企业/批准文号/规格需逐品核验",
-      "manufacturer": "",
-      "market_status_global": "多产品"
-    },
-    {
-      "id": "recombinant-canine-interferon",
-      "product_name": "重组犬干扰素类制品",
-      "generic_name_zh": "犬干扰素",
-      "type": "干扰素",
-      "species": [
-        "犬"
-      ],
-      "category": "重组细胞因子",
-      "market_status_cn": "中国市场存在多种兽用生物制品，具体企业/批准文号/规格需逐品核验",
-      "manufacturer": "",
-      "market_status_global": "多产品"
-    },
-    {
-      "id": "canine-parvo-monoclonal",
-      "product_name": "犬细小病毒单克隆抗体",
-      "generic_name_zh": "犬细小病毒单抗",
-      "type": "单克隆抗体",
-      "species": [
-        "犬"
-      ],
-      "category": "特异性抗体",
-      "market_status_cn": "中国市场存在多家注册/生产产品；企业、批准文号、规格需逐品核验",
-      "target": "CPV"
-    },
-    {
-      "id": "canine-distemper-monoclonal",
-      "product_name": "犬瘟热病毒单克隆抗体",
-      "generic_name_zh": "犬瘟热病毒单抗",
-      "type": "单克隆抗体",
-      "species": [
-        "犬"
-      ],
-      "category": "特异性抗体",
-      "market_status_cn": "中国市场存在多家注册/生产产品；企业、批准文号、规格需逐品核验",
-      "target": "CDV"
-    },
-    {
-      "id": "canine-multi-antibody-serum",
-      "product_name": "犬多联抗体/高免血清类制品",
-      "generic_name_zh": "犬多联抗体",
-      "type": "抗体/免疫制品",
-      "species": [
-        "犬"
-      ],
-      "category": "高免血清/抗体",
-      "market_status_cn": "中国市场存在多种产品；不得以商品类别替代具体批准说明书"
-    },
-    {
-      "id": "canine-immune-globulin-reference",
-      "product_name": "犬用免疫球蛋白/高免制品（市场类别）",
-      "generic_name_zh": "免疫球蛋白类生物制品",
-      "type": "免疫制品",
-      "species": [
-        "犬"
-      ],
-      "category": "免疫球蛋白",
-      "market_status_cn": "市场类别；具体产品必须按批准文号和说明书建立单品记录",
-      "verification": "仅作为索引，不提供统一剂量"
+      "market_status_cn": "国际上市参考；中国状态需另行核验",
+      "source_type": "international_reference",
+      "evidence_level": "国际官方产品资料",
+      "last_reviewed": "2026-08-31",
+      "dose_note": "不得以国际标签替代中国批准说明书"
     }
-  ]
+  ],
+  "clinical_safety_notice": "本数据库用于临床信息检索，不替代当前有效批准说明书、标签或兽医判断。"
 }
