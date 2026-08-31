@@ -196,7 +196,7 @@ async function loadDB(){
     ]);
     DB.drugs=Array.isArray(d)?d:(d.drugs||[]);
     DB.additions=Array.isArray(a)?a:(a.drugs||[]);
-    DB.biologics=Array.isArray(b)?b:((b.products||b.biologics||[]));
+    DB.biologics=Array.isArray(b)?b:(b.biologics||[]);
     DB.catalog=Array.isArray(c)?c:(c.drugs||[]);
     const all=[...DB.drugs,...DB.additions,...DB.catalog];
     const names=[...new Map(all.map(x=>[(x.id||x.generic_name_zh||Math.random()),x])).values()];
@@ -214,20 +214,7 @@ function renderVax(){
   const q=($("vaxQ")?.value||"").toLowerCase(), sp=$("vaxSp")?.value||"";
   let arr=DB.biologics.filter(x=>(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!sp||JSON.stringify(x).includes(sp)));
   if(!arr.length){$("vaxList").innerHTML="<div class='muted'>当前生物制品文件无匹配条目。请核验实际数据库。</div>";return}
-  $("vaxList").innerHTML=arr.map(x=>{
-  const sp=Array.isArray(x.species)?x.species.join("、"):(x.species||x.species_group||"");
-  const ant=Array.isArray(x.antigens)?x.antigens.join("、"):"";
-  const ind=Array.isArray(x.indications)?x.indications.join("；"):"";
-  const status=x.market_status_cn||x.market_status_global||x.verification||"以实际官方标签为准";
-  return `<div class="drug"><b class="title">${esc(x.product_name||x.name||x.generic_name_zh||"生物制品")}</b>
-  <div>类别：${esc(x.type||"")} · ${esc(x.category||"")} · 物种：${esc(sp)}</div>
-  ${x.manufacturer?`<div>厂家：${esc(x.manufacturer)}</div>`:""}
-  ${x.target?`<div>靶点：${esc(x.target)}</div>`:""}
-  ${ant?`<div>抗原：${esc(ant)}</div>`:""}
-  ${ind?`<div>适应症：${esc(ind)}</div>`:""}
-  <div class="source">状态：${esc(status)}${x.registration?` · 注册信息：${esc(x.registration)}`:""}</div>
-  <div class="source">临床边界：${esc(x.verification||"按当前官方批准说明书/标签使用")}</div></div>`;
-}).join("")
+  $("vaxList").innerHTML=arr.map(x=>`<div class="drug"><b class="title">${esc(x.product_name||x.name||x.generic_name_zh||"生物制品")}</b><div>${esc(x.manufacturer||"")}</div><div>${esc(x.species||x.species_group||"")}</div><div class="source">${esc(x.notes||x.label_status||"以实际官方标签为准")}</div></div>`).join("")
 }
 function searchDrugs(){
   const q=($("drugQ")?.value||"").trim().toLowerCase(), sp=$("drugSp")?.value||"";
@@ -433,5 +420,6 @@ $("caseExportBtn").onclick=()=>{const ids=["caseId","caseSpecies","caseBreed","c
 
 renderCpr();loadDB();
 </script>
+<script src="vct50_ux_5.0.js" defer></script>
 </body>
 </html>
