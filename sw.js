@@ -3,7 +3,7 @@
  */
 const CACHE='vet-clinical-toolbox-5.0-r08-final2';
 const CORE=[
- './','./index.html','./clinical_enhancements_5.0.js','./clinical_rules_engine_5.0.js','./clinical_enhancements_5.0_clinical_addon.js','./differential_diagnosis_5.0.js','./manifest.json',
+ './','./index.html','./clinical_enhancements_5.0.js','./clinical_rules_engine_5.0.js','./clinical_enhancements_5.0_clinical_addon.js','./differential_diagnosis_5.0.js','./vct50_ux_5.0.js','./manifest.json',
  './data/drugs.json','./data/clinical_drug_additions_5.0.json','./data/clinical_rules_5.0.json','./data/vet_biologics_5.0.json','./data/vet_drug_catalog_5.0.json','./data/lab_analyzers_5.0.json','./drugs.schema.v5.0.json','./sources.v5.0.json'
 ];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
