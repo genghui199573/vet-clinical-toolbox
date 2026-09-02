@@ -89,7 +89,7 @@ footer{max-width:1280px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 
 <section id="drugs" class="view"><div class="card"><h2>药物数据库</h2><div class="toolbar"><input id="drugQ" placeholder="药名/商品名/疾病/适应症"><select id="drugSp"><option value="">全部物种</option><option>犬</option><option>猫</option><option>鹦鹉</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option></select><button class="primary" id="drugSearchBtn">检索</button></div><div id="drugList" class="muted">正在读取数据库…</div></div></section>
 
-<section id="vaccine" class="view"><div class="card"><h2>疫苗 / 生物制品</h2><div class="toolbar"><input id="vaxQ" placeholder="如 妙三多、卫佳伍、喵倍护、干扰素、单抗"><select id="vaxSp"><option value="">全部</option><option>犬</option><option>猫</option><option>鸟类</option><option>其他</option></select><button class="primary" id="vaxBtn">检索</button></div><div id="vaxList">正在读取…</div></div></section>
+<section id="vaccine" class="view"><div class="card"><h2>疫苗 / 生物制品</h2><div class="toolbar"><input id="vaxQ" placeholder="如 妙三多、卫佳伍、喵倍护、干扰素、单抗"><select id="vaxSp"><option value="">全部</option><option>犬</option><option>猫</option><option>鸟类</option><option>其他</option></select><button type="button" class="primary" id="vaxBtn">检索</button></div><div id="vaxList">正在读取…</div></div></section>
 
 <section id="cbc" class="view"><div class="card"><h2>CBC 血常规模式分析</h2><div class="grid"><div class="two">
 <label>WBC<input id="cbcWbc" type="number" step=".01"></label><label>NEU<input id="cbcNeu" type="number" step=".01"></label>
@@ -212,7 +212,7 @@ function fillDrugSelects(){
 }
 function renderVax(){
   const q=($("vaxQ")?.value||"").toLowerCase(), sp=$("vaxSp")?.value||"";
-  let arr=DB.biologics.filter(x=>(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!sp||JSON.stringify(x).includes(sp)));
+  const source=Array.isArray(DB.biologics)&&DB.biologics.length?DB.biologics:(Array.isArray(window.__VCT50_BIOLOGICS_DATA)?window.__VCT50_BIOLOGICS_DATA:[]); let arr=source.filter(x=>(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!sp||JSON.stringify(x).includes(sp)));
   if(!arr.length){$("vaxList").innerHTML="<div class='muted'>当前生物制品文件无匹配条目。请核验实际数据库。</div>";return}
   $("vaxList").innerHTML=arr.map(x=>`<div class="drug"><b class="title">${esc(x.product_name||x.name||x.generic_name_zh||"生物制品")}</b><div>${esc(x.manufacturer||"")}</div><div>${esc(x.species||x.species_group||"")}</div><div class="source">${esc(x.notes||x.label_status||"以实际官方标签为准")}</div></div>`).join("")
 }
