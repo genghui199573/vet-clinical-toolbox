@@ -196,7 +196,7 @@ async function loadDB(){
     ]);
     DB.drugs=Array.isArray(d)?d:(d.drugs||[]);
     DB.additions=Array.isArray(a)?a:(a.drugs||[]);
-    DB.biologics=Array.isArray(b)?b:(b.biologics||[]);
+    DB.biologics=Array.isArray(b)?b:(b.products||b.biologics||b.items||[]);
     DB.catalog=Array.isArray(c)?c:(c.drugs||[]);
     const all=[...DB.drugs,...DB.additions,...DB.catalog];
     const names=[...new Map(all.map(x=>[(x.id||x.generic_name_zh||Math.random()),x])).values()];
@@ -230,7 +230,7 @@ function searchDrugs(){
     ${(d.special_warnings||[]).length?`<div class="warn">${esc(d.special_warnings.join("；"))}</div>`:""}</div>`
   }).join(""):"<div class='muted'>无匹配结果。</div>"
 }
-$("drugSearchBtn").onclick=searchDrugs;$("drugQ").oninput=()=>{if($("drugQ").value.length>=2)searchDrugs()};$("vaxBtn").onclick=renderVax;$("vaxQ").oninput=renderVax;
+$("drugSearchBtn").onclick=searchDrugs;$("drugQ").oninput=()=>{if($("drugQ").value.length>=2)searchDrugs()};$("vaxBtn").onclick=renderVax;$("vaxQ").oninput=renderVax;$("vaxSp").onchange=renderVax;$("vaxQ").onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();renderVax()}};
 
 $("syncPatientBtn").onclick=()=>{
   const p={species:$("patientSpecies").value,breed:$("patientBreed").value,weight:num("patientWeight")};
@@ -420,6 +420,5 @@ $("caseExportBtn").onclick=()=>{const ids=["caseId","caseSpecies","caseBreed","c
 
 renderCpr();loadDB();
 </script>
-<script src="vct50_ux_5.0.js" defer></script>
 </body>
 </html>
