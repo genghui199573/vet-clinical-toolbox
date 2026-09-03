@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+const src=fs.readFileSync(new URL('../ai_clinical_sync_5.0.js',import.meta.url),'utf8');
+const listeners={};
+const sandbox={window:{},document:{readyState:'complete',addEventListener(){},getElementById(){return null},head:{appendChild(){}},querySelector(){return null},querySelectorAll(){return[]}},localStorage:{getItem(){return null},setItem(){},removeItem(){}},setTimeout,clearTimeout,Date,CustomEvent:class{}};
+sandbox.window.addEventListener=(...a)=>{listeners[a[0]]=a[1]};sandbox.window.dispatchEvent=()=>{};
+vm.runInNewContext(src,sandbox);
+const b=sandbox.window.VCT50_AI_BRIDGE;
+if(!b) throw new Error('AI bridge missing');
+const p=b.normalize({PATIENT:{species:'犬',age:'2个月',weight:2.8,vaccination:'未接种'},PROBLEMS:[{text:'呕吐',priority:'P1'}],RED_FLAGS:['脱水风险'],DIFFERENTIALS:['犬细小病毒'],RECOMMENDED_TESTS:['犬细小检测'],TREATMENT_OPTIONS:['液体支持'],MEDICATION_OPTIONS:['止吐治疗'],MONITORING:['血糖'],REASSESSMENT:['2小时复评'],EVIDENCE:['需要核对权威资料'],SAFETY_WARNINGS:['所有高风险治疗需医生审核']});
+for(const k of ['problems','red_flags','differentials','recommended_tests','treatment_options','medication_options','monitoring','reassessment','evidence','safety_warnings']) if(!Array.isArray(p[k])||!p[k].length) throw new Error(k+' normalization failed');
+if(p.patient.age!=='2个月'||p.patient.weight!==2.8) throw new Error('patient normalization failed');
+console.log('AI bridge validation: OK');
