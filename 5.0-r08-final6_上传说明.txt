@@ -1,0 +1,11 @@
+Vet Clinical Toolbox 5.0-r08-final6
+
+本修复包针对生物制品模块：
+1. 保持产品版本 5.0。
+2. 修复 Service Worker 缓存版本，兼容现有 5.0-r08 smoke 测试。
+3. 生物制品数据支持 products[]。
+4. 生物制品检索按钮、输入实时检索、Enter 检索、物种筛选均增加独立事件绑定。
+5. 即使原页面的旧 renderVax 绑定被覆盖，新的检索 UI 仍可工作。
+
+请替换 GitHub 根目录：index.html、vct50_ux_5.0.js、sw.js。
+上传后等待 Actions 完成，再 Ctrl+F5。

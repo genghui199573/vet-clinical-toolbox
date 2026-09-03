@@ -59,6 +59,14 @@ footer{max-width:1280px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 <div class="card"><h3>🔎 检验模式识别</h3><div class="two"><label>WBC<input id="cwWbc" type="number"></label><label>NEU<input id="cwNeu" type="number"></label><label>ALT<input id="cwAlt" type="number"></label><label>ALP<input id="cwAlp" type="number"></label><label>TBIL<input id="cwTb" type="number"></label><label>Alb g/dL<input id="cwAlb" type="number"></label><label>Cr mg/dL<input id="cwCr" type="number"></label><label>K mmol/L<input id="cwK" type="number"></label></div><button class="primary" id="cwLabBtn">分析模式</button><div id="cwLabOut"></div></div>
 <div class="card"><h3>💊 三药相互作用快速审计</h3><label>药物A<input id="cwDrugA" placeholder="如 美洛昔康"></label><label>药物B<input id="cwDrugB" placeholder="如 泼尼松"></label><label>药物C<input id="cwDrugC" placeholder="可选"></label><button class="primary" id="cwIntBtn">审核</button><div id="cwIntOut"></div></div>
 </div>
+<div class="card"><h3>🚑 临床快速评估工具 v2</h3><div class="grid">
+<div><h4>急诊 ABCD 红旗</h4><label>气道<select id="qAir"><option>通畅</option><option>可疑</option><option>阻塞/无法维持</option></select></label><label>呼吸<select id="qBreath"><option>稳定</option><option>呼吸功增加</option><option>严重呼吸窘迫/紫绀</option></select></label><label>循环<select id="qCirc"><option>稳定</option><option>灌注可疑</option><option>休克/无脉</option></select></label><label>神经<select id="qNeuro"><option>清醒</option><option>意识改变</option><option>抽搐/昏迷</option></select></label><button class="primary" id="qTriageBtn">生成优先级</button><div id="qTriageOut"></div></div>
+<div><h4>校正总钙</h4><label>总钙 mg/dL<input id="qCa" type="number" step=".01"></label><label>白蛋白 g/dL<input id="qAlb" type="number" step=".01"></label><button class="primary" id="qCaBtn">计算</button><div id="qCaOut"></div><div class="warn">这是粗略校正公式，不替代离子钙；猫犬参考区间及公式适用性需结合实验室。</div></div>
+<div><h4>FENa 数学筛查</h4><label>尿Na mmol/L<input id="qUNa" type="number"></label><label>血Na mmol/L<input id="qSNa" type="number"></label><label>尿Cr mg/dL<input id="qUCr" type="number"></label><label>血Cr mg/dL<input id="qSCr" type="number"></label><button class="primary" id="qFenaBtn">计算</button><div id="qFenaOut"></div><div class="info">FENa 受利尿剂、容量状态、CKD及多种因素影响；仅作辅助，不单独区分AKI病因。</div></div>
+<div><h4>液体平衡</h4><label>输入量 mL<input id="qIn" type="number"></label><label>尿量 mL<input id="qUr" type="number"></label><label>其他丢失 mL<input id="qLoss" type="number" value="0"></label><label>体重 kg<input id="qW" type="number"></label><button class="primary" id="qBalanceBtn">计算</button><div id="qBalanceOut"></div></div>
+<div><h4>氧合记录</h4><label>SpO₂ %<input id="qSpo2" type="number"></label><label>FiO₂ %<input id="qFio2" type="number" value="21"></label><label>呼吸频率 /min<input id="qRR" type="number"></label><button class="primary" id="qOxyBtn">评估趋势</button><div id="qOxyOut"></div><div class="warn">SpO₂/FiO₂ 只能作趋势记录；严重呼吸困难优先处理气道和氧合，不等待计算结果。</div></div>
+<div><h4>病例摘要导出</h4><button class="primary" id="qSnapshotBtn">导出当前病例快照</button><div id="qSnapshotOut"></div><div class="muted">将病例工作台、患者基本信息及时间轴摘要成 JSON，方便备份和转移。</div></div>
+</div></div>
 <div class="card"><h3>🩺 50+ 核心疾病 / 综合征临床框架</h3><div class="toolbar"><input id="cwProtoQ" placeholder="如 尿闭、胰腺炎、肺水肿、DKA、皮肤瘙痒"><select id="cwProtoSp"><option value="">全部物种</option><option>犬</option><option>猫</option></select><button class="primary" id="cwProtoBtn">检索</button></div><div id="cwProtoOut"></div></div>
 <div class="grid">
 <div class="card"><h3>📝 结构化病例报告</h3><label>物种<select id="cwRSpecies"><option>犬</option><option>猫</option><option>其他</option></select></label><label>体重 kg<input id="cwRW" type="number"></label><label>主诉<textarea id="cwRChief"></textarea></label><label>主要异常<textarea id="cwRAbn"></textarea></label><label>鉴别诊断<textarea id="cwRDDx"></textarea></label><label>治疗/处理计划<textarea id="cwRPlan"></textarea></label><label>监测/复查<textarea id="cwRMon"></textarea></label><button class="primary" id="cwReportBtn">生成记录</button><div id="cwReportOut"></div></div>
@@ -446,5 +454,6 @@ $("caseExportBtn").onclick=()=>{const ids=["caseId","caseSpecies","caseBreed","c
 renderCpr();loadDB();
 </script>
 <script src="clinical_workstation_5.0.js"></script>
+<script src="clinical_quicktools_5.0.js"></script>
 </body>
 </html>
