@@ -34,3 +34,7 @@
 - 结构化病例报告模板与本机病例时间轴。
 
 安全边界：所有高风险药物、输液、电解质、输血、麻醉、CPR、DKA、化疗和解毒相关结果必须由执业兽医结合患者实时状态、具体制剂标签和本院 protocol 独立复核。
+
+## 5.0-r08 Final Clinical Core
+
+本最终整合版增加统一 Patient State、临床总览、急诊驾驶舱、Critical/Red-Flag Engine、综合实验室模式识别、用药安全审计、住院趋势和结构化影像报告。详见 `FINAL_CHANGELOG_5.0-r08.md`。
