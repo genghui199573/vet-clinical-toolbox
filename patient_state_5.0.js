@@ -104,7 +104,10 @@
     <div class="patient-actionbar"><div><b>工作流：</b>①建立患者 → ②录入核心信息 → ③同步 → ④进入 Clinical OS / AI</div><div class="toolbar"><button class="primary" id="patientSyncNow">建立并同步全部模块</button><button class="secondary" id="patientClear">清空当前患者</button></div></div><div id="patientStateStatus" class="muted"></div>`;
     $("patientSyncNow").onclick=sync;
     $("patientClear").onclick=()=>{localStorage.removeItem(KEY);Object.keys(state).forEach(k=>state[k]=k==="version"?"5.0-r08":k==="species"?"犬":k==="updated_at"?null:k.match(/weight|creatinine|potassium|sodium|albumin|glucose/)?null:"");push();setStatus("已清空当前患者");broadcast()};
-    fields.forEach(id=>$(id)?.addEventListener("change",()=>{fromForm();persist();refreshBadge()}));
+    let broadcastTimer=null;
+    const schedulePatientBroadcast=()=>{clearTimeout(broadcastTimer);broadcastTimer=setTimeout(()=>{broadcast();try{window.VCT50_AI_BRIDGE?.refreshPatientContext?.()}catch(e){}},80)};
+    fields.forEach(id=>$(id)?.addEventListener("input",()=>{fromForm();persist();refreshBadge();schedulePatientBroadcast()}));
+    fields.forEach(id=>$(id)?.addEventListener("change",()=>{fromForm();persist();refreshBadge();schedulePatientBroadcast()}));
     refreshBadge();
   }
   function bindCaseBridge(){

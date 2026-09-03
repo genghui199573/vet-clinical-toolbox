@@ -47,19 +47,20 @@
     const n=$('nav'); if(!n)return;
     const buttons=[...n.querySelectorAll('button[data-v]')];
     if(!buttons.length)return;
-    // Rebuild from the original buttons so there is never a duplicated ungrouped row.
     const activeId=document.querySelector('#nav button.active')?.dataset.v || location.hash.slice(1) || 'home';
     n.innerHTML='';
-    const used=new Set();
-    GROUPS.forEach(([title,ids])=>{
+    GROUPS.forEach(([title,ids],gi)=>{
       const bs=ids.map(id=>buttons.find(b=>b.dataset.v===id)).filter(Boolean);
       if(!bs.length)return;
-      const g=document.createElement('div');g.className='nav-group';
-      const label=document.createElement('span');label.className='nav-group-label';label.textContent=title;
-      g.appendChild(label); bs.forEach(b=>{used.add(b.dataset.v);g.appendChild(b)}); n.appendChild(g);
+      const d=document.createElement('details');d.className='nav-group';d.dataset.navGroup=String(gi);
+      const summary=document.createElement('summary');summary.textContent=title;d.appendChild(summary);
+      const wrap=document.createElement('div');wrap.className='nav-group-items';
+      bs.forEach(b=>{wrap.appendChild(b)});d.appendChild(wrap);
+      if(bs.some(b=>b.dataset.v===activeId))d.open=true;
+      n.appendChild(d);
     });
-    const rest=buttons.filter(b=>!used.has(b.dataset.v));
-    if(rest.length){const g=document.createElement('div');g.className='nav-group nav-group-more';const label=document.createElement('span');label.className='nav-group-label';label.textContent='其他';g.appendChild(label);rest.forEach(b=>g.appendChild(b));n.appendChild(g)}
+    const rest=buttons.filter(b=>!GROUPS.some(([,ids])=>ids.includes(b.dataset.v)));
+    if(rest.length){const d=document.createElement('details');d.className='nav-group nav-group-more';d.open=rest.some(b=>b.dataset.v===activeId);const summary=document.createElement('summary');summary.textContent='其他';d.appendChild(summary);const wrap=document.createElement('div');wrap.className='nav-group-items';rest.forEach(b=>wrap.appendChild(b));d.appendChild(wrap);n.appendChild(d)}
     n.querySelectorAll('button[data-v]').forEach(b=>b.classList.toggle('active',b.dataset.v===activeId));
     bindNavigation();
   }
@@ -116,10 +117,14 @@
       html{scroll-padding-top:calc(var(--vct-header-h) + 52px)}
       header{z-index:50;box-shadow:0 3px 16px rgba(0,0,0,.12)}
       nav{top:var(--vct-header-h)!important;z-index:49;align-items:flex-start;gap:8px;padding:7px 10px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-      .nav-group{display:flex;align-items:center;gap:4px;padding:3px 4px;border:1px solid var(--line);border-radius:12px;background:#f9fbfb;flex:0 0 auto}
-      .nav-group-label{font-size:10px;font-weight:800;color:#64777d;padding:0 5px;white-space:nowrap}
-      .nav-group button{border:0;background:transparent;padding:7px 9px;font-size:12px}
-      .nav-group button.active{background:#dff7f2;border:0;color:var(--p2)}
+      .nav-group{flex:0 0 auto;min-width:150px;border:1px solid var(--line);border-radius:12px;background:#f9fbfb}
+      .nav-group summary{cursor:pointer;list-style:none;padding:7px 10px;font-size:11px;font-weight:800;color:#475569}
+      .nav-group summary::-webkit-details-marker{display:none}
+      .nav-group summary:after{content:'⌄';float:right;color:#94a3b8}
+      .nav-group[open] summary:after{content:'⌃'}
+      .nav-group-items{display:flex;flex-wrap:wrap;gap:3px;padding:3px 5px 6px;border-top:1px solid var(--line)}
+      .nav-group button{border:0;background:transparent;padding:6px 8px;font-size:12px;white-space:nowrap}
+      .nav-group button.active{background:#dff7f2;border:0;color:var(--p2);border-radius:8px}
       main{max-width:1320px;padding:14px 16px}
       .view>.card,.card{box-shadow:var(--shadow)}
       #home > .card:first-child{background:linear-gradient(180deg,#ffffff 0%,#fbfdfd 100%)}
@@ -145,7 +150,7 @@
       .command-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.command-actions button{min-width:150px}
       #vct50CommandCenter{margin:0 0 12px}
       @media(max-width:1000px){.patient-core-grid{grid-template-columns:repeat(2,minmax(220px,1fr))}.workflow-steps{grid-template-columns:repeat(2,1fr)}}
-      @media(max-width:700px){main{padding:9px}.patient-workspace-head,.command-head,.patient-actionbar{flex-direction:column}.patient-core-grid,.workflow-steps{grid-template-columns:1fr}.command-status{text-align:left;width:100%}.patient-actionbar .toolbar{width:100%}.patient-actionbar .toolbar>*{min-width:100%}.command-search-row{grid-template-columns:1fr}.command-search-row button{width:100%}.nav-group-label{display:none}.nav-group{border:0;background:transparent;padding:0}.nav-group button{padding:7px 8px}.module-result{min-width:calc(50% - 4px);flex:1}}
+      @media(max-width:700px){main{padding:9px}.patient-workspace-head,.command-head,.patient-actionbar{flex-direction:column}.patient-core-grid,.workflow-steps{grid-template-columns:1fr}.command-status{text-align:left;width:100%}.patient-actionbar .toolbar{width:100%}.patient-actionbar .toolbar>*{min-width:100%}.command-search-row{grid-template-columns:1fr}.command-search-row button{width:100%}.nav-group{min-width:0;border:0;background:transparent}.nav-group summary{padding:6px 8px}.nav-group-items{border-top:0;padding:0}.nav-group button{padding:7px 8px}.module-result{min-width:calc(50% - 4px);flex:1}}
     `;document.head.appendChild(s);
   }
   function keyboard(){
