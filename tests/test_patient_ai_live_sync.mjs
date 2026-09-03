@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=path.resolve(new URL('..',import.meta.url).pathname);
+const ps=fs.readFileSync(path.join(root,'patient_state_5.0.js'),'utf8');
+const ai=fs.readFileSync(path.join(root,'ai_clinical_sync_5.0.js'),'utf8');
+const ux=fs.readFileSync(path.join(root,'vct50_architecture_5.0.js'),'utf8');
+if(!ps.includes('addEventListener("input"')||!ps.includes('schedulePatientBroadcast')||!ps.includes("broadcast();try{window.VCT50_AI_BRIDGE?.refreshPatientContext?.()}")) throw new Error('live patient -> AI refresh hook missing');
+if(!ai.includes('refreshPatientContext')||!ai.includes('患者资料已自动刷新')||!ai.includes('不会自动生成新的诊疗建议')) throw new Error('AI patient context refresh UI missing');
+if(!ai.includes('const currentId=String(cur.patientId||\'\').trim()')||!ai.includes('const finalState=window.VCT50_PATIENT_STATE')) throw new Error('AI sync must use active Patient State identity');
+if(!ai.includes('window.VCT50_AI_BRIDGE={promptContext,normalize,wire,applyPlan,syncPatient,getLastPlan:()=>lastPlan,refreshPatientContext')) throw new Error('AI bridge refresh export missing');
+if(!ux.includes("document.createElement('details')")||!ux.includes('nav-group-items')||!ux.includes('if(bs.some(b=>b.dataset.v===activeId))d.open=true')) throw new Error('collapsible grouped navigation missing');
+if(ai.includes("data-v=\"aiInbox\"")||ai.includes("id='aiInbox'")) throw new Error('duplicate AI inbox navigation should be merged into AI workspace');
+console.log('live patient sync + navigation consolidation regression: OK');
