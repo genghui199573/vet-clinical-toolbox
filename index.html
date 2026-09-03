@@ -23,6 +23,7 @@ footer{max-width:1280px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 <nav id="nav">
 <button data-v="home" class="active">首页</button>
 <button data-v="case">病例工作台</button>
+<button data-v="clinical">临床决策中心</button>
 <button data-v="dose">剂量/制剂</button>
 <button data-v="cri">CRI</button>
 <button data-v="anesthesia">麻醉</button>
@@ -45,6 +46,25 @@ footer{max-width:1280px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 <button data-v="ai">AI临床助手</button>
 </nav>
 <main>
+
+
+<section id="clinical" class="view">
+<div class="card"><h2>临床决策中心 · 5.0</h2><p class="muted">把常用计算、检验模式识别、用药安全审核、疾病框架和病例记录放进一个入口。这里的“红旗”是筛查提醒，不是自动诊断。</p></div>
+<div class="grid">
+<div class="card"><h3>🧮 BSA / 化疗数学</h3><label>体重 kg<input id="cwBsaW" type="number" step=".01"></label><button class="primary" id="cwBsaBtn">计算BSA</button><div id="cwBsaOut"></div></div>
+<div class="card"><h3>💧 尿量 UOP</h3><label>体重 kg<input id="cwUopW" type="number" step=".01"></label><label>收集尿量 mL<input id="cwUopMl" type="number" step=".1"></label><label>时间 h<input id="cwUopH" type="number" step=".1" value="1"></label><button class="primary" id="cwUopBtn">计算</button><div id="cwUopOut"></div></div>
+<div class="card"><h3>⚡ 补钾安全核算</h3><label>体重 kg<input id="cwKBagW" type="number" step=".01"></label><label>输液速度 mL/h<input id="cwKRate" type="number" step=".1"></label><label>液体总量 mL<input id="cwKBagVol" type="number" step=".1"></label><label>KCl原液 mmol/mL<input id="cwKStock" type="number" step=".001"></label><label>当前K mmol/L<input id="cwKTarget" type="number" step=".01"></label><button class="primary" id="cwKBtn">安全核算</button><div id="cwKOut"></div></div>
+<div class="card"><h3>💦 完整液体计划数学</h3><label>体重 kg<input id="cwFw" type="number" step=".01"></label><label>脱水 %<input id="cwDeh" type="number" step=".1"></label><label>已知持续丢失 mL<input id="cwLoss" type="number" step=".1" value="0"></label><label>计划纠正时间 h<input id="cwHours" type="number" step=".1" value="24"></label><button class="primary" id="cwFluidBtn">计算</button><div id="cwFluidOut"></div></div>
+<div class="card"><h3>🩸 输血容量估算</h3><label>体重 kg<input id="cwTrW" type="number" step=".01"></label><label>患者PCV %<input id="cwTrPcv" type="number"></label><label>目标PCV %<input id="cwTrTar" type="number"></label><label>血制品PCV %<input id="cwTrProd" type="number" value="60"></label><button class="primary" id="cwTrBtn">估算</button><div id="cwTrOut"></div></div>
+<div class="card"><h3>🔎 检验模式识别</h3><div class="two"><label>WBC<input id="cwWbc" type="number"></label><label>NEU<input id="cwNeu" type="number"></label><label>ALT<input id="cwAlt" type="number"></label><label>ALP<input id="cwAlp" type="number"></label><label>TBIL<input id="cwTb" type="number"></label><label>Alb g/dL<input id="cwAlb" type="number"></label><label>Cr mg/dL<input id="cwCr" type="number"></label><label>K mmol/L<input id="cwK" type="number"></label></div><button class="primary" id="cwLabBtn">分析模式</button><div id="cwLabOut"></div></div>
+<div class="card"><h3>💊 三药相互作用快速审计</h3><label>药物A<input id="cwDrugA" placeholder="如 美洛昔康"></label><label>药物B<input id="cwDrugB" placeholder="如 泼尼松"></label><label>药物C<input id="cwDrugC" placeholder="可选"></label><button class="primary" id="cwIntBtn">审核</button><div id="cwIntOut"></div></div>
+</div>
+<div class="card"><h3>🩺 50+ 核心疾病 / 综合征临床框架</h3><div class="toolbar"><input id="cwProtoQ" placeholder="如 尿闭、胰腺炎、肺水肿、DKA、皮肤瘙痒"><select id="cwProtoSp"><option value="">全部物种</option><option>犬</option><option>猫</option></select><button class="primary" id="cwProtoBtn">检索</button></div><div id="cwProtoOut"></div></div>
+<div class="grid">
+<div class="card"><h3>📝 结构化病例报告</h3><label>物种<select id="cwRSpecies"><option>犬</option><option>猫</option><option>其他</option></select></label><label>体重 kg<input id="cwRW" type="number"></label><label>主诉<textarea id="cwRChief"></textarea></label><label>主要异常<textarea id="cwRAbn"></textarea></label><label>鉴别诊断<textarea id="cwRDDx"></textarea></label><label>治疗/处理计划<textarea id="cwRPlan"></textarea></label><label>监测/复查<textarea id="cwRMon"></textarea></label><button class="primary" id="cwReportBtn">生成记录</button><div id="cwReportOut"></div></div>
+<div class="card"><h3>🕒 病例时间轴</h3><label>事件<input id="cwTEvent" placeholder="如 入院、输液后复查、给药、影像"></label><label>备注<textarea id="cwTNote"></textarea></label><button class="primary" id="cwTimelineBtn">记录/刷新</button><div id="cwTimelineOut"></div><div class="warn">时间轴保存在本机浏览器 localStorage；清理浏览器数据会删除本地记录。</div></div>
+</div>
+</section>
 
 <section id="home" class="view active">
 <div class="card"><h2>5.0 一体化临床工作站</h2>
@@ -233,7 +253,7 @@ $('protocolBtn').onclick=renderProtocols;$('protocolQ').oninput=()=>{if($('proto
 
 function searchDrugs(){
  const q=($('drugQ')?.value||'').trim().toLowerCase(),sp=$('drugSp')?.value||''; const arr=DB.drugs.filter(d=>(!q||drugText(d).includes(q))&&(!sp||JSON.stringify(d.species_groups||d.species||'').includes(sp))).slice(0,100);
- $('drugList').innerHTML=arr.length?arr.map(d=>{const c=d.label_card||{},b=c.basic||{},u=c.dose_use||{},e=c.evidence||{};return `<article class="label-card"><div class="label-head"><div><div class="label-title">${esc(b.generic_name_zh||d.generic_name_zh||d.generic_name_en||'未命名')}</div>${b.generic_name_en?`<div>${esc(b.generic_name_en)}</div>`:''}<div class="evidence-line">资料证据：${evidenceBadge(e)}</div></div><div>${(b.class||d.pharmacologic_class)?`<span class="pill">${esc(b.class||d.pharmacologic_class)}</span>`:''}</div></div>${section('基本信息',{'通用名':b.generic_name_zh||d.generic_name_zh,'英文名':b.generic_name_en,'别名':b.aliases,'商品名':b.brands,'有效成分':b.active_ingredient,'药理类别':b.class,'剂型/规格':b.forms,'适用物种':b.species})}${listSection('适应症 / 临床用途',c.indications)}${section('剂量与用法',{'适用物种':u.species,'对应适应症':u.indication,'给药途径':u.route,'剂量':u.dose,'频次':u.frequency,'疗程':u.duration,'剂量依据':u.basis,'临床剂量备注':u.notes})}<div class="evidence-line">剂量证据：${evidenceBadge({basis:u.basis,label_status:e.label_status})}</div>${listSection('禁忌证',c.contraindications)}${listSection('警告与注意事项',c.warnings)}${listSection('不良反应',c.adverse_reactions)}${listSection('药物相互作用',c.interactions)}${listSection('特殊人群 / 肝肾功能',c.special_populations)}${listSection('临床监测',c.monitoring)}${section('证据与来源',{'标签状态':e.label_status,'审核状态':e.review_status,'最后核验':e.last_verified,'来源ID':e.sources})}<div class="label-note">处方安全：本卡片是结构化临床参考，不替代具体制剂说明书。标签剂量、文献/指南剂量与经验剂量必须区分；跨物种、跨制剂不得直接套用。</div></article>`}).join(''):'<div class="muted">无匹配结果。</div>'
+ $('drugList').innerHTML=arr.length?arr.map(d=>{const c=d.label_card||{},b=c.basic||{},u=c.dose_use||{},e=c.evidence||{};return `<article class="label-card"><div class="label-head"><div><div class="label-title">${esc(b.generic_name_zh||d.generic_name_zh||d.generic_name_en||'未命名')}</div>${b.generic_name_en?`<div>${esc(b.generic_name_en)}</div>`:''}<div class="evidence-line">资料证据：${evidenceBadge(e)}</div></div><div>${(b.class||d.pharmacologic_class)?`<span class="pill">${esc(b.class||d.pharmacologic_class)}</span>`:''}</div></div>${section('基本信息',{'通用名':b.generic_name_zh||d.generic_name_zh,'英文名':b.generic_name_en,'别名':b.aliases,'商品名':b.brands,'有效成分':b.active_ingredient,'药理类别':b.class,'剂型/规格':b.forms,'适用物种':b.species})}${listSection('适应症 / 临床用途',c.indications)}${section('剂量与用法',{'适用物种':u.species,'对应适应症':u.indication,'给药途径':u.route,'剂量':u.dose,'频次':u.frequency,'疗程':u.duration,'剂量依据':u.basis,'临床剂量备注':u.notes})}<div class="evidence-line">剂量证据：${evidenceBadge({basis:u.basis,label_status:e.label_status})}</div>${listSection('禁忌证',c.contraindications)}${listSection('警告与注意事项',c.warnings)}${listSection('不良反应',c.adverse_reactions)}${listSection('药物相互作用',c.interactions)}${listSection('特殊人群 / 肝肾功能',c.special_populations)}${listSection('临床监测',c.monitoring)}${section('证据与来源',{'标签状态':e.label_status,'审核状态':e.review_status,'最后核验':e.last_verified,'来源ID':e.sources,'来源URL':e.source_urls,'资料完整度':e.completeness_score})}<div class="label-note">处方安全：本卡片是结构化临床参考，不替代具体制剂说明书。标签剂量、文献/指南剂量与经验剂量必须区分；跨物种、跨制剂不得直接套用。</div></article>`}).join(''):'<div class="muted">无匹配结果。</div>'
 }
 $('drugSearchBtn').onclick=searchDrugs;$('drugQ').oninput=()=>{if($('drugQ').value.length>=2)searchDrugs()};$('vaxBtn').onclick=renderVax;$('vaxQ').oninput=renderVax;$('vaxSp').onchange=renderVax;$('vaxQ').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();renderVax()}};
 
@@ -425,5 +445,6 @@ $("caseExportBtn").onclick=()=>{const ids=["caseId","caseSpecies","caseBreed","c
 
 renderCpr();loadDB();
 </script>
+<script src="clinical_workstation_5.0.js"></script>
 </body>
 </html>
