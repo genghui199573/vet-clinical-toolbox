@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=path.resolve(new URL('..',import.meta.url).pathname);
+const ps=fs.readFileSync(path.join(root,'patient_state_5.0.js'),'utf8');
+const ai=fs.readFileSync(path.join(root,'ai_clinical_sync_5.0.js'),'utf8');
+const ux=fs.readFileSync(path.join(root,'vct50_architecture_5.0.js'),'utf8');
+const index=fs.readFileSync(path.join(root,'index.html'),'utf8');
+if(!ps.includes('ensurePatientId')||!ps.includes('patientSyncNow')||!ps.includes('makePatientId')) throw new Error('patient auto-create missing');
+if(!ps.includes('localStorage.setItem("vetPatientState5"')||!ps.includes('window.patientState=window.VCT50_PATIENT_STATE')) throw new Error('legacy bridge missing');
+if(!ai.includes('autoSyncSuggested')||!ai.includes("status:'Suggested'")||!ai.includes('AI plan synced as Suggested')) throw new Error('AI suggested sync contract missing');
+if(!ux.includes('CLINICAL COMMAND CENTER')||!ux.includes('nav-group')) throw new Error('architecture UX layer missing');
+if(!index.includes('vct50_architecture_5.0.js')) throw new Error('architecture script not loaded');
+if(index.includes('5.0-r09')) throw new Error('visible/internal version drift detected in index');
+console.log('patient/AI integration regression: OK');
