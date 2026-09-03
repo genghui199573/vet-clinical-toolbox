@@ -1,0 +1,11 @@
+import fs from 'fs';
+const html=fs.readFileSync('index.html','utf8');
+const core=fs.readFileSync('clinical_core_5.0.js','utf8');
+const sw=fs.readFileSync('sw.js','utf8');
+const required=['clinical_core_5.0.js','patient_state_5.0.js','clinical_workstation_5.0.js'];
+for(const x of required) if(!html.includes(x)) throw new Error(`index missing ${x}`);
+for(const x of ['coreDashboard','coreEmergency','Patient State 2.0','erAssess','erKBtn','erGluBtn','erRespBtn','erSeizBtn','coreAddTrend','coreClearTrend','coreLabEngine','coreImaging']) if(!core.includes(x)) throw new Error(`core missing ${x}`);
+if(!sw.includes("'./clinical_core_5.0.js'")) throw new Error('service worker missing clinical core');
+if(!/const CACHE='vet-clinical-toolbox-5\.0-r08-/.test(sw)) throw new Error('service worker cache revision/version mismatch');
+if((html.match(/id="globalPatientBadge"/g)||[]).length>1) throw new Error('duplicate globalPatientBadge id');
+console.log('clinical core validation: OK');
