@@ -18,7 +18,7 @@
   function audit(action,detail){const s=osState();s.audit=Array.isArray(s.audit)?s.audit:[];s.audit.push({time:now(),action,detail:detail||'',patientId:patient().patientId||''});s.audit=s.audit.slice(-300);saveOS(s)}
   function normalize(raw){
     const p=raw?.PATIENT||raw?.patient||{};
-    const plan={version:'5.0-r08',generated_at:now(),plan_id:'ai-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),summary:raw?.CLINICAL_SUMMARY||raw?.SUMMARY||raw?.summary||'',confidence:raw?.CONFIDENCE||raw?.confidence||'',patient:{
+    const plan={version:'5.0-r08',generated_at:now(),plan_id:'ai-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),review_status:'Pending Review（待医生审核）',summary:raw?.CLINICAL_SUMMARY||raw?.SUMMARY||raw?.summary||'',confidence:raw?.CONFIDENCE||raw?.confidence||'',patient:{
       patientId:p.patientId||p.id||'',species:p.species||p.Species||'',breed:p.breed||'',age:p.age||'',sex:p.sex||'',weight:p.weight??null,vaccination:p.vaccination||p.vaccine||''
     },problems:[],red_flags:[],differentials:[],recommended_tests:[],treatment_options:[],medication_options:[],monitoring:[],reassessment:[],evidence:[],safety_warnings:[],raw_text:''};
     const mapItems=(arr,def='')=>asArr(arr).map(x=>typeof x==='string'?{text:x,priority:def||'P2',status:'Suggested'}:{...x,status:x.status||'Suggested',priority:x.priority||def||'P2'}).filter(x=>x.text||x.name||x.test||x.problem||x.drug);
@@ -42,19 +42,19 @@
   }
   function label(x){return x.name||x.test||x.problem||x.drug||x.text||x.item||''}
   function detail(x){return [x.description,x.rationale,x.reason,x.note,x.plan,x.action,x.dose,x.route,x.frequency,x.duration].filter(Boolean).join(' · ')}
-  function renderItem(x,kind){
+  function renderItem(x,kind,index){
     const why=x.rationale||x.reason||x.description||'';
     const support=x.supporting_evidence||x.support||x.for_evidence||'';
     const against=x.against_evidence||x.contra||x.against||'';
-    return `<div class="ai-plan-row"><div><div><span class="os-chip ${x.priority==='P0'?'os-red':x.priority==='P1'?'os-amber':x.priority==='P2'?'os-yellow':'os-green'}">${esc(x.priority||'P2')}</span> <b>${esc(label(x))}</b></div>${why?`<div class="os-muted"><b>临床依据：</b>${esc(why)}</div>`:''}${support?`<div class="os-muted"><b>支持证据：</b>${esc(support)}</div>`:''}${against?`<div class="os-muted"><b>反对/缺失证据：</b>${esc(against)}</div>`:''}${detail(x)&&!why?`<div class="os-muted">${esc(detail(x))}</div>`:''}</div><span class="os-chip os-blue">Suggested（AI建议）</span></div>`}
+    const key=`${kind}|${index}`; const checked=x.reviewed!==false; return `<div class="ai-plan-row" data-ai-review-row="${esc(key)}"><div><div><label class="ai-review-check"><input type="checkbox" data-ai-review="${esc(key)}" ${checked?'checked':''}> 医生审核</label> <span class="os-chip ${x.priority==='P0'?'os-red':x.priority==='P1'?'os-amber':x.priority==='P2'?'os-yellow':'os-green'}">${esc(x.priority||'P2')}</span> <b>${esc(label(x))}</b></div>${why?`<div class="os-muted"><b>临床依据：</b>${esc(why)}</div>`:''}${support?`<div class="os-muted"><b>支持证据：</b>${esc(support)}</div>`:''}${against?`<div class="os-muted"><b>反对/缺失证据：</b>${esc(against)}</div>`:''}${detail(x)&&!why?`<div class="os-muted">${esc(detail(x))}</div>`:''}</div><span class="os-chip os-blue">Suggested（AI建议）</span></div>`}
   function renderPlan(plan){
-    const sec=(title,arr)=>arr.length?`<section class="ai-plan-sec"><h4>${title}</h4>${arr.map(x=>renderItem(x,title)).join('')}</section>`:'';
+    const sec=(title,arr)=>arr.length?`<section class="ai-plan-sec"><h4>${title}</h4>${arr.map((x,i)=>renderItem(x,title,i)).join('')}</section>`:'';
     const p=plan.patient;
     const summary=plan.summary||p.summary||'';
     const confidence=plan.confidence||plan.overall_confidence||'';
     return `<div class="ai-plan"><div class="ai-plan-head"><div><h3>AI Clinical Decision Support（兽医临床决策支持）</h3><div class="os-muted">${esc(p.species||patient().species||'物种未识别')} · ${esc(p.age||patient().age||'年龄未识别')} · ${esc(p.weight??patient().weight??'')} ${p.weight||patient().weight?'kg':''}</div>${summary?`<div class="ai-summary"><b>Clinical Summary（病例摘要）：</b>${esc(summary)}</div>`:''}${confidence?`<div class="os-muted"><b>推理置信度：</b>${esc(confidence)}</div>`:''}</div><span class="os-chip os-amber">Doctor Review Required（必须医生审核）</span></div>
       ${sec('PROBLEMS · Problem List（问题列表）',plan.problems)}${sec('RED FLAGS · Red Flags（红旗风险）',plan.red_flags)}${sec('DIFFERENTIALS · Differential Diagnosis（鉴别诊断）',plan.differentials)}${sec('RECOMMENDED TESTS · Next Best Tests（下一项最有价值检查）',plan.recommended_tests)}${sec('TREATMENT OPTIONS · Treatment Strategy（治疗策略）',plan.treatment_options)}${sec('MEDICATION OPTIONS · Medication Safety Review（用药安全审核）',plan.medication_options)}${sec('MONITORING · Monitoring（监测）',plan.monitoring)}${sec('REASSESSMENT · Reassessment（复评）',plan.reassessment)}${sec('EVIDENCE · Evidence（证据与依据）',plan.evidence)}${sec('SAFETY WARNINGS · Safety Warnings（安全警示）',plan.safety_warnings)}
-      <div class="ai-sync-bar"><button type="button" class="primary" data-ai-action="apply">⚡ Apply Clinical Plan（应用临床计划）</button><button type="button" data-ai-action="sync">＋ Sync to Patient State（同步到患者）</button><button type="button" data-ai-action="reject">✕ Reject（拒绝本次计划）</button></div><div class="os-warning">AI输出属于 Suggested（建议）状态；未经医生确认不得视为诊断或医嘱。不会自动执行药物、输液、麻醉、输血等高风险操作。剂量、适应证、禁忌证、相互作用和复评时限必须由执业兽医结合物种、体重、器官功能、制剂标签及当前指南核验。</div></div>`;
+      <div class="ai-review-note os-note"><b>Doctor Review（医生审核）</b>：默认勾选全部AI建议。取消勾选即可排除某一项；只有勾选项目才会进入 Clinical OS。</div><div class="ai-sync-bar"><button type="button" class="primary" data-ai-action="apply">⚡ Apply Clinical Plan（应用临床计划）</button><button type="button" data-ai-action="sync">＋ Sync to Patient State（同步到患者）</button><button type="button" data-ai-action="reject">✕ Reject（拒绝本次计划）</button></div><div class="os-warning">AI输出属于 Suggested（建议）状态；未经医生确认不得视为诊断或医嘱。不会自动执行药物、输液、麻醉、输血等高风险操作。剂量、适应证、禁忌证、相互作用和复评时限必须由执业兽医结合物种、体重、器官功能、制剂标签及当前指南核验。</div></div>`;
   }
   function syncPatient(plan){
     const p=plan.patient;const cur=patient();
@@ -64,6 +64,7 @@
     const conditions=$('patientConditions');if(conditions&&plan.patient.vaccination&&!conditions.value)conditions.value=`免疫状态：${plan.patient.vaccination}`;
     const dx=$('patientDx');if(dx&&!dx.value&&plan.differentials.length)dx.value='鉴别诊断：'+plan.differentials.slice(0,3).map(label).join('、');
     if(window.VCT50_PATIENT_STATE?.sync){window.VCT50_PATIENT_STATE.sync();}else{$('patientSyncNow')?.click();}
+    return !!(window.VCT50_PATIENT_STATE?.patientId || safe(localStorage.getItem('vct50_patient_state'),{}).patientId);
   }
   function autoSyncSuggested(plan){
     const s=osState(); s.problemList=s.problemList||[]; s.tasks=s.tasks||[]; s.timeline=s.timeline||[]; s.goals=s.goals||[];
@@ -81,18 +82,24 @@
     s.timeline.push({time:now(),type:'AI建议',text:'AI结构化临床计划已自动同步到 Clinical OS，全部保持 Suggested（建议）状态，未经医生审核不得视为执行医嘱。',patientId:patient().patientId||'',ai_plan_id:pid});
     saveOS(s); audit('ai_auto_sync_suggested','AI plan synced as Suggested; no active orders'); window.VCT50_CLINICAL_OS?.renderAll?.(); return true;
   }
+  function selectedPlan(plan){
+    const review=plan._review||{};
+    const filter=arr=>arr.filter((x,i)=>review[`${x._kind||''}|${i}`]!==false);
+    return {problems:filter(plan.problems),red_flags:filter(plan.red_flags),recommended_tests:filter(plan.recommended_tests),treatment_options:filter(plan.treatment_options),medication_options:filter(plan.medication_options),monitoring:filter(plan.monitoring),reassessment:filter(plan.reassessment),differentials:filter(plan.differentials),evidence:filter(plan.evidence),safety_warnings:filter(plan.safety_warnings)};
+  }
   function applyPlan(plan){
-    syncPatient(plan);const s=osState();
+    syncPatient(plan);const s=osState();const q=selectedPlan(plan);
     const uniq=(arr,k)=>{const seen=new Set(arr.map(x=>String(k(x)).toLowerCase()));return arr.filter(x=>{const z=String(k(x)).toLowerCase();if(seen.has(z))return false;seen.add(z);return true})};
-    const existing=s.problemList||[];plan.problems.forEach(x=>existing.push({text:label(x),priority:x.priority||'P2',status:'Suggested',source:'AI',created_at:now()}));plan.red_flags.forEach(x=>existing.push({text:'⚠ '+label(x),priority:'P0',status:'Suggested',source:'AI',created_at:now()}));s.problemList=uniq(existing,x=>x.text).slice(-100);
-    s.tasks=s.tasks||[];plan.recommended_tests.forEach(x=>s.tasks.push({text:'检查：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.treatment_options.forEach(x=>s.tasks.push({text:'治疗候选：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.medication_options.forEach(x=>s.tasks.push({text:'用药候选（医生审核）：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.monitoring.forEach(x=>s.tasks.push({text:'监测：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.reassessment.forEach(x=>s.tasks.push({text:'复评：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));
+    const existing=s.problemList||[];q.problems.forEach(x=>existing.push({text:label(x),priority:x.priority||'P2',status:'Suggested',source:'AI',created_at:now()}));q.red_flags.forEach(x=>existing.push({text:'⚠ '+label(x),priority:'P0',status:'Suggested',source:'AI',created_at:now()}));s.problemList=uniq(existing,x=>x.text).slice(-100);
+    s.tasks=s.tasks||[];q.recommended_tests.forEach(x=>s.tasks.push({text:'检查：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.treatment_options.forEach(x=>s.tasks.push({text:'治疗候选：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.medication_options.forEach(x=>s.tasks.push({text:'用药候选（医生审核）：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.monitoring.forEach(x=>s.tasks.push({text:'监测：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.reassessment.forEach(x=>s.tasks.push({text:'复评：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));
     s.timeline=s.timeline||[];s.timeline.push({time:now(),type:'AI计划',text:'AI Clinical Plan 已由医生应用到 Clinical OS；所有项目保持 Suggested（建议）状态，待逐项审核。',patientId:patient().patientId||''});
-    s.goals=s.goals||[];plan.reassessment.forEach(x=>s.goals.push({text:label(x),status:'Suggested',source:'AI',time:now()}));
+    s.goals=s.goals||[];q.reassessment.forEach(x=>s.goals.push({text:label(x),status:'Suggested',source:'AI',time:now()}));
     saveOS(s);audit('ai_apply_plan','AI clinical plan applied; still requires clinician review');
     window.VCT50_CLINICAL_OS?.renderAll?.();
   }
   function reject(){const pid=lastPlan?.plan_id||'';localStorage.removeItem(KEY);audit('ai_reject_plan','AI plan rejected; no patient/Clinical OS changes from rejection');lastPlan=null;if($('aiOut'))$('aiOut').innerHTML=`<div class="os-note">本次 AI 计划已拒绝；未写入患者状态，也未新增 Clinical OS 医嘱。</div>`}
   function wire(plan){
+    const groups=['problems','red_flags','differentials','recommended_tests','treatment_options','medication_options','monitoring','reassessment','evidence','safety_warnings']; plan._review=plan._review||{}; groups.forEach(g=>(plan[g]||[]).forEach((x,i)=>{x._kind=g; const k=`${g}|${i}`; if(plan._review[k]===undefined)plan._review[k]=true;}));
     lastPlan=plan;localStorage.setItem(KEY,JSON.stringify(plan));audit('ai_plan_staged','AI plan staged for clinician review; no Clinical OS mutation');
     const a=$('aiOut');if(!a)return;
     a.innerHTML=renderPlan(plan);
@@ -103,6 +110,7 @@
   function bindActionContainer(a){
     if(!a || a.dataset.aiActionsBound==='1')return;
     a.dataset.aiActionsBound='1';
+    a.addEventListener('change',e=>{const c=e.target.closest('input[data-ai-review]');if(!c||!a.contains(c)||!lastPlan)return;lastPlan._review=lastPlan._review||{};lastPlan._review[c.dataset.aiReview]=c.checked;localStorage.setItem(KEY,JSON.stringify(lastPlan));});
     a.addEventListener('click',e=>{
       const btn=e.target.closest('button[data-ai-action]');
       if(!btn || !a.contains(btn))return;
@@ -121,7 +129,7 @@
   }
   function install(){
     if(!$('aiRun'))return;
-    if(!$('ai-sync-style')){const st=document.createElement('style');st.id='ai-sync-style';st.textContent=`.ai-sync-bar button{position:relative;z-index:2;pointer-events:auto;cursor:pointer;min-height:42px}.ai-sync-bar button:disabled{opacity:.55;cursor:wait}.ai-plan{margin-top:12px;border:2px solid var(--line);border-radius:14px;padding:12px;background:#fff}.ai-plan-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.ai-plan-sec{margin-top:10px}.ai-plan-sec h4{margin:7px 0}.ai-plan-row{display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:10px;padding:9px;margin:6px 0;background:#fbfdff}.ai-sync-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}@media(max-width:700px){.ai-plan-head,.ai-plan-row{flex-direction:column}}`;document.head.appendChild(st)}
+    if(!$('ai-sync-style')){const st=document.createElement('style');st.id='ai-sync-style';st.textContent=`.ai-review-check{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#475569;margin-right:6px}.ai-review-check input{accent-color:#0f766e}.ai-review-note{margin-top:10px}.ai-sync-bar button{position:relative;z-index:2;pointer-events:auto;cursor:pointer;min-height:42px}.ai-sync-bar button:disabled{opacity:.55;cursor:wait}.ai-plan{margin-top:12px;border:2px solid var(--line);border-radius:14px;padding:12px;background:#fff}.ai-plan-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.ai-plan-sec{margin-top:10px}.ai-plan-sec h4{margin:7px 0}.ai-plan-row{display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:10px;padding:9px;margin:6px 0;background:#fbfdff}.ai-sync-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}@media(max-width:700px){.ai-plan-head,.ai-plan-row{flex-direction:column}}`;document.head.appendChild(st)}
     const old=$('aiRun');if(old.dataset.structuredBridge)return;old.dataset.structuredBridge='1';
     old.onclick=async()=>{
       const base=$('aiBase').value.trim().replace(/\/$/,''),model=$('aiModel').value.trim(),key=$('aiKey').value.trim();
