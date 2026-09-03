@@ -57,6 +57,35 @@
       ${sec('PROBLEMS · Problem List（问题列表）',plan.problems)}${sec('RED FLAGS · Red Flags（红旗风险）',plan.red_flags)}${sec('DIFFERENTIALS · Differential Diagnosis（鉴别诊断）',plan.differentials)}${sec('RECOMMENDED TESTS · Next Best Tests（下一项最有价值检查）',plan.recommended_tests)}${sec('TREATMENT OPTIONS · Treatment Strategy（治疗策略）',plan.treatment_options)}${sec('MEDICATION OPTIONS · Medication Safety Review（用药安全审核）',plan.medication_options)}${sec('MONITORING · Monitoring（监测）',plan.monitoring)}${sec('REASSESSMENT · Reassessment（复评）',plan.reassessment)}${sec('EVIDENCE · Evidence（证据与依据）',plan.evidence)}${sec('SAFETY WARNINGS · Safety Warnings（安全警示）',plan.safety_warnings)}
       <div class="ai-review-note os-note"><b>Doctor Review（医生审核）</b>：默认勾选全部AI建议。取消勾选即可排除某一项；只有勾选项目才会进入 Clinical OS。</div><div class="ai-sync-bar"><button type="button" class="primary" data-ai-action="apply">⚡ Apply Clinical Plan（应用临床计划）</button><button type="button" data-ai-action="sync">＋ Sync to Patient State（同步到患者）</button><button type="button" data-ai-action="reject">✕ Reject（拒绝本次计划）</button></div><div class="os-warning">AI输出属于 Suggested（建议）状态；未经医生确认不得视为诊断或医嘱。不会自动执行药物、输液、麻醉、输血等高风险操作。剂量、适应证、禁忌证、相互作用和复评时限必须由执业兽医结合物种、体重、器官功能、制剂标签及当前指南核验。</div></div>`;
   }
+  function syncPlanToCase(plan,q){
+    const p=patient();
+    const set=(id,v,overwrite=false)=>{const el=$(id);if(!el||v==null||v==='')return;if(overwrite||!String(el.value||'').trim())el.value=v};
+    set('caseId',p.patientId||plan?.patient?.patientId||'');
+    set('caseSpecies',p.species||plan?.patient?.species||'犬');
+    set('caseBreed',p.breed||plan?.patient?.breed||'');
+    set('caseAge',p.age||plan?.patient?.age||'');
+    set('caseSex',p.sex||plan?.patient?.sex||'');
+    set('caseWeight',p.weight??plan?.patient?.weight??'');
+    if(plan){
+      const problems=(q?.problems||plan.problems||[]).map(label).filter(Boolean);
+      const diffs=(q?.differentials||plan.differentials||[]).map(label).filter(Boolean);
+      const tests=(q?.recommended_tests||plan.recommended_tests||[]).map(x=>label(x)+(detail(x)?' · '+detail(x):'')).filter(Boolean);
+      const tx=(q?.treatment_options||plan.treatment_options||[]).map(x=>label(x)+(detail(x)?' · '+detail(x):'')).filter(Boolean);
+      const meds=(q?.medication_options||plan.medication_options||[]).map(x=>label(x)+(detail(x)?' · '+detail(x):'')).filter(Boolean);
+      const mon=(q?.monitoring||plan.monitoring||[]).map(x=>label(x)+(detail(x)?' · '+detail(x):'')).filter(Boolean);
+      const reass=(q?.reassessment||plan.reassessment||[]).map(x=>label(x)+(detail(x)?' · '+detail(x):'')).filter(Boolean);
+      set('caseChief',p.chief||problems.join('、'));
+      set('caseHistory',p.history||'');
+      set('casePast',p.conditions||p.currentMeds||'');
+      set('caseDx',p.diagnosis||diffs.slice(0,3).join('、'));
+      set('caseDDx',diffs.join('、'));
+      set('caseTests',tests.join('\n'));
+      set('caseResults',plan.summary||'');
+      set('casePlan',[...tx,...meds].join('\n'));
+      set('caseAdvice',[...mon,...reass].join('\n'));
+    }
+    return true;
+  }
   function syncPatient(plan){
     const p=plan?.patient||{};const cur=patient();
     const set=(id,v)=>{if($(id)&&v!==undefined&&v!==null&&v!=='')$(id).value=v};
@@ -73,6 +102,7 @@
     const finalState=window.VCT50_PATIENT_STATE||safe(localStorage.getItem('vct50_patient_state'),{})||{};
     const validId=String(finalState.patientId||'').trim();
     if(validId && plan.patient) plan.patient.patientId=validId;
+    if(validId) syncPlanToCase(plan);
     return !!validId;
   }
   function autoSyncSuggested(plan){
@@ -97,7 +127,7 @@
     return {problems:filter(plan.problems),red_flags:filter(plan.red_flags),recommended_tests:filter(plan.recommended_tests),treatment_options:filter(plan.treatment_options),medication_options:filter(plan.medication_options),monitoring:filter(plan.monitoring),reassessment:filter(plan.reassessment),differentials:filter(plan.differentials),evidence:filter(plan.evidence),safety_warnings:filter(plan.safety_warnings)};
   }
   function applyPlan(plan){
-    syncPatient(plan);const s=osState();const q=selectedPlan(plan);
+    const ok=syncPatient(plan);if(!ok)return false;const s=osState();const q=selectedPlan(plan);syncPlanToCase(plan,q);
     const uniq=(arr,k)=>{const seen=new Set(arr.map(x=>String(k(x)).toLowerCase()));return arr.filter(x=>{const z=String(k(x)).toLowerCase();if(seen.has(z))return false;seen.add(z);return true})};
     const existing=s.problemList||[];q.problems.forEach(x=>existing.push({text:label(x),priority:x.priority||'P2',status:'Suggested',source:'AI',created_at:now()}));q.red_flags.forEach(x=>existing.push({text:'⚠ '+label(x),priority:'P0',status:'Suggested',source:'AI',created_at:now()}));s.problemList=uniq(existing,x=>x.text).slice(-100);
     s.tasks=s.tasks||[];q.recommended_tests.forEach(x=>s.tasks.push({text:'检查：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.treatment_options.forEach(x=>s.tasks.push({text:'治疗候选：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.medication_options.forEach(x=>s.tasks.push({text:'用药候选（医生审核）：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.monitoring.forEach(x=>s.tasks.push({text:'监测：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));q.reassessment.forEach(x=>s.tasks.push({text:'复评：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));
@@ -127,8 +157,8 @@
       if(!lastPlan){a.insertAdjacentHTML('beforeend','<div class="os-warning">当前没有可审核的 AI 计划。</div>');return}
       const action=btn.dataset.aiAction; btn.disabled=true;
       try{
-        if(action==='apply'){applyPlan(lastPlan);a.insertAdjacentHTML('beforeend','<div class="os-note">✓ 已应用到 Clinical OS。所有内容仍保持 Suggested（建议）状态，等待医生逐项确认；高风险操作不会自动执行。</div>');}
-        else if(action==='sync'){const ok=syncPatient(lastPlan);a.insertAdjacentHTML('beforeend',ok?'<div class="os-note">✓ 患者信息已同步到 Patient State，并已广播给相关临床模块。</div>':'<div class="os-warning">患者同步未完成：请先建立有效患者信息。</div>');}
+        if(action==='apply'){const ok=applyPlan(lastPlan);a.insertAdjacentHTML('beforeend',ok?'<div class="os-note">✓ 已应用到 Clinical OS，并已回写病例工作台的检查、治疗、监测与复评字段。</div>':'<div class="os-warning">应用失败：当前患者无有效 Patient ID，请先在首页建立并同步患者。</div>');}
+        else if(action==='sync'){const ok=syncPatient(lastPlan);a.insertAdjacentHTML('beforeend',ok?'<div class="os-note">✓ 患者信息已同步到 Patient State，并已回写病例工作台；相关临床模块已刷新。</div>':'<div class="os-warning">患者同步未完成：请先在首页建立有效患者信息。</div>');}
         else if(action==='reject'){reject();}
       }finally{if(action!=='reject')setTimeout(()=>btn.disabled=false,250);}
     });

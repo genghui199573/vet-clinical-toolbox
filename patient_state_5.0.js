@@ -34,13 +34,20 @@
     }
     return state.patientId;
   }
+  function api(){
+    // Live facade: never expose a stale object copy of `state`. All modules read the
+    // same mutable Patient State, including after sync/apply operations.
+    const api={sync,exportState,ensurePatientId,get summary(){return summary()},get context(){return contextText()}};
+    ["version","updated_at","patientId","species","breed","age","sex","weight","chief","history","conditions","creatinine","potassium","sodium","albumin","glucose","currentMeds","diagnosis","notes","labAnalyzerId","labAnalyzerLabel"].forEach(k=>Object.defineProperty(api,k,{enumerable:true,get:()=>state[k],set:v=>{state[k]=v}}));
+    return api;
+  }
   function persist(){
     localStorage.setItem(KEY,JSON.stringify(state));
     // Backward compatibility: older 5.0 modules used vetPatientState5.
     localStorage.setItem("vetPatientState5",JSON.stringify({
       ...state, build:"5.0-r08", updatedAt:state.updated_at
     }));
-    window.VCT50_PATIENT_STATE={...state,get summary(){return summary()},get context(){return contextText()},sync,exportState,ensurePatientId};
+    window.VCT50_PATIENT_STATE=api();
     window.patientState=window.VCT50_PATIENT_STATE;
     // Keep the legacy rules engine state aligned without making it the source of truth.
     try{
@@ -130,7 +137,7 @@
   }
   window.addEventListener("vct50:lab-ref-change",e=>{const a=e.detail?.analyzer;if(!a)return;state.labAnalyzerId=a.id||"";state.labAnalyzerLabel=(a.manufacturer||"")+" · "+(a.model||"");state.updated_at=new Date().toISOString();persist();broadcast()});
   function exportState(){const blob=new Blob([JSON.stringify({version:state.version,exported_at:new Date().toISOString(),patient:state,summary:summary()},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(state.patientId||"patient")+"-patient-state-5.0.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-  read();window.VCT50_PATIENT_STATE={...state,get summary(){return summary()},get context(){return contextText()},sync,exportState,ensurePatientId};
+  read();window.VCT50_PATIENT_STATE=api();
   window.patientState=window.VCT50_PATIENT_STATE;
   function init(){injectUI();bindCaseBridge();autoContext();push();broadcast();if($("patientStateStatus"))$("patientStateStatus").textContent="Patient State 已启用 · 本机 localStorage · 仅用于本次临床工作站联动";}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
