@@ -18,7 +18,7 @@
   function audit(action,detail){const s=osState();s.audit=Array.isArray(s.audit)?s.audit:[];s.audit.push({time:now(),action,detail:detail||'',patientId:patient().patientId||''});s.audit=s.audit.slice(-300);saveOS(s)}
   function normalize(raw){
     const p=raw?.PATIENT||raw?.patient||{};
-    const plan={version:'5.0-r08',generated_at:now(),plan_id:'ai-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),patient:{
+    const plan={version:'5.0-r08',generated_at:now(),plan_id:'ai-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),summary:raw?.CLINICAL_SUMMARY||raw?.SUMMARY||raw?.summary||'',confidence:raw?.CONFIDENCE||raw?.confidence||'',patient:{
       patientId:p.patientId||p.id||'',species:p.species||p.Species||'',breed:p.breed||'',age:p.age||'',sex:p.sex||'',weight:p.weight??null,vaccination:p.vaccination||p.vaccine||''
     },problems:[],red_flags:[],differentials:[],recommended_tests:[],treatment_options:[],medication_options:[],monitoring:[],reassessment:[],evidence:[],safety_warnings:[],raw_text:''};
     const mapItems=(arr,def='')=>asArr(arr).map(x=>typeof x==='string'?{text:x,priority:def||'P2',status:'Suggested'}:{...x,status:x.status||'Suggested',priority:x.priority||def||'P2'}).filter(x=>x.text||x.name||x.test||x.problem||x.drug);
@@ -42,13 +42,19 @@
   }
   function label(x){return x.name||x.test||x.problem||x.drug||x.text||x.item||''}
   function detail(x){return [x.description,x.rationale,x.reason,x.note,x.plan,x.action,x.dose,x.route,x.frequency,x.duration].filter(Boolean).join(' · ')}
-  function renderItem(x,kind){return `<div class="ai-plan-row"><div><span class="os-chip ${x.priority==='P0'?'os-red':x.priority==='P1'?'os-amber':x.priority==='P2'?'os-yellow':'os-green'}">${esc(x.priority||'P2')}</span><b>${esc(label(x))}</b>${detail(x)?`<div class="os-muted">${esc(detail(x))}</div>`:''}</div><span class="os-chip os-blue">Suggested（AI建议）</span></div>`}
+  function renderItem(x,kind){
+    const why=x.rationale||x.reason||x.description||'';
+    const support=x.supporting_evidence||x.support||x.for_evidence||'';
+    const against=x.against_evidence||x.contra||x.against||'';
+    return `<div class="ai-plan-row"><div><div><span class="os-chip ${x.priority==='P0'?'os-red':x.priority==='P1'?'os-amber':x.priority==='P2'?'os-yellow':'os-green'}">${esc(x.priority||'P2')}</span> <b>${esc(label(x))}</b></div>${why?`<div class="os-muted"><b>临床依据：</b>${esc(why)}</div>`:''}${support?`<div class="os-muted"><b>支持证据：</b>${esc(support)}</div>`:''}${against?`<div class="os-muted"><b>反对/缺失证据：</b>${esc(against)}</div>`:''}${detail(x)&&!why?`<div class="os-muted">${esc(detail(x))}</div>`:''}</div><span class="os-chip os-blue">Suggested（AI建议）</span></div>`}
   function renderPlan(plan){
     const sec=(title,arr)=>arr.length?`<section class="ai-plan-sec"><h4>${title}</h4>${arr.map(x=>renderItem(x,title)).join('')}</section>`:'';
     const p=plan.patient;
-    return `<div class="ai-plan"><div class="ai-plan-head"><div><h3>AI Clinical Plan（AI临床计划）</h3><div class="os-muted">${esc(p.species||patient().species||'物种未识别')} · ${esc(p.age||patient().age||'年龄未识别')} · ${esc(p.weight??patient().weight??'')} ${p.weight||patient().weight?'kg':''}</div></div><span class="os-chip os-amber">Doctor Review Required（必须医生审核）</span></div>
-      ${sec('PROBLEMS · 临床问题',plan.problems)}${sec('RED FLAGS · 危险信号',plan.red_flags)}${sec('DIFFERENTIALS · 鉴别诊断',plan.differentials)}${sec('RECOMMENDED TESTS · 建议检查',plan.recommended_tests)}${sec('TREATMENT OPTIONS · 治疗候选',plan.treatment_options)}${sec('MEDICATION OPTIONS · 用药候选',plan.medication_options)}${sec('MONITORING · 监测',plan.monitoring)}${sec('REASSESSMENT · 复评',plan.reassessment)}${sec('EVIDENCE · 证据',plan.evidence)}${sec('SAFETY WARNINGS · 安全警告',plan.safety_warnings)}
-      <div class="ai-sync-bar"><button class="primary" id="aiApplyPlan">⚡ Apply Clinical Plan（应用临床计划）</button><button id="aiSyncSelected">＋ Sync to Patient State（同步到患者）</button><button id="aiRejectPlan">✕ Reject（拒绝本次计划）</button></div><div class="os-warning">AI输出属于 Suggested（建议）状态。应用后会写入 Problem List、检查/治疗任务、监测与 Timeline；不会自动执行药物、输液、麻醉或其他高风险医嘱。</div></div>`;
+    const summary=plan.summary||p.summary||'';
+    const confidence=plan.confidence||plan.overall_confidence||'';
+    return `<div class="ai-plan"><div class="ai-plan-head"><div><h3>AI Clinical Decision Support（兽医临床决策支持）</h3><div class="os-muted">${esc(p.species||patient().species||'物种未识别')} · ${esc(p.age||patient().age||'年龄未识别')} · ${esc(p.weight??patient().weight??'')} ${p.weight||patient().weight?'kg':''}</div>${summary?`<div class="ai-summary"><b>Clinical Summary（病例摘要）：</b>${esc(summary)}</div>`:''}${confidence?`<div class="os-muted"><b>推理置信度：</b>${esc(confidence)}</div>`:''}</div><span class="os-chip os-amber">Doctor Review Required（必须医生审核）</span></div>
+      ${sec('PROBLEMS · Problem List（问题列表）',plan.problems)}${sec('RED FLAGS · Red Flags（红旗风险）',plan.red_flags)}${sec('DIFFERENTIALS · Differential Diagnosis（鉴别诊断）',plan.differentials)}${sec('RECOMMENDED TESTS · Next Best Tests（下一项最有价值检查）',plan.recommended_tests)}${sec('TREATMENT OPTIONS · Treatment Strategy（治疗策略）',plan.treatment_options)}${sec('MEDICATION OPTIONS · Medication Safety Review（用药安全审核）',plan.medication_options)}${sec('MONITORING · Monitoring（监测）',plan.monitoring)}${sec('REASSESSMENT · Reassessment（复评）',plan.reassessment)}${sec('EVIDENCE · Evidence（证据与依据）',plan.evidence)}${sec('SAFETY WARNINGS · Safety Warnings（安全警示）',plan.safety_warnings)}
+      <div class="ai-sync-bar"><button type="button" class="primary" data-ai-action="apply">⚡ Apply Clinical Plan（应用临床计划）</button><button type="button" data-ai-action="sync">＋ Sync to Patient State（同步到患者）</button><button type="button" data-ai-action="reject">✕ Reject（拒绝本次计划）</button></div><div class="os-warning">AI输出属于 Suggested（建议）状态；未经医生确认不得视为诊断或医嘱。不会自动执行药物、输液、麻醉、输血等高风险操作。剂量、适应证、禁忌证、相互作用和复评时限必须由执业兽医结合物种、体重、器官功能、制剂标签及当前指南核验。</div></div>`;
   }
   function syncPatient(plan){
     const p=plan.patient;const cur=patient();
@@ -57,7 +63,7 @@
     const chief=$('patientChief');if(chief&&!chief.value){const pr=plan.problems.map(label).filter(Boolean);chief.value=pr.join('、')||cur.chief||''}
     const conditions=$('patientConditions');if(conditions&&plan.patient.vaccination&&!conditions.value)conditions.value=`免疫状态：${plan.patient.vaccination}`;
     const dx=$('patientDx');if(dx&&!dx.value&&plan.differentials.length)dx.value='鉴别诊断：'+plan.differentials.slice(0,3).map(label).join('、');
-    $('patientSyncNow')?.click();
+    if(window.VCT50_PATIENT_STATE?.sync){window.VCT50_PATIENT_STATE.sync();}else{$('patientSyncNow')?.click();}
   }
   function autoSyncSuggested(plan){
     const s=osState(); s.problemList=s.problemList||[]; s.tasks=s.tasks||[]; s.timeline=s.timeline||[]; s.goals=s.goals||[];
@@ -85,8 +91,23 @@
     saveOS(s);audit('ai_apply_plan','AI clinical plan applied; still requires clinician review');
     window.VCT50_CLINICAL_OS?.renderAll?.();
   }
-  function reject(){lastPlan=null;localStorage.removeItem(KEY);if($('aiOut'))$('aiOut').innerHTML=`<div class="os-note">本次 AI 计划已拒绝，未同步到患者全局。</div>`;audit('ai_reject_plan','AI plan rejected')}
-  function wire(plan){lastPlan=plan;localStorage.setItem(KEY,JSON.stringify(plan));autoSyncSuggested(plan);const a=$('aiOut');if(!a)return;a.innerHTML=renderPlan(plan);$('aiApplyPlan').onclick=()=>{applyPlan(plan);a.innerHTML+=`<div class="os-note">已应用到 Clinical OS。状态：Suggested（建议）→等待医生审核。高风险用药/输液/麻醉/输血不会自动执行。</div>`};$('aiSyncSelected').onclick=()=>{syncPatient(plan);audit('ai_sync_patient','AI patient fields synced');a.innerHTML+=`<div class="os-note">患者基础信息已同步到 Patient State。</div>`};$('aiRejectPlan').onclick=reject;}
+  function reject(){const pid=lastPlan?.plan_id||'';localStorage.removeItem(KEY);audit('ai_reject_plan','AI plan rejected; no patient/Clinical OS changes from rejection');lastPlan=null;if($('aiOut'))$('aiOut').innerHTML=`<div class="os-note">本次 AI 计划已拒绝；未写入患者状态，也未新增 Clinical OS 医嘱。</div>`}
+  function wire(plan){
+    lastPlan=plan;localStorage.setItem(KEY,JSON.stringify(plan));autoSyncSuggested(plan);
+    const a=$('aiOut');if(!a)return;
+    a.innerHTML=renderPlan(plan);
+    if(a.dataset.aiActionsBound!=='1'){
+      a.dataset.aiActionsBound='1';
+      a.addEventListener('click',e=>{
+        const btn=e.target.closest('[data-ai-action]');if(!btn||!a.contains(btn))return;
+        e.preventDefault();e.stopPropagation();
+        const action=btn.dataset.aiAction;
+        if(action==='apply'){applyPlan(lastPlan);a.insertAdjacentHTML('beforeend',`<div class="os-note">已应用到 Clinical OS。所有内容仍为 Suggested（建议），等待医生逐项确认；高风险操作不会自动执行。</div>`);return}
+        if(action==='sync'){syncPatient(lastPlan);audit('ai_sync_patient','AI patient fields synced to Patient State');a.insertAdjacentHTML('beforeend',`<div class="os-note">患者基础信息已同步到 Patient State，并重新联动相关模块。</div>`);return}
+        if(action==='reject'){reject();return}
+      });
+    }
+  }
   function promptContext(){
     const p=patient(),s=osState();return {version:'5.0-r08',patient:p,problems:s.problemList||[],vitals:s.vitals||[],labs:s.labs||[],timeline:(s.timeline||[]).slice(-50),tasks:s.tasks||[],goals:s.goals||[],allergies:s.allergies||[],drug_safety:window.VCT50_CLINICAL_OS?.drugSafety?.()||[],fluid_safety:window.VCT50_CLINICAL_OS?.fluidSafety?.()||[],user_input:{chief:$('aiChief')?.value||'',tests:$('aiTests')?.value||'',results:$('aiResults')?.value||'',history:$('aiHistory')?.value||'',question:$('aiQuestion')?.value||''}};
   }
@@ -98,7 +119,11 @@
       const base=$('aiBase').value.trim().replace(/\/$/,''),model=$('aiModel').value.trim(),key=$('aiKey').value.trim();
       if(!base||!model||!key){$('aiOut').innerHTML='<div class="bad">请先填写 API Base URL、模型和 API Key。</div>';return}
       const ctx=promptContext();$('aiOut').innerHTML='<div class="info">AI正在分析病例，并生成可审核的结构化临床计划……</div>';
-      const system=`你是兽医临床决策支持模型，不替代执业兽医。只做辅助推理。请把用户自然语言病例转换成严格 JSON，不要 Markdown，不要解释文字。必须包含以下顶层键：PATIENT, PROBLEMS, RED_FLAGS, DIFFERENTIALS, RECOMMENDED_TESTS, TREATMENT_OPTIONS, MEDICATION_OPTIONS, MONITORING, REASSESSMENT, EVIDENCE, SAFETY_WARNINGS。PATIENT字段：patientId,species,breed,age,sex,weight,vaccination。所有数组元素优先使用对象：{name/text/test/problem/drug,priority,description,rationale,note,dose,route,frequency,duration,status}，可缺省无关字段。priority只能P0/P1/P2/P3。status初始只能Suggested。重要原则：确诊与鉴别诊断必须区分；资料不足就明确不足；不要编造药物剂量、制剂标签或证据；药物/输液/麻醉/输血等高风险内容只能给候选方案并写明需要医生审核、标签/指南核对。英文专业术语旁给出简短中文解释，例如 Differential Diagnosis（鉴别诊断）、Next Best Test（下一项最有价值检查）、Reassessment（复评）、Drug Safety（用药安全）。`;
+      const system=`你是兽医临床决策支持模型（Veterinary Clinical Decision Support），服务对象是执业兽医。你的任务不是给出泛泛科普，而是基于输入病例进行结构化、可审查、可追溯的临床推理。严格区分：Known Facts（已知事实）、Clinical Inference（临床推断）、Differential Diagnosis（鉴别诊断）、Recommendation（建议）、Doctor Confirmed（医生确认）、Executed（已执行）。如果证据不足，明确写“资料不足”，禁止补造。
+输出严格 JSON，不要 Markdown，不要额外解释。顶层必须包含：CLINICAL_SUMMARY, CONFIDENCE, PATIENT, PROBLEMS, RED_FLAGS, DIFFERENTIALS, RECOMMENDED_TESTS, TREATMENT_OPTIONS, MEDICATION_OPTIONS, MONITORING, REASSESSMENT, EVIDENCE, SAFETY_WARNINGS。
+PATIENT字段：patientId,species,breed,age,sex,weight,vaccination。数组对象可使用：name/text/test/problem/drug,priority,description,rationale,supporting_evidence,against_evidence,goal,interpretation,status,dose,route,frequency,duration,monitoring,contraindications,interactions,source。priority只能P0/P1/P2/P3；status初始只能Suggested。
+临床推理要求：1）先总结病例和当前最重要异常；2）RED_FLAGS必须说明为什么危险、立即需要排除/处理什么；3）DIFFERENTIALS必须按优先级排列，并尽可能写支持证据、反对证据/缺失证据，以及下一步如何区分；4）RECOMMENDED_TESTS必须说明检查目的和预期如何改变决策，而不是只列检查名；5）TREATMENT_OPTIONS必须围绕稳定化、病因治疗、支持治疗和复评目标组织；6）MEDICATION_OPTIONS必须做Medication Safety Review（用药安全审核），涉及剂量时只能引用输入病例、项目数据库或可靠标签/指南中明确存在的信息，否则不要编造固定剂量，并明确要求核对制剂标签/当前指南；7）MONITORING和REASSESSMENT必须给出指标、触发条件和复评逻辑；8）EVIDENCE说明证据来源或证据等级，不得虚构文献；9）SAFETY_WARNINGS列出物种、器官功能、禁忌证、相互作用和高风险操作的核验要求。
+英文专业术语旁必须给出简短中文解释。AI输出永远只是Suggested（建议），不得声称已经诊断、已经用药或已经执行。`;
       try{const r=await fetch(base+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model,messages:[{role:'system',content:system},{role:'user',content:JSON.stringify(ctx)}],temperature:.1})});if(!r.ok)throw new Error('HTTP '+r.status+' '+await r.text());const j=await r.json();const txt=j.choices?.[0]?.message?.content||'';const raw=extractJSON(txt);if(!raw)throw new Error('模型未返回可解析的结构化 JSON；请重试或更换支持 JSON 输出的模型。');const plan=normalize(raw);plan.raw_text=txt;wire(plan);audit('ai_generate_plan','structured AI plan generated');}
       catch(e){$('aiOut').innerHTML=`<div class="bad">AI调用/结构化解析失败：${esc(e.message)}<br>请检查 Base URL、模型、Key、CORS，或选择支持 JSON 输出的模型。</div>`}
     };
