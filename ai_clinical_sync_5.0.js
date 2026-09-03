@@ -93,27 +93,35 @@
   }
   function reject(){const pid=lastPlan?.plan_id||'';localStorage.removeItem(KEY);audit('ai_reject_plan','AI plan rejected; no patient/Clinical OS changes from rejection');lastPlan=null;if($('aiOut'))$('aiOut').innerHTML=`<div class="os-note">本次 AI 计划已拒绝；未写入患者状态，也未新增 Clinical OS 医嘱。</div>`}
   function wire(plan){
-    lastPlan=plan;localStorage.setItem(KEY,JSON.stringify(plan));autoSyncSuggested(plan);
+    lastPlan=plan;localStorage.setItem(KEY,JSON.stringify(plan));audit('ai_plan_staged','AI plan staged for clinician review; no Clinical OS mutation');
     const a=$('aiOut');if(!a)return;
     a.innerHTML=renderPlan(plan);
-    if(a.dataset.aiActionsBound!=='1'){
-      a.dataset.aiActionsBound='1';
-      a.addEventListener('click',e=>{
-        const btn=e.target.closest('[data-ai-action]');if(!btn||!a.contains(btn))return;
-        e.preventDefault();e.stopPropagation();
-        const action=btn.dataset.aiAction;
-        if(action==='apply'){applyPlan(lastPlan);a.insertAdjacentHTML('beforeend',`<div class="os-note">已应用到 Clinical OS。所有内容仍为 Suggested（建议），等待医生逐项确认；高风险操作不会自动执行。</div>`);return}
-        if(action==='sync'){syncPatient(lastPlan);audit('ai_sync_patient','AI patient fields synced to Patient State');a.insertAdjacentHTML('beforeend',`<div class="os-note">患者基础信息已同步到 Patient State，并重新联动相关模块。</div>`);return}
-        if(action==='reject'){reject();return}
-      });
-    }
+    bindActionContainer(a);
+    const inbox=$('aiInboxOut');
+    if(inbox){ inbox.innerHTML=renderPlan(plan); bindActionContainer(inbox); }
+  }
+  function bindActionContainer(a){
+    if(!a || a.dataset.aiActionsBound==='1')return;
+    a.dataset.aiActionsBound='1';
+    a.addEventListener('click',e=>{
+      const btn=e.target.closest('button[data-ai-action]');
+      if(!btn || !a.contains(btn))return;
+      e.preventDefault();e.stopImmediatePropagation();
+      if(!lastPlan){a.insertAdjacentHTML('beforeend','<div class="os-warning">当前没有可审核的 AI 计划。</div>');return}
+      const action=btn.dataset.aiAction; btn.disabled=true;
+      try{
+        if(action==='apply'){applyPlan(lastPlan);a.insertAdjacentHTML('beforeend','<div class="os-note">✓ 已应用到 Clinical OS。所有内容仍保持 Suggested（建议）状态，等待医生逐项确认；高风险操作不会自动执行。</div>');}
+        else if(action==='sync'){const ok=syncPatient(lastPlan);a.insertAdjacentHTML('beforeend',ok?'<div class="os-note">✓ 患者信息已同步到 Patient State，并已广播给相关临床模块。</div>':'<div class="os-warning">患者同步未完成：请先建立有效患者信息。</div>');}
+        else if(action==='reject'){reject();}
+      }finally{if(action!=='reject')setTimeout(()=>btn.disabled=false,250);}
+    });
   }
   function promptContext(){
     const p=patient(),s=osState();return {version:'5.0-r08',patient:p,problems:s.problemList||[],vitals:s.vitals||[],labs:s.labs||[],timeline:(s.timeline||[]).slice(-50),tasks:s.tasks||[],goals:s.goals||[],allergies:s.allergies||[],drug_safety:window.VCT50_CLINICAL_OS?.drugSafety?.()||[],fluid_safety:window.VCT50_CLINICAL_OS?.fluidSafety?.()||[],user_input:{chief:$('aiChief')?.value||'',tests:$('aiTests')?.value||'',results:$('aiResults')?.value||'',history:$('aiHistory')?.value||'',question:$('aiQuestion')?.value||''}};
   }
   function install(){
     if(!$('aiRun'))return;
-    if(!$('ai-sync-style')){const st=document.createElement('style');st.id='ai-sync-style';st.textContent=`.ai-plan{margin-top:12px;border:2px solid var(--line);border-radius:14px;padding:12px;background:#fff}.ai-plan-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.ai-plan-sec{margin-top:10px}.ai-plan-sec h4{margin:7px 0}.ai-plan-row{display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:10px;padding:9px;margin:6px 0;background:#fbfdff}.ai-sync-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}@media(max-width:700px){.ai-plan-head,.ai-plan-row{flex-direction:column}}`;document.head.appendChild(st)}
+    if(!$('ai-sync-style')){const st=document.createElement('style');st.id='ai-sync-style';st.textContent=`.ai-sync-bar button{position:relative;z-index:2;pointer-events:auto;cursor:pointer;min-height:42px}.ai-sync-bar button:disabled{opacity:.55;cursor:wait}.ai-plan{margin-top:12px;border:2px solid var(--line);border-radius:14px;padding:12px;background:#fff}.ai-plan-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.ai-plan-sec{margin-top:10px}.ai-plan-sec h4{margin:7px 0}.ai-plan-row{display:flex;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:10px;padding:9px;margin:6px 0;background:#fbfdff}.ai-sync-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}@media(max-width:700px){.ai-plan-head,.ai-plan-row{flex-direction:column}}`;document.head.appendChild(st)}
     const old=$('aiRun');if(old.dataset.structuredBridge)return;old.dataset.structuredBridge='1';
     old.onclick=async()=>{
       const base=$('aiBase').value.trim().replace(/\/$/,''),model=$('aiModel').value.trim(),key=$('aiKey').value.trim();
@@ -130,8 +138,8 @@ PATIENT字段：patientId,species,breed,age,sex,weight,vaccination。数组对�
     // Add a global AI inbox link to Clinical OS navigation if available.
     const nav=$('nav');if(nav&&!document.querySelector('[data-v="aiInbox"]')){const b=document.createElement('button');b.dataset.v='aiInbox';b.textContent='🤖 AI Plan（AI计划）';b.onclick=()=>window.show?.('aiInbox');nav.insertBefore(b,nav.children[1]||null)}
     const main=document.querySelector('main');if(main&&!$('aiInbox')){const sec=document.createElement('section');sec.id='aiInbox';sec.className='view';sec.innerHTML=`<div class="card"><h2>🤖 AI Plan Inbox（AI临床计划收件箱）</h2><p class="muted">这里集中查看最近一次 AI 结构化计划。AI建议必须经过医生审核；不会自动成为执行医嘱。</p><div id="aiInboxOut"></div></div>`;main.insertBefore(sec,main.firstChild)}
-    const cached=safe(localStorage.getItem(KEY),null);if(cached){lastPlan=cached;setTimeout(()=>{$('aiInboxOut')&&($('aiInboxOut').innerHTML=renderPlan(cached));wire(cached)},0)}
-    window.addEventListener('vct50:patient-change',()=>{if($('aiInboxOut')&&lastPlan){$('aiInboxOut').innerHTML=renderPlan(lastPlan)}});
+    const cached=safe(localStorage.getItem(KEY),null);if(cached){lastPlan=cached;setTimeout(()=>wire(cached),0)}
+    window.addEventListener('vct50:patient-change',()=>{if(lastPlan){if($('aiOut')){$('aiOut').innerHTML=renderPlan(lastPlan);bindActionContainer($('aiOut'))}if($('aiInboxOut')){$('aiInboxOut').innerHTML=renderPlan(lastPlan);bindActionContainer($('aiInboxOut'))}}});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
   window.VCT50_AI_BRIDGE={promptContext,normalize,wire,applyPlan,syncPatient,getLastPlan:()=>lastPlan};
