@@ -15,6 +15,8 @@
     patientCreatinine:["cwCr"], patientK:["cwKTarget","qK","shK"], patientNa:["qSNa"], patientAlb:["qAlb"], patientGlucose:["erGlu","osGlu","ceGlu","r08DKAG"]
   };
   const state={version:"5.0-r08",updated_at:null,patientId:"",species:"犬",breed:"",age:"",sex:"",weight:null,chief:"",history:"",conditions:"",creatinine:null,potassium:null,sodium:null,albumin:null,glucose:null,currentMeds:"",diagnosis:"",notes:"",labAnalyzerId:"",labAnalyzerLabel:""};
+  function makePatientId(){const base=(state.patientId||"").trim();if(base)return base;const stamp=new Date();const d=stamp.toISOString().slice(0,10).replace(/-/g,"");const r=Math.random().toString(36).slice(2,6).toUpperCase();return `VCT-${d}-${r}`;}
+  function ensurePatientId(){if(!String(state.patientId||"").trim())state.patientId=makePatientId();return state.patientId;}
   function read(){try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&typeof x==="object")Object.assign(state,x)}catch{}}
   function val(id){return $(id)?.value??""}
   function num(id){const x=parseFloat(val(id));return Number.isFinite(x)?x:null}
@@ -23,7 +25,8 @@
     state.chief=val("patientChief"); state.history=val("patientHistory"); state.conditions=val("patientConditions"); state.creatinine=num("patientCreatinine"); state.potassium=num("patientK"); state.sodium=num("patientNa"); state.albumin=num("patientAlb"); state.glucose=num("patientGlucose"); state.currentMeds=val("patientMeds"); state.diagnosis=val("patientDx"); state.updated_at=new Date().toISOString();
     return state;
   }
-  function persist(){localStorage.setItem(KEY,JSON.stringify(state)); window.VCT50_PATIENT_STATE={...state};}
+  function expose(){window.VCT50_PATIENT_STATE={...state,get summary(){return summary()},get context(){return contextText()},sync,exportState,ensurePatientId};}
+  function persist(){localStorage.setItem(KEY,JSON.stringify(state)); expose();}
   function set(id,v){if($(id)&&v!==null&&v!==undefined)$(id).value=v}
   function push(){
     set("patientId",state.patientId);set("patientSpecies",state.species);set("patientBreed",state.breed);set("patientAge",state.age);set("patientSex",state.sex);set("patientWeight",state.weight??"");set("patientChief",state.chief);set("patientHistory",state.history);set("patientConditions",state.conditions);set("patientCreatinine",state.creatinine??"");set("patientK",state.potassium??"");set("patientNa",state.sodium??"");set("patientAlb",state.albumin??"");set("patientGlucose",state.glucose??"");set("patientMeds",state.currentMeds);set("patientDx",state.diagnosis);
@@ -32,7 +35,7 @@
     if(state.currentMeds){const meds=state.currentMeds.split(/[，,；;\n]+/).map(x=>x.trim()).filter(Boolean);["cwDrugA","cwDrugB","cwDrugC"].forEach((id,i)=>{if($(id)&&!$(id).value&&meds[i])$(id).value=meds[i]})}
     refreshBadge();
   }
-  function sync(){fromForm();persist();push();setStatus("全局患者已同步："+(state.patientId||state.species+(state.weight?` ${state.weight}kg`:""))); broadcast();}
+  function sync(){fromForm();ensurePatientId();state.updated_at=new Date().toISOString();persist();push();setStatus("全局患者已建立并同步："+state.patientId);broadcast();return {...state};}
   function broadcast(){window.dispatchEvent(new CustomEvent("vct50:patient-change",{detail:{...state}}))}
   function setStatus(t){if($("patientMsg"))$("patientMsg").textContent=t}
   function refreshBadge(){const b=$("globalPatientHeaderBadge");if(!b)return;b.innerHTML=state.patientId?`<b>${esc(state.patientId)}</b> · ${esc(state.species)} · ${esc(state.breed||"未填品种")} · ${state.weight?esc(state.weight)+" kg":"体重未填"}`:`未建立患者 · ${esc(state.species||"犬")}`}
@@ -50,6 +53,8 @@
     const extra=document.createElement("div");extra.className="card";extra.innerHTML=`<h3>🧠 全局 Patient State</h3><p class="muted">只录入一次；剂量、输液、麻醉、临床评估、病例、鉴别诊断和 AI 助手优先读取这里的患者参数。</p><div class="grid"><div><label>患者/病例编号<input id="patientId"></label><label>年龄<input id="patientAge" placeholder="如 6岁"></label><label>性别<select id="patientSex"><option value="">未记录</option><option>雄</option><option>雌</option><option>雄性绝育</option><option>雌性绝育</option></select></label><label>当前诊断/工作诊断<input id="patientDx"></label></div><div><label>主诉<input id="patientChief" placeholder="如 呕吐、呼吸困难、尿闭"></label><label>既往史/基础病<input id="patientConditions" placeholder="如 CKD、HCM、糖尿病"></label><label>肌酐 mg/dL<input id="patientCreatinine" type="number" step=".01"></label><label>血钾 mmol/L<input id="patientK" type="number" step=".01"></label></div><div><label>血钠 mmol/L<input id="patientNa" type="number" step=".01"></label><label>白蛋白 g/dL<input id="patientAlb" type="number" step=".01"></label><label>血糖 mmol/L<input id="patientGlucose" type="number" step=".01"></label><label>当前用药（可多项）<textarea id="patientMeds" placeholder="每行/逗号分隔一个药物"></textarea></label><label>补充临床备注<textarea id="patientHistory"></textarea></label></div></div><div class="toolbar"><button class="primary" id="patientSyncNow">同步并联动全部模块</button><button class="secondary" id="patientClear">清空全局患者</button><span id="globalPatientBadge" class="pill">未建立患者</span></div><div id="patientStateStatus" class="muted"></div>`;
     // Put the extended panel immediately after the basic patient card.
     const basic=home.parentElement;basic.insertBefore(extra,home.nextSibling);
+    // Rebind the original homepage shortcut to the same Patient State source of truth.
+    if($("syncPatientBtn"))$("syncPatientBtn").onclick=()=>{fromForm();state.species=val("patientSpecies")||state.species||"犬";state.breed=val("patientBreed");state.weight=num("patientWeight");ensurePatientId();persist();push();setStatus("当前患者已建立并同步："+state.patientId);broadcast();};
     $("patientSyncNow").onclick=sync;
     $("patientClear").onclick=()=>{localStorage.removeItem(KEY);Object.keys(state).forEach(k=>state[k]=k==="version"?"5.0-r08":k==="species"?"犬":k==="updated_at"?null:k.match(/weight|creatinine|potassium|sodium|albumin|glucose/) ? null : "");push();setStatus("已清空全局患者");broadcast()};
     ["patientId","patientSpecies","patientBreed","patientAge","patientSex","patientWeight","patientChief","patientHistory","patientConditions","patientCreatinine","patientK","patientNa","patientAlb","patientGlucose","patientMeds","patientDx"].forEach(id=>$(id)?.addEventListener("change",()=>{fromForm();persist();refreshBadge()}));
@@ -75,7 +80,8 @@
   }
   window.addEventListener("vct50:lab-ref-change",e=>{const a=e.detail?.analyzer;if(!a)return;state.labAnalyzerId=a.id||"";state.labAnalyzerLabel=(a.manufacturer||"")+" · "+(a.model||"");state.updated_at=new Date().toISOString();persist();broadcast()});
   function exportState(){const blob=new Blob([JSON.stringify({version:state.version,exported_at:new Date().toISOString(),patient:state,summary:summary()},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(state.patientId||"patient")+"-patient-state-5.0.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-  read();window.VCT50_PATIENT_STATE={...state,get summary(){return summary()},get context(){return contextText()},sync,exportState};
+  read();
+  expose();
   function init(){injectUI();bindCaseBridge();autoContext();push();broadcast();if($("patientStateStatus"))$("patientStateStatus").textContent="Patient State 已启用 · 本机 localStorage · 仅用于本次临床工作站联动";}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();

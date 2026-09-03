@@ -13,6 +13,15 @@
   const asArr=v=>Array.isArray(v)?v:(v==null||v===''?[]:[v]);
   const txt=v=>Array.isArray(v)?v.join('；'):String(v??'');
   function patient(){return window.VCT50_PATIENT_STATE||safe(localStorage.getItem('vct50_patient_state'),{})||{}}
+  function ensurePatientFromPlan(plan){
+    const cur=patient(), p=plan?.patient||{};
+    const id=String(p.patientId||cur.patientId||'').trim() || `VCT-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
+    const set=(id,v)=>{const el=$(id);if(el&&v!==undefined&&v!==null&&v!=='')el.value=v};
+    set('patientId',id); set('patientSpecies',p.species||cur.species||'犬'); set('patientBreed',p.breed||cur.breed); set('patientAge',p.age||cur.age); set('patientSex',p.sex||cur.sex); set('patientWeight',p.weight??cur.weight??'');
+    if(window.VCT50_PATIENT_STATE?.sync){window.VCT50_PATIENT_STATE.sync();}
+    else {localStorage.setItem('vct50_patient_state',JSON.stringify({...cur,patientId:id,species:p.species||cur.species||'犬',breed:p.breed||cur.breed,age:p.age||cur.age,sex:p.sex||cur.sex,weight:p.weight??cur.weight??null,updated_at:now()})); window.VCT50_PATIENT_STATE=safe(localStorage.getItem('vct50_patient_state'),{}); window.dispatchEvent(new CustomEvent('vct50:patient-change',{detail:{...window.VCT50_PATIENT_STATE}}));}
+    return patient();
+  }
   function osState(){return window.VCT50_CLINICAL_OS_STATE||safe(localStorage.getItem('vct50_clinical_os_state_v2'),{problemList:[],vitals:[],labs:[],timeline:[],tasks:[],goals:[],audit:[]})}
   function saveOS(s){s.version='5.0-r08';localStorage.setItem('vct50_clinical_os_state_v2',JSON.stringify(s));window.VCT50_CLINICAL_OS_STATE=s}
   function audit(action,detail){const s=osState();s.audit=Array.isArray(s.audit)?s.audit:[];s.audit.push({time:now(),action,detail:detail||'',patientId:patient().patientId||''});s.audit=s.audit.slice(-300);saveOS(s)}
@@ -51,32 +60,41 @@
       <div class="ai-sync-bar"><button class="primary" id="aiApplyPlan">⚡ Apply Clinical Plan（应用临床计划）</button><button id="aiSyncSelected">＋ Sync to Patient State（同步到患者）</button><button id="aiRejectPlan">✕ Reject（拒绝本次计划）</button></div><div class="os-warning">AI输出属于 Suggested（建议）状态。应用后会写入 Problem List、检查/治疗任务、监测与 Timeline；不会自动执行药物、输液、麻醉或其他高风险医嘱。</div></div>`;
   }
   function syncPatient(plan){
-    const p=plan.patient;const cur=patient();
+    const p=plan.patient||{};const cur=patient();
+    ensurePatientFromPlan(plan);
     const set=(id,v)=>{if($(id)&&v!==undefined&&v!==null&&v!=='')$(id).value=v};
     set('patientId',p.patientId||cur.patientId);set('patientSpecies',p.species||cur.species||'犬');set('patientBreed',p.breed||cur.breed);set('patientAge',p.age||cur.age);set('patientSex',p.sex||cur.sex);set('patientWeight',p.weight??cur.weight??'');
     const chief=$('patientChief');if(chief&&!chief.value){const pr=plan.problems.map(label).filter(Boolean);chief.value=pr.join('、')||cur.chief||''}
     const conditions=$('patientConditions');if(conditions&&plan.patient.vaccination&&!conditions.value)conditions.value=`免疫状态：${plan.patient.vaccination}`;
     const dx=$('patientDx');if(dx&&!dx.value&&plan.differentials.length)dx.value='鉴别诊断：'+plan.differentials.slice(0,3).map(label).join('、');
-    $('patientSyncNow')?.click();
+    if(window.VCT50_PATIENT_STATE?.sync){window.VCT50_PATIENT_STATE.sync();}else{ensurePatientFromPlan(plan);}
   }
   function autoSyncSuggested(plan){
     const s=osState(); s.problemList=s.problemList||[]; s.tasks=s.tasks||[]; s.timeline=s.timeline||[]; s.goals=s.goals||[];
     const pid=plan.plan_id||plan.generated_at;
     if(s.timeline.some(x=>x.ai_plan_id===pid)) return false;
     const add=(text,priority='P2',kind='AI建议')=>{if(!text)return;s.tasks.push({text,time:now(),done:false,status:'Suggested',source:'AI',priority,kind,ai_plan_id:pid})};
+    const addUnique=(text,priority,kind)=>{if(!text)return;const exists=s.tasks.some(x=>x.ai_plan_id===pid&&String(x.text||'')===String(text));if(!exists)add(text,priority,kind)};
     const existing=new Set(s.problemList.map(x=>String(x.text||'').toLowerCase()));
+    s.differentials=s.differentials||[];
+    const ddxSeen=new Set(s.differentials.map(x=>String(x.text||x.name||'').toLowerCase()));
+    plan.differentials.forEach(x=>{const t=label(x);if(!t||ddxSeen.has(t.toLowerCase()))return;ddxSeen.add(t.toLowerCase());s.differentials.push({text:t,priority:x.priority||'P2',status:'Suggested',source:'AI',created_at:now(),ai_plan_id:pid,detail:detail(x)})});
+    s.differentials=s.differentials.slice(-100);
     plan.problems.concat(plan.red_flags.map(x=>({...x,priority:'P0',text:'⚠ '+label(x)}))).forEach(x=>{const t=label(x);if(!t||existing.has(t.toLowerCase()))return;existing.add(t.toLowerCase());s.problemList.push({text:t,priority:x.priority||'P2',status:'Suggested',source:'AI',created_at:now(),ai_plan_id:pid})});
-    plan.recommended_tests.forEach(x=>add('检查：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Recommended Test（建议检查）'));
-    plan.treatment_options.forEach(x=>add('治疗候选：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Treatment Option（治疗候选）'));
-    plan.medication_options.forEach(x=>add('用药候选（医生审核）：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Medication Option（用药候选）'));
-    plan.monitoring.forEach(x=>add('监测：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Monitoring（监测）'));
-    plan.reassessment.forEach(x=>add('复评：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Reassessment（复评）'));
+    plan.differentials.forEach(x=>addUnique('鉴别诊断：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Differential Diagnosis（鉴别诊断）'));
+    plan.recommended_tests.forEach(x=>addUnique('检查：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Recommended Test（建议检查）'));
+    plan.treatment_options.forEach(x=>addUnique('治疗候选：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Treatment Option（治疗候选）'));
+    plan.medication_options.forEach(x=>addUnique('用药候选（医生审核）：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Medication Option（用药候选）'));
+    plan.monitoring.forEach(x=>addUnique('监测：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Monitoring（监测）'));
+    plan.reassessment.forEach(x=>addUnique('复评：'+label(x)+(detail(x)?' · '+detail(x):''),x.priority,'Reassessment（复评）'));
+    plan.evidence.forEach(x=>addUnique('证据：'+label(x)+(detail(x)?' · '+detail(x):''),'P2','Evidence（证据）'));
+    plan.safety_warnings.forEach(x=>addUnique('安全警告：'+label(x)+(detail(x)?' · '+detail(x):''),'P0','Safety Warning（安全警告）'));
     plan.reassessment.forEach(x=>s.goals.push({text:label(x),status:'Suggested',source:'AI',time:now(),ai_plan_id:pid}));
     s.timeline.push({time:now(),type:'AI建议',text:'AI结构化临床计划已自动同步到 Clinical OS，全部保持 Suggested（建议）状态，未经医生审核不得视为执行医嘱。',patientId:patient().patientId||'',ai_plan_id:pid});
     saveOS(s); audit('ai_auto_sync_suggested','AI plan synced as Suggested; no active orders'); window.VCT50_CLINICAL_OS?.renderAll?.(); return true;
   }
   function applyPlan(plan){
-    syncPatient(plan);const s=osState();
+    ensurePatientFromPlan(plan); syncPatient(plan); const s=osState(); s.problemList=s.problemList||[]; s.tasks=s.tasks||[]; s.timeline=s.timeline||[]; s.goals=s.goals||[];
     const uniq=(arr,k)=>{const seen=new Set(arr.map(x=>String(k(x)).toLowerCase()));return arr.filter(x=>{const z=String(k(x)).toLowerCase();if(seen.has(z))return false;seen.add(z);return true})};
     const existing=s.problemList||[];plan.problems.forEach(x=>existing.push({text:label(x),priority:x.priority||'P2',status:'Suggested',source:'AI',created_at:now()}));plan.red_flags.forEach(x=>existing.push({text:'⚠ '+label(x),priority:'P0',status:'Suggested',source:'AI',created_at:now()}));s.problemList=uniq(existing,x=>x.text).slice(-100);
     s.tasks=s.tasks||[];plan.recommended_tests.forEach(x=>s.tasks.push({text:'检查：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.treatment_options.forEach(x=>s.tasks.push({text:'治疗候选：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.medication_options.forEach(x=>s.tasks.push({text:'用药候选（医生审核）：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.monitoring.forEach(x=>s.tasks.push({text:'监测：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));plan.reassessment.forEach(x=>s.tasks.push({text:'复评：'+label(x)+(detail(x)?' · '+detail(x):''),time:now(),done:false,status:'Suggested',source:'AI'}));
