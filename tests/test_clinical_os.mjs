@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const os=fs.readFileSync('clinical_os_5.0.js','utf8');
+const index=fs.readFileSync('index.html','utf8');
+const sw=fs.readFileSync('sw.js','utf8');
+assert.match(os,/5\.0-r08/);
+for(const x of ['Patient-centered workflow','Problem List','Next Best Test','Reassessment','Drug Safety','Timeline','Monitoring','POMR','Emergency Cockpit','ABCDE','Fluid Safety','Clinical Context']) assert.match(os,new RegExp(x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')),`missing ${x}`);
+assert.match(index,/clinical_os_5\.0\.js/);
+assert.match(sw,/clinical_os_5\.0\.js/);
+assert.match(sw,/5\.0-r08-/);
+console.log('clinical OS validation: OK');
