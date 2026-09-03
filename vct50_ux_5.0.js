@@ -1,10 +1,10 @@
-/* Vet Clinical Toolbox 5.0-r09 — biologics search fix */
+/* Vet Clinical Toolbox 5.0-r08 — biologics search fix */
 (()=>{"use strict";
 const norm=x=>Array.isArray(x)?x:(x&&Array.isArray(x.products)?x.products:(x&&Array.isArray(x.biologics)?x.biologics:(x&&Array.isArray(x.items)?x.items:[])));
 const esc=s=>String(s??"").replace(/[&<>\"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 async function repairBiologics(){
  try{
-  const r=await fetch("./data/vet_biologics_5.0.json?v=5.0-r09",{cache:"no-store"});
+  const r=await fetch("./data/vet_biologics_5.0.json?v=5.0-r08",{cache:"no-store"});
   if(!r.ok)throw Error("HTTP "+r.status);
   const a=norm(await r.json()).map((x,i)=>({...x,name:x.name||x.product_name||x.generic_name_zh||("生物制品-"+(i+1)),product_name:x.product_name||x.name||x.generic_name_zh||("生物制品-"+(i+1))}));
   window.__VCT50_BIOLOGICS_DATA=a; window.__VCT50_BIOLOGICS_COUNT=a.length;

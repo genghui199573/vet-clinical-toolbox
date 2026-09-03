@@ -10,8 +10,8 @@
   const now=()=>new Date().toISOString();
   const patient=()=>window.VCT50_PATIENT_STATE||{};
   const safeParse=(s,d)=>{try{return JSON.parse(s)||d}catch{return d}};
-  const state={version:'5.0-r08',problemList:[],vitals:[],labs:[],timeline:[],tasks:[],goals:[],allergies:[],audit:[],differentials:[]};
-  function load(){const x=safeParse(localStorage.getItem(KEY),null);if(x&&typeof x==='object')Object.assign(state,x);['problemList','vitals','labs','timeline','tasks','goals','allergies','audit','differentials'].forEach(k=>{if(!Array.isArray(state[k]))state[k]=[]});}
+  const state={version:'5.0-r08',problemList:[],vitals:[],labs:[],timeline:[],tasks:[],goals:[],allergies:[],audit:[]};
+  function load(){const x=safeParse(localStorage.getItem(KEY),null);if(x&&typeof x==='object')Object.assign(state,x);['problemList','vitals','labs','timeline','tasks','goals','allergies','audit'].forEach(k=>{if(!Array.isArray(state[k]))state[k]=[]});}
   function save(){state.version='5.0-r08';localStorage.setItem(KEY,JSON.stringify(state));window.VCT50_CLINICAL_OS_STATE=state;}
   function audit(action,detail){state.audit.push({time:now(),action,detail:detail||'',patientId:patient().patientId||''});state.audit=state.audit.slice(-300);save();}
   function ptxt(){const p=patient();return `${p.patientId||'未建档'} · ${p.species||'犬'} · ${p.weight?`${p.weight} kg`:'体重未录入'}`;}
@@ -28,7 +28,6 @@
     const s=document.createElement('section');s.id='clinicalOS';s.className='view';s.innerHTML=`
       <div class="card"><h2>🧠 Clinical OS 2.0（兽医临床中枢）</h2><p class="muted">Patient-centered workflow（患者中心工作流）：患者 → 风险 → 问题 → 检查 → 治疗 → 监测 → 复评。英文术语旁附中文解释，适合新手兽医快速理解。</p><div id="osCritical"></div></div>
       <div class="os-hero"><div class="card"><h3>当前患者 · Current Patient（当前患者）</h3><div id="osPatient"></div><div class="os-kpis" id="osKpis"></div></div><div class="card"><h3>快速操作 · Quick Actions（快速入口）</h3><div class="os-actions"><button class="primary" data-os-go="osEmergency">🚨 Emergency（急诊）</button><button data-os-go="clinical">🔎 Differential（鉴别）</button><button data-os-go="fluid">💧 Fluid（液体）</button><button data-os-go="dose">💊 Dose（剂量）</button><button data-os-go="anesthesia">😴 Anesthesia（麻醉）</button><button data-os-go="emergency">❤️ CPR（心肺复苏）</button><button data-os-go="ai">🤖 AI Copilot（AI助手）</button></div></div></div>
-      <div class="card"><h3>Differential Diagnosis（AI鉴别诊断）</h3><div id="osAIDifferentials"></div></div>
       <div class="os-grid"><div class="card"><h3>Problem List（临床问题列表）</h3><div id="osProblems"></div><div class="toolbar"><input id="osProblemText" placeholder="例如：AKI / Hyperkalemia（高钾） / Vomiting（呕吐）"><select id="osProblemPri"><option>P0</option><option>P1</option><option selected>P2</option><option>P3</option></select><button class="primary" id="osAddProblem">添加问题</button></div></div>
       <div class="card"><h3>Next Best Test（下一项最有价值检查）</h3><div id="osNBT"></div></div></div>
       <div class="os-grid"><div class="card"><h3>Reassessment（治疗后复评）</h3><div class="toolbar"><select id="osReassessType"><option>Shock / Perfusion（休克/灌注）</option><option>Respiratory（呼吸）</option><option>AKI / Fluid（肾损伤/液体）</option><option>Pain（疼痛）</option><option>General（综合）</option></select><button class="primary" id="osReassess">生成复评清单</button></div><div id="osReassessOut"></div></div>
@@ -82,8 +81,7 @@
   function saveErNote(){const t=$('osErNote').value.trim();if(!t)return;addEvent(t,'急诊记录');$('osErNote').value='';}
   function copyContext(){const p=patient(),ctx={version:'5.0-r08',patient:p,problems:state.problemList,timeline:state.timeline.slice(-50),tasks:state.tasks,labs:state.labs,vitals:state.vitals,goals:state.goals,risks:risks(),next_best_tests:nextTests(),drug_safety:drugSafety(),fluid_safety:fluidSafety()};const text=JSON.stringify(ctx,null,2);navigator.clipboard?.writeText(text);audit('copy_ai_context','clinical OS context');alert('AI Clinical Context 已复制。');}
   function exportOS(){const blob=new Blob([JSON.stringify({version:'5.0-r08',exported_at:now(),patient:patient(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`VCT50-r08-${patient().patientId||'patient'}-clinical-os.json`;a.click();URL.revokeObjectURL(a.href);audit('export_state','clinical os');}
-  function renderAll(){renderPatient();renderRisks();renderProblems();renderNBT();renderDrug();renderTimeline();renderTrend();tasks();pomr();renderFluidSafety();renderAIDifferentials();}
-  function renderAIDifferentials(){const el=$('osAIDifferentials');if(!el)return;const a=Array.isArray(state.differentials)?state.differentials:[];el.innerHTML=a.length?a.slice(-30).map(x=>`<div class="os-row"><span class="os-chip os-yellow">${esc(x.priority||'P2')}</span><b>${esc(x.text||x.name||x.label||'')}</b><div class="os-muted">Suggested（AI建议） · ${esc(x.detail||'需结合检查与复评')}</div></div>`).join(''):'<div class="os-note">暂无 AI 鉴别诊断建议。</div>'}
+  function renderAll(){renderPatient();renderRisks();renderProblems();renderNBT();renderDrug();renderTimeline();renderTrend();tasks();pomr();renderFluidSafety();}
   function bind(){
     $('osAddProblem').onclick=addProblem;$('osAddEvent').onclick=()=>{const t=$('osEventText').value.trim();addEvent(t,$('osEventType').value);$('osEventText').value=''};$('osReassess').onclick=reassess;$('osSnapshot').onclick=snapshot;$('osAddTask').onclick=addTask;$('osCopyContext').onclick=copyContext;$('osExport').onclick=exportOS;
     $('osABCDE').onclick=triage;$('osErStart').onclick=startTimer;$('osErStop').onclick=stopTimer;$('osErReset').onclick=resetTimer;$('osErSaveNote').onclick=saveErNote;

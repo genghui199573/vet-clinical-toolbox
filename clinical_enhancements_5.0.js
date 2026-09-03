@@ -43,12 +43,12 @@ function bindNav(){
  if(hash && $(hash))setTimeout(()=>activate(hash),0);
 }
 function patientState(){
- const p=JSON.parse(localStorage.getItem("vetPatientState5")||"null")||{species:"犬",breed:"",weight:null};
- window.patientState=p;
+ const legacy=JSON.parse(localStorage.getItem("vetPatientState5")||"null")||{species:"犬",breed:"",weight:null};
+ window.patientState=window.VCT50_PATIENT_STATE||legacy;
  const set=(id,v)=>{const x=$(id);if(x&&v!==null&&v!==undefined&&v!=="")x.value=v};
- const syncAll=()=>{["doseSpecies","rwSpecies","anSpecies","labSpecies","caseSpecies"].forEach(id=>set(id,p.species));["doseBreed","rwBreed","caseBreed"].forEach(id=>set(id,p.breed));["doseWeight","rwWeight","anWeight","criW","caseWeight"].forEach(id=>set(id,p.weight))};
- const sync=()=>{p.species=$( "patientSpecies")?.value||p.species;p.breed=$( "patientBreed")?.value||"";p.weight=n("patientWeight");localStorage.setItem("vetPatientState5",JSON.stringify(p));window.patientState=p;syncAll();if($("patientMsg"))$("patientMsg").textContent="已同步到全局病例。"};
- ["patientSpecies","patientBreed","patientWeight"].forEach(id=>$(id)?.addEventListener("input",sync));
+ const syncAll=()=>{const p=window.VCT50_PATIENT_STATE||legacy;["doseSpecies","rwSpecies","anSpecies","labSpecies","caseSpecies"].forEach(id=>set(id,p.species));["doseBreed","rwBreed","caseBreed"].forEach(id=>set(id,p.breed));["doseWeight","rwWeight","anWeight","criW","caseWeight"].forEach(id=>set(id,p.weight))};
+ const sync=()=>{if(window.VCT50_PATIENT_STATE?.sync){window.VCT50_PATIENT_STATE.sync();return}legacy.species=$( "patientSpecies")?.value||legacy.species;legacy.breed=$( "patientBreed")?.value||"";legacy.weight=n("patientWeight");localStorage.setItem("vetPatientState5",JSON.stringify(legacy));window.patientState=legacy;syncAll();if($("patientMsg"))$("patientMsg").textContent="已同步到全局病例。"};
+ ["patientSpecies","patientBreed","patientWeight"].forEach(id=>$(id)?.addEventListener("input",()=>syncAll()));
  $("syncPatientBtn")?.addEventListener("click",sync);syncAll();window.syncPatientState=syncAll
 }
 function addGlobalCRIOutput(){
