@@ -1,6 +1,6 @@
 {
   "schema_version": "5.0",
-  "last_reviewed": "2026-08-15",
+  "last_reviewed": "2026-09-03",
   "policy": {
     "reference_priority": [
       "manufacturer_current_report_or_IFU",
@@ -12,6 +12,242 @@
     "note": "Analyzer-, method-, reagent- and laboratory-specific intervals may differ. When the instrument report provides a current interval, use that interval."
   },
   "analyzers": [
+    {
+      "id": "dingdang-nabai-biochemistry",
+      "manufacturer": "淮南叮当宠物医院（本院）",
+      "origin": "本院实际生化报告校准资料",
+      "model": "纳百生化仪（型号以设备铭牌/仪器软件为准）",
+      "category": "本院生化/临床化学",
+      "tests": [
+        "常规生化"
+      ],
+      "reference_intervals": {
+        "status": "hospital_validated_report",
+        "values": [
+          {
+            "analyte": "ALB",
+            "unit": "g/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "白蛋白；报告临床意义：用于营养/蛋白合成及丢失模式判断。",
+            "low": 22,
+            "high": 45
+          },
+          {
+            "analyte": "TP",
+            "unit": "g/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "总蛋白；结合白蛋白/球蛋白及水合状态解释。",
+            "low": 54,
+            "high": 89
+          },
+          {
+            "analyte": "GLOB",
+            "unit": "g/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "球蛋白；结合总蛋白与白蛋白解释。",
+            "low": 15,
+            "high": 57
+          },
+          {
+            "analyte": "ALT",
+            "unit": "U/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "谷丙转氨酶；肝细胞损伤相关指标。",
+            "low": 10,
+            "high": 145
+          },
+          {
+            "analyte": "AST",
+            "unit": "U/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "谷草转氨酶；需结合肌肉/肝脏来源解释。",
+            "low": 0,
+            "high": 48
+          },
+          {
+            "analyte": "TBIL",
+            "unit": "umol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "总胆红素；结合溶血、肝细胞损伤和胆汁淤积解释。",
+            "low": 0,
+            "high": 15
+          },
+          {
+            "analyte": "TBA",
+            "unit": "umol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "总胆汁酸；用于肝胆功能评估。",
+            "low": 0,
+            "high": 10
+          },
+          {
+            "analyte": "ALKP",
+            "unit": "U/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "碱性磷酸酶；结合年龄、胆汁淤积及其他诱导因素解释。",
+            "low": 0,
+            "high": 110
+          },
+          {
+            "analyte": "CHE",
+            "unit": "U/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "胆碱酯酶；结合肝功能及其他临床信息解释。",
+            "low": 640,
+            "high": 2500
+          },
+          {
+            "analyte": "BUN",
+            "unit": "mmol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "尿素氮；升高可见于肾前性、肾性、肾后性氮血症及高蛋白/分解代谢状态。",
+            "low": 5.7,
+            "high": 13.8
+          },
+          {
+            "analyte": "CRE",
+            "unit": "umol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "肌酐；结合水合状态、尿量和趋势判断肾功能。",
+            "low": 55,
+            "high": 236
+          },
+          {
+            "analyte": "UA",
+            "unit": "umol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "尿酸。",
+            "low": 0,
+            "high": 60
+          },
+          {
+            "analyte": "PHOS",
+            "unit": "mmol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "无机磷；与钙代谢及肾功能相关。",
+            "low": 1,
+            "high": 2.74
+          },
+          {
+            "analyte": "Ca",
+            "unit": "mmol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "总钙；需结合白蛋白/离子钙解释。",
+            "low": 1.95,
+            "high": 3.0
+          },
+          {
+            "analyte": "GLU",
+            "unit": "mmol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "葡萄糖；本院报告单位为 mmol/L。",
+            "low": 4.11,
+            "high": 8.84
+          },
+          {
+            "analyte": "CHOL",
+            "unit": "mmol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "总胆固醇。",
+            "low": 1.68,
+            "high": 5.81
+          },
+          {
+            "analyte": "TRIG",
+            "unit": "mmol/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "甘油三酯。",
+            "low": 0,
+            "high": 1.15
+          },
+          {
+            "analyte": "CK",
+            "unit": "U/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "肌酸激酶；升高可提示肌肉损伤等，需结合临床。",
+            "low": 0,
+            "high": 315
+          },
+          {
+            "analyte": "LDH",
+            "unit": "U/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "乳酸脱氢酶。",
+            "low": 0,
+            "high": 800
+          },
+          {
+            "analyte": "AMY",
+            "unit": "U/L",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "淀粉酶；不能单独作为胰腺炎诊断依据。",
+            "low": 300,
+            "high": 1500
+          },
+          {
+            "analyte": "ALB/GLOB",
+            "unit": "ratio",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "白球比；报告给出计算值，不提供独立参考区间。"
+          },
+          {
+            "analyte": "AST/ALT",
+            "unit": "ratio",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "谷草/谷丙比；报告给出计算值，不提供独立参考区间。"
+          },
+          {
+            "analyte": "BUN/CRE",
+            "unit": "ratio",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "尿素肌酐比；报告给出计算值，不提供独立参考区间。"
+          },
+          {
+            "analyte": "Ca*PHOS",
+            "unit": "product",
+            "species": "猫",
+            "age_group": "成年",
+            "note": "钙磷乘积；报告给出计算值，不提供独立参考区间。"
+          }
+        ]
+      },
+      "source": {
+        "type": "hospital_report",
+        "title": "山南新区叮当宠物医院生化检验报告单（多多，猫，3岁）",
+        "uploaded_date": "2026-08-18",
+        "note": "当前附件可核验的是成年猫参考区间；报告未显示具体仪器型号。犬参考区间未从本附件推断。"
+      },
+      "clinical_notes": {
+        "BUN": "报告注明升高常见于肾脏实质性病变、蛋白质过度分解、肾小球肾炎、肾后性氮血症、高蛋白日粮；降低可见于肝功能衰竭、低蛋白摄入或蛋白吸收紊乱。",
+        "CRE": "报告注明升高常见于肾前性、肾性及肾后性疾病；降低可见于营养不良、肌萎缩。",
+        "PHOS": "报告注明与钙代谢相关，升高可见于肾病、生长期和骨骼愈合期；降低可见于饮食不平衡、甲亢。",
+        "GLU": "报告注明升高可见于胰岛素分泌缺乏；降低可见于营养不良、消化不良、慢性贫血。",
+        "CK": "报告注明升高可见于心肌梗塞或肌肉萎缩；临床上仍需结合物种、来源和肌肉损伤证据。"
+      }
+    },
     {
       "id": "idexx-catalyst-one",
       "manufacturer": "IDEXX 爱德士",
