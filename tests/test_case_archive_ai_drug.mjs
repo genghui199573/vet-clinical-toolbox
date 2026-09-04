@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+const html=fs.readFileSync('index.html','utf8');
+const archive=fs.readFileSync('vct50_case_archive_5.0.js','utf8');
+const patient=fs.readFileSync('patient_state_5.0.js','utf8');
+const ai=fs.readFileSync('ai_clinical_sync_5.0.js','utf8');
+const sw=fs.readFileSync('sw.js','utf8');
+for (const id of ['caseArchiveQ','caseArchiveSearchBtn','caseArchiveList','caseNewVisitBtn','casePetName','caseOwner','casePhone']) if(!html.includes(`id="${id}"`)) throw new Error(`missing case archive field ${id}`);
+if(!html.includes('vct50_case_archive_5.0.js')) throw new Error('case archive script not wired');
+if(!html.includes('drugAiSearchBtn')) throw new Error('AI drug search button missing');
+if(!archive.includes('vct50_case_archive_v1')) throw new Error('case archive storage missing');
+if(!html.includes('搜索：宠物姓名 / 主人 / 手机号 / 病历号')) throw new Error('archive search scope missing');
+if(!archive.includes('复诊/更新') || !html.includes('新建复诊')) throw new Error('follow-up workflow missing');
+if(!archive.includes('clearPlan?.()')) throw new Error('old AI plan clear hook missing');
+if(!archive.includes('AI Candidate') || !archive.includes('不会自动写入正式427药物数据库')) throw new Error('AI drug candidate safety boundary missing');
+if(!patient.includes('ownerName') || !patient.includes('ownerPhone') || !patient.includes('petName')) throw new Error('patient owner/pet fields missing');
+if(!ai.includes('function clearPlan()')) throw new Error('AI clearPlan missing');
+if(!sw.includes('vct50_case_archive_5.0.js')) throw new Error('service worker missing case archive module');
+console.log('case archive + follow-up + AI drug search regression: OK');
