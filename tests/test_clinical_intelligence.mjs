@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const root=new URL('..',import.meta.url).pathname;
+const js=fs.readFileSync(root+'vct50_clinical_intelligence_5.0.js','utf8');
+const html=fs.readFileSync(root+'index.html','utf8');
+const sw=fs.readFileSync(root+'sw.js','utf8');
+for(const token of ['Emergency Cockpit 2.0','dynamicRedFlags','Trend Engine','Reassessment Engine','Fluid as Drug 2.0','Medication Safety 2.0','Next Best Test','Differential Engine 2.0','Antimicrobial Stewardship 2.0','Pain 2.0','Daily Rounds','POMR 2.0','Imaging Workstation','Specialty Frameworks','Clinical Timeline / Audit','Known Facts','Clinical Inference','Doctor Confirmed','Executed']) assert.ok(js.includes(token),`missing ${token}`);
+assert.ok(html.includes('vct50_clinical_intelligence_5.0.js'));
+assert.ok(sw.includes('./vct50_clinical_intelligence_5.0.js'));
+assert.ok(/5\.0-r08/.test(js));
+console.log('clinical intelligence static validation: OK');
