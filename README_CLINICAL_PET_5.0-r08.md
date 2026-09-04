@@ -5,3 +5,6 @@
 适合：个人执业兽医、基层门诊、流动兽医、教学训练、宠主随访。
 
 版本固定：5.0-r08。
+
+## Clinical Intelligence Upgrade
+5.0-r08 现包含 Clinical Intelligence OS：Patient-centered Workflow、Emergency Cockpit 2.0、Dynamic Red Flags、Trend、Reassessment、Fluid as Drug、Medication Safety、Next Best Test、Differential、Antimicrobial Stewardship、Pain、Daily Rounds、POMR、Imaging 与 Specialty Frameworks。产品版本保持 5.0-r08。

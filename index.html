@@ -467,5 +467,7 @@ renderCpr();loadDB();
 <script src="vct50_case_archive_5.0.js"></script>
 <script>window.VCT50_PRODUCT_MODE="lite";</script>
 <script src="hospital_os_complete_5.0.js"></script>
+<script src="vct50_clinical_intelligence_5.0.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>{const n=document.querySelector("#nav");if(n&&!n.querySelector("[data-v='ci']")){const b=document.createElement("button");b.dataset.v="ci";b.textContent="🧠临床智能 OS";b.onclick=()=>{document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById("vctClinicalIntelligence")?.classList.add("active");location.hash="ci";};n.appendChild(b);}});</script>
 </body>
 </html>
