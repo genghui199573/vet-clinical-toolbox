@@ -95,11 +95,13 @@ footer{max-width:1280px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 
 <section id="case" class="view"><div class="card"><h2>病例工作台</h2>
 <div class="grid">
-<div><label>病例编号<input id="caseId" placeholder="自动或手动"></label><label>物种<select id="caseSpecies"><option>犬</option><option>猫</option><option>鹦鹉/鸟类</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option><option>其他</option></select></label><label>品种<input id="caseBreed"></label><label>年龄<input id="caseAge" placeholder="如 8岁"></label><label>性别<select id="caseSex"><option>雄</option><option>雌</option><option>雄性绝育</option><option>雌性绝育</option></select></label><label>体重 kg<input id="caseWeight" type="number" step=".01"></label></div>
+<div><label>病例编号<input id="caseId" placeholder="自动或手动"></label><label>物种<select id="caseSpecies"><option>犬</option><option>猫</option><option>鹦鹉/鸟类</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option><option>其他</option></select></label><label>品种<input id="caseBreed"></label><label>年龄<input id="caseAge" placeholder="如 8岁"></label><label>性别<select id="caseSex"><option>雄</option><option>雌</option><option>雄性绝育</option><option>雌性绝育</option></select></label><label>体重 kg<input id="caseWeight" type="number" step=".01"></label><label>宠物姓名<input id="casePetName" placeholder="如 多多"></label><label>主人姓名<input id="caseOwner" placeholder="宠物主人"></label><label>主人手机号<input id="casePhone" inputmode="tel" placeholder="11位手机号"></label></div>
 <div><label>主诉<textarea id="caseChief"></textarea></label><label>现病史<textarea id="caseHistory"></textarea></label><label>既往史/用药史<textarea id="casePast"></textarea></label><label>疫苗/驱虫史<textarea id="casePrevent"></textarea></label></div>
 <div><label>检查项目<textarea id="caseTests"></textarea></label><label>检查结果<textarea id="caseResults"></textarea></label><label>初步诊断<textarea id="caseDx"></textarea></label><label>鉴别诊断<textarea id="caseDDx"></textarea></label></div>
-<div><label>治疗方案<textarea id="casePlan"></textarea></label><label>医嘱/监测<textarea id="caseAdvice"></textarea></label><label>复诊时间<input id="caseFollow"></label><button class="primary" id="caseSaveBtn">保存病例到本机</button><button class="secondary" id="caseExportBtn">导出病例 JSON</button></div>
-</div><div id="caseOut"></div></div></section>
+<div><label>治疗方案<textarea id="casePlan"></textarea></label><label>医嘱/监测<textarea id="caseAdvice"></textarea></label><label>复诊时间<input id="caseFollow"></label><button class="primary" id="caseSaveBtn">保存病例到本机</button><button class="secondary" id="caseExportBtn">导出病例 JSON</button><button class="secondary" id="caseNewVisitBtn">新建复诊</button></div>
+</div><div id="caseOut"></div>
+<div class="card" id="caseArchivePanel"><h3>📁 本地病例档案 / 复诊</h3><div class="toolbar"><input id="caseArchiveQ" placeholder="搜索：宠物姓名 / 主人 / 手机号 / 病历号 / 主诉"><button class="primary" id="caseArchiveSearchBtn">搜索病例</button></div><div id="caseArchiveList" class="muted">本机病例保存在浏览器 localStorage；可按宠物、主人、手机号、病历号检索。</div></div>
+</div></section>
 
 <section id="dose" class="view"><div class="card"><h2>药物剂量 → 实际给药量</h2>
 <div class="grid"><div><label>物种<select id="doseSpecies"><option>犬</option><option>猫</option><option>鹦鹉/鸟类</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option></select></label><label>品种<input id="doseBreed"></label><label>体重 kg<input id="doseWeight" type="number" step=".01"></label><label>药物<select id="doseDrug"><option>正在读取…</option></select></label><label>适应症<input id="doseInd"></label><button class="primary" id="doseRefBtn">读取数据库参考</button></div>
@@ -116,7 +118,7 @@ footer{max-width:1280px;margin:auto;padding:20px 14px 45px;color:var(--muted);fo
 <div class="card"><h2>麻醉监测核查</h2><div class="checklist" id="anCheck"><label><input type="checkbox"> ECG</label><label><input type="checkbox"> SpO₂</label><label><input type="checkbox"> EtCO₂</label><label><input type="checkbox"> NIBP/IBP</label><label><input type="checkbox"> 体温</label><label><input type="checkbox"> 麻醉气体分析</label><label><input type="checkbox"> 呼吸机/通气参数</label></div><div class="info">吸入麻醉维持浓度必须根据麻醉深度、镇痛、血压、通气和个体反应滴定；氧流量取决于回路、设备和患者，不能脱离设备说明书给出一个固定数字。</div></div>
 </div></section>
 
-<section id="drugs" class="view"><div class="card"><h2>药物数据库</h2><div class="toolbar"><input id="drugQ" placeholder="药名/商品名/疾病/适应症"><select id="drugSp"><option value="">全部物种</option><option>犬</option><option>猫</option><option>鹦鹉</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option></select><button class="primary" id="drugSearchBtn">检索</button></div><div id="drugList" class="muted">正在读取数据库…</div></div></section>
+<section id="drugs" class="view"><div class="card"><h2>药物数据库</h2><div class="toolbar"><input id="drugQ" placeholder="药名/商品名/疾病/适应症"><select id="drugSp"><option value="">全部物种</option><option>犬</option><option>猫</option><option>鹦鹉</option><option>兔/啮齿类</option><option>爬宠/龟鳖</option></select><button class="primary" id="drugSearchBtn">本地检索</button><button class="secondary" id="drugAiSearchBtn">🤖 AI药物搜索（本地格式）</button></div><div class="info" id="drugAiSearchHint">先查本地427条药物；未命中时可用 AI 搜索。AI结果属于“待核验候选”，不会写入正式药物数据库。</div><div id="drugList" class="muted">正在读取数据库…</div></div></section>
 
 <section id="protocols" class="view"><div class="card"><h2>常见病治疗方案 / 疾病-用药决策</h2><p class="muted">输入疾病、综合征或别名，返回结构化支持治疗框架。方案中的药物会显示证据等级，并可一键跳转到药品说明书卡片。疾病方案不是固定处方；必须结合患者状态、分期、禁忌和当前制剂标签。</p><div class="toolbar"><input id="protocolQ" placeholder="如 胰腺炎、猫传腹、猫瘟、犬细小、CKD、MMVD、DKA、尿闭"><select id="protocolSp"><option value="">全部物种</option><option>犬</option><option>猫</option></select><button type="button" class="primary" id="protocolBtn">检索</button></div><div id="protocolList" class="muted">正在读取疾病方案库…</div></div></section>
 
@@ -448,7 +450,7 @@ $("aiRun").onclick=async()=>{
   }catch(e){$("aiOut").innerHTML=`<div class="bad">AI调用失败：${esc(e.message)}<br>常见原因：Base URL路径、模型名、Key、CORS、网络或供应商接口格式不兼容。</div>`}
 };
 
-$("caseSaveBtn").onclick=()=>{const ids=["caseId","caseSpecies","caseBreed","caseAge","caseSex","caseWeight","caseChief","caseHistory","casePast","casePrevent","caseTests","caseResults","caseDx","caseDDx","casePlan","caseAdvice","caseFollow"];const o={};ids.forEach(id=>o[id]=$(id).value);localStorage.setItem("vetCase5",JSON.stringify(o));$("caseOut").innerHTML="<div class='good'>病例已保存到本机浏览器。</div>"};
+/* case archive save is handled by vct50_case_archive_5.0.js */
 $("caseExportBtn").onclick=()=>{const ids=["caseId","caseSpecies","caseBreed","caseAge","caseSex","caseWeight","caseChief","caseHistory","casePast","casePrevent","caseTests","caseResults","caseDx","caseDDx","casePlan","caseAdvice","caseFollow"];const o={};ids.forEach(id=>o[id]=$(id).value);const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:"application/json"}));a.download=(o.caseId||"vet-case")+"-5.0.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
 
 renderCpr();loadDB();
@@ -462,5 +464,6 @@ renderCpr();loadDB();
 <script src="ai_clinical_sync_5.0.js"></script>
 <script src="clinical_os_complete_5.0.js"></script>
 <script src="vct50_architecture_5.0.js"></script>
+<script src="vct50_case_archive_5.0.js"></script>
 </body>
 </html>

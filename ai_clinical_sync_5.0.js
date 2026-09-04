@@ -205,5 +205,7 @@ PATIENT字段：patientId,species,breed,age,sex,weight,vaccination。数组对�
     refreshPatientContext();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+  function clearPlan(){lastPlan=null;localStorage.removeItem(KEY);if($("aiOut"))$("aiOut").innerHTML='<div class="os-note">当前患者已切换；上一位患者的 AI 计划已清除，请重新分析病例。</div>';window.VCT50_AI_BRIDGE_REFRESH?.()}
   window.VCT50_AI_BRIDGE={promptContext,normalize,wire,applyPlan,syncPatient,getLastPlan:()=>lastPlan,refreshPatientContext:()=>window.VCT50_AI_BRIDGE_REFRESH?.()};
+  window.VCT50_AI_BRIDGE.clearPlan=clearPlan;
 })();
